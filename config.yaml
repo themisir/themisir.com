@@ -1,0 +1,12 @@
+baseURL: "https://themisir.com/"
+languageCode: "en-us"
+title: "TheMisir"
+theme: "paper"
+
+params:
+  twitter: "themisir"
+  github: "themisir"
+  instagram: "themisir0"
+
+permalinks:
+  posts: /:filename/
