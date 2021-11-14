@@ -1,8 +1,9 @@
 ---
-title: "Creating games in 2021"
+title: Creating games in 2021
 date: 2021-09-29T08:08:58
-tags: [ "engineering" ]
-draft: false
+tags:
+  - engineering
+thumbnail: https://images.unsplash.com/photo-1537963447914-dbc04b81de27?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDl8fGdhbWV8ZW58MHx8fHwxNjMyODY3ODcz&ixlib=rb-1.2.1&q=80&w=2000
 ---
 
 I enjoy working on games on my free time. Sometimes during doing something completely unrelated to games some interesting game concepts comes into my mind and I want to make them. So my story starts there...

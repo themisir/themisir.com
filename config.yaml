@@ -3,6 +3,9 @@ languageCode: "en-us"
 title: "TheMisir"
 theme: "paper"
 
+author:
+  name: "Misir Jafarov"
+
 params:
   twitter: "themisir"
   github: "themisir"
