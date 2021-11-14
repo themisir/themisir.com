@@ -1,9 +1,15 @@
 {
-  "$schema": "https://vcs.vercel.app/",
   "github": {
     "silent": true
   },
   "env": {
     "HUGO_VERSION": "0.89.2"
-  }
+  },
+  "redirects": [
+    {
+      "source": "/free-books",
+      "destination": "https://www.reddit.com/r/Piracy/comments/oreyow/heres_the_definitive_list_of_sites_for_ebooks_and/",
+      "permanent": false
+    }
+  ]
 }
