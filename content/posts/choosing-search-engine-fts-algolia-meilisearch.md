@@ -1,5 +1,5 @@
 ---
-title: Improving search with fuzziness
+title: Improving Search with Fuzziness
 date: 2021-05-10T17:22:00
 tags:
   - engineering

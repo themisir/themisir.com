@@ -1,8 +1,9 @@
 ---
-title: Role based authorization with Identity Server 4
+title: Role based Authorization with Identity Server 4
 date: 2021-05-09T21:47:55+04:00
 tags:
   - engineering
+  - security
 thumbnail: https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDN8fHNlY3VyaXR5fGVufDB8fHx8MTYyMDU1MjQwNw&ixlib=rb-1.2.1&q=80&w=2000
 ---
 
