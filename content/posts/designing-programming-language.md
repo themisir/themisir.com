@@ -3,7 +3,7 @@ title: "Designing a Programming Language"
 date: 2021-11-18T17:16:22+04:00
 tags:
   - engineering
-draft: true
+image: https://images.unsplash.com/reserve/uZYSV4nuQeyq64azfVIn_15130980706_64134efc6e_o.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1767&q=80
 ---
 
 As I mentioned in my [recent post](/creating-games-in-2021/) I am planning to create a programming language  to work with game engine I'll be building in future *hopefully*. So that said where do we start "a new programming language" thing? Well as every other programming projects it would be great if we firstly design our language first. Letting project boundaries, goals, non-goals, steps and doing some considerations will help us in a long run to spend our time more reasonable, reduce needs of decision-making while implementation and also figure out how exactly will it function. It'll also let us to re-evaluate whether or not does it really worth investing time to reinvent wheel? 
@@ -256,13 +256,188 @@ for (var user in users) {
 
 Our language design syntax is could be considered somewhat completed. Let's move on to next steps to make some more decisions.
 
-# Implementation details
+# Goals
 
-// TODO: first party tokenizer and parser
+Well we have somewhat completed syntax design for our language, but why do we need another language? What's our goals with this project? Asking this kind of questions is important during the design phase of projects because it lets us to avoid feature creep and focus on what's important for us. In the end we're humand and we'll eventually get bored, so we have small time frame until we get into that stage and we have to use that time more effective. So let's define our goals with this project.
 
-// TODO: recursive AST walker interpreter for first version
+## C style syntax
 
-// TODO: bytecode VM for next version
+Having familiar style of syntax will reduce learning curve for newcomers to the language. And also will reduce decision making during the project development.
 
+## Static type system
 
+I've already listed my reasoning on this goal on [static or dynamic typing](#static-or-dynamic-typing) section above.
+
+## Embeddable
+
+We want to use that language for scripting on our game engine, so the language should be easily embeddable into different projects. To make a language embeddable the language should have a interface which could be used to add foreign functions into it, register types, share data with embedded system and so on. Foreign functions are a languag feature that let's you declare functions inside language and implement it in another language or system. For example you can add a function named "print" into your language and write implementation in runtime side like:
+
+```c++
+void init_vm(VM *vm) {
+  vm->define('print', &vm_print);
+}
+
+Value vm_print(Value []args) {
+  for (auto arg : args) {
+    std::cout << Value::toString(arg);
+  }
+  return Value::boolean(true);
+}
+```
+
+*The code bellow is written for demostration purposes, foreign function interface API might be written differently during the implementation*.
+
+## Performance 
+
+While performance is not one of our main golas for initial versions, as time passes we have to put some effort into making our language performant as much as possible, because in the end our main goal is to use this language on our game engine that *hopefully* we'll be building in future.
+
+For initial implementation I am planning to start with simple recursive Abstract Syntax Tree (AST) visitor type interpreter which does not preform good as alternatives but good enough for our starting point. But afterwards we can implement bytecode interpreter to increase runtime performance and use some advantages like CPU caches. If you don't have any clue on what's the difference or even what does AST visitor and bytecode interpreter does, let me quickly explain.
+
+### AST visitor
+
+Abstract syntax tree is representation of human written code in tree structured way which makes it easy to process by programs. For example take the following example code:
+
+```js
+var a = 5;
+if (a > 3) {
+  a = a + 2;
+}
+```
+
+The following code could be represented as AST like this:
+
+```json
+{
+  "type": "Program",
+  "body": [
+    {
+      "type": "VariableDeclaration",
+      "name": "a",
+      "init": {
+        "type": "ConstantExpression",
+        "value": 5
+      }
+    },
+    {
+      "type": "IfStatement",
+      "condition": {
+        "type": "GreaterThanExpression",
+        "left": {
+          "type": "IdentifierExpression",
+          "name": "a"
+        },
+        "right": {
+          "type": "ConstantExpression",
+          "value": 3
+        },
+        "thenBranch": {
+          "type": "ScopeStatement",
+          "body": [
+            {
+              "type": "AssignmentExpression",
+              "left": {
+                "type": "IdentifierExpression",
+                "name": "a"
+              },
+              "right": {
+                "type": "AdditionExpression",
+                "left": {
+                  "type": "IdentifierExpression",
+                  "name": "a"
+                },
+                "right": {
+                  "type": "ConstantExpression",
+                  "value": 2
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+Yes it's a lot bigger than the original code, but it's a lot easier to understand for programs, and also you can run the following data structure without any futher processing needed. You can simply create a for loop that interates items in the body of first Program node, and executes each node according to its type and given properties. That's what AST visitor interpreter does behind the scene. It parses raw code into easy to understand form of AST and then walks over nodes one by one. It's easy to understand and implement this kind of interpreters so that's why we're going to implement AST visitor interpreter for starting point.
+
+But, if you know a bit about data structures and especially trees, you might now that tree nodes connected to each other with heap pointers, and those pointers might be scattered across the memory. When you walk throught the tree program would have to resolve values from different chunks of memory. Memory itself is pretty fast but you know what's faster? CPU cache. Modern CPU's has their own small but very fast built-in storage that used to cache frequently accessed memory chunks. The key points here is that CPU cache has limited space and it caches frequently accessed memory chunks. But in our case AST nodes could be spread over different chunks of memory - which results CPU not caching the part we need very fast access. To simplify, CPU cache will work well for string of data that's stored near each other on memory rather than spread out data.
+
+Soo, to gain even more performance boost from CPU cache we can optimize our implementation which will be our next goal - bytecode interpreter. Bytecode interpreters works similar to hardcoded interpreters inside CPU that acts on machine code. But instead of machine code, bytecode interpreters uses it's own set of instructions which is not dependent on device it's running on. Bytecode itself is just string of bytes that simply stores our program. But instead of tree like structure, our program flattened into array structure so that the whole program could be loaded into nearby chunks of memory.
+
+To convert above example code into bytecode we first have to define opcodes for our bytecode. Opcode is simply fixed size (usually 1 byte) codes representing different operations.
+
+```c
+OP_CONST   // constant
+OP_DECL    // declare variable
+OP_GET     // get variable value
+OP_IF      // if statement
+OP_GREATER // greater than expression
+OP_ASSIGN  // assign value to variable
+OP_ADD     // add 2 values
+OP_NOOP    // no operation
+```
+
+Using the above opcode map we could transpile the code *pseudo* bytecode like that:
+
+```c
+constants = [
+  5,
+  "a",
+  3,
+  2,
+];
+
+instructions = [
+  OP_CONST,  // push constant value to stack
+  0x00,      // address of constant value: 5
+  
+  OP_DECL,   // declare a new variable and initialize with popped value from the stack
+  0x01,      // address of the variable name: "a"
+  
+  OP_CONST,  // push constant value to stack
+  0x02,      // address of constant value: 3
+  
+  OP_GET,    // push variable into the stack
+  0x01,      // address of the variable name: "a"
+ 
+  OP_GREATER,// pop 2 values from the stack and compare them with > operator and push value into the stack
+  
+  OP_IF,     // pop value from the stack, if the value is false then jump to given address
+  0x12,      // instruction address of else branch
+  
+  OP_CONST,  // push constant value to stack
+  0x03,      // address of constant value: 2
+  
+  OP_GET,    // push variable into the stack
+  0x01,      // address of the variable name: "a"
+  
+  OP_ADD,    // pop 2 values from the stack and add them to each other then put result to the stack
+  
+  OP_ASSIGN, // pop value from the stack and assign it to the variable
+  0x01,      // address of the variable name: "a"
+  
+  OP_NOOP,   // no operation because else branch starts here (0x12), but there's nothing left to do
+];
+```
+
+As you can see it's a lot easier to execute this code since instructions are so much simplified and the whole code could be stored in single memory chunk. But generating bytecode from complex code is a bit trickier than said so I'll be probably going to implement bytecode interpreter on later stages of development instead. 
+
+*Note: Provided AST and opcode representations are not used by any specific compiler it's just a simplification for demo purposes.*
+
+# Chicken or egg?
+
+You might ask yourself that if compilers written using another compilers, how did first compilers were invented in the first place? Well the answer is actually quite simple. Someone had to hard code a compiler program into puch cards. It didn't ever needed to be perfect because they could use that compiler to compile even better compiler for future uses. In same manner moden languages can also have compilers written in the same language, but before that they need to create a simple compiler in another language to compile first compiler in source language. If you want to dig deeper into this concept in Computer Science it's called [bootstrapping](https://en.wikipedia.org/wiki/Bootstrapping_%28compilers%29).
+
+[![bootstrapping](https://craftinginterpreters.com/image/introduction/bootstrap.png#invert)](https://craftinginterpreters.com/introduction.html#:~:text=This%20is%20called%20bootstrapping)
+
+But as for ourselves, we don't need our compiler to be written in source language. We are going to use it for embedding into another programs, so it's better to write compiler in well known language to make embdedding easier. But which language are we going to write our compiler with?
+
+Short answer is C++ *most probably*. Because building compilers with low level memory access with pointer artimetrics is makes it easier to implement different parts especially when implementing bytecode virtual machine. For example `uint8_t *ip;` holds both pointer to current instruction, you can advance it by adding +1 to it and you can dereference it without needing another variable. Otherwise you'll have to store 2 variables first one for storing bytecode array and second one to store instruction index in that array, and to dereference instruction you'll have to use `code[ip]` which is not a huge deal breaker but I prefer first option.
+
+# Conclusion
+
+This article is already very long and I don't have anything else to say to be honest. To conclude the article I am planning to create a programming language that we're designed together above to use in game engine I'll be building in future. The language will be C-style, statically typed and the compiler will be embeddable to other systems alongside with ability to be extended using foreign functions support.
+
+Thanks for reading till this far 😇
 
