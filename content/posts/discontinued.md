@@ -1,8 +1,6 @@
 ---
 title: "Discontinued"
 date: 2022-03-24T13:31:34.475Z
-tags:
-  - engineering
 ---
 
 As of now I've decided to stop working on some projects completely. Firstly I'm no longer going to work on [a programming language](https://themisir.com/designing-programming-language/). The decision might be obvious, but to elaborate a bit, simply I'm not capable of getting everything done for making what I wanted to build in the first place. I can cut some corners to make it possible, but then it won't be what I wanted to build. I just underestimated the project scale. I just thought writing a compiler and a runtime would be enough, but I completely skipped over the important part - developer experience. The main reason I wanted to create it was because I was not satisfied with the experience of working with other languages. But if I were to create mine, its experience would probably be even worse. I didn't have capability to create language analyzer, integration for text editor or make it something that I would want to work with. I didn't have capability to write a decent standard library despite I'm annoyed that how rust stdlib is less feature complete than most other systems (that's understandable tho, but I don't prefer that for my own reasons). By the way even tho it might seem like I didn't worked on language implementation that much, I've actually spend quite some time to experiment different things, or improve existing code. But I didn't published it to public github repository. Anyways, in short I'm deciding to no longer spend time on writing code for programming language. I just want to make my head clear to make space for some new thoughts.
