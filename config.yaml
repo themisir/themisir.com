@@ -14,10 +14,3 @@ params:
 
 permalinks:
   posts: /:filename/
-
-menu:
-  main:
-    - identifier: "archive"
-      name: "Archive"
-      url: "/posts"
-      weight: 10
