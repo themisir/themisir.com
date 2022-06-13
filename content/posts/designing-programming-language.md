@@ -3,7 +3,8 @@ title: "Designing a Programming Language"
 date: 2021-11-18T17:16:22+04:00
 tags:
   - engineering
-thumbnail: https://images.unsplash.com/reserve/uZYSV4nuQeyq64azfVIn_15130980706_64134efc6e_o.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1767&q=80
+images:
+  - https://images.unsplash.com/reserve/uZYSV4nuQeyq64azfVIn_15130980706_64134efc6e_o.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1767&q=80
 ---
 
 As I mentioned in my [recent post](/creating-games-in-2021/) I am planning to create a programming language  to work with game engine I'll be building in future *hopefully*. So that said where do we start "a new programming language" thing? Well as every other programming projects it would be great if we firstly design our language first. Letting project boundaries, goals, non-goals, steps and doing some considerations will help us in a long run to spend our time more reasonable, reduce needs of decision-making while implementation and also figure out how exactly will it function. It'll also let us to re-evaluate whether or not does it really worth investing time to reinvent wheel? 

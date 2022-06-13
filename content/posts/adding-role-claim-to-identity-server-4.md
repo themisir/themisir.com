@@ -4,7 +4,8 @@ date: 2021-05-09T21:47:55+04:00
 tags:
   - engineering
   - security
-thumbnail: https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDN8fHNlY3VyaXR5fGVufDB8fHx8MTYyMDU1MjQwNw&ixlib=rb-1.2.1&q=80&w=2000
+images:
+  - https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDN8fHNlY3VyaXR5fGVufDB8fHx8MTYyMDU1MjQwNw&ixlib=rb-1.2.1&q=80&w=2000
 ---
 
 If you ever wanted to add multi-client authentication to your ASP.NET Core based web application, you've probably used [Identity Server 4](https://github.com/IdentityServer/IdentityServer4/) because of its popularity. It helps to manage authentication clients, resource endpoints easily. The main feature is its OAuth 2.0 implementation. So you cheat time by not implementing your own token, user info, device, and other tons of endpoints.

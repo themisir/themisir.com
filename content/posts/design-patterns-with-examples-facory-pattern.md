@@ -3,8 +3,8 @@ title: "The Factory Pattern - Design Patterns with Examples"
 date: 2022-06-13T04:41:45+04:00
 tags:
   - engineering
-thumbnail: https://images.unsplash.com/photo-1589320011103-48e428abcbae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80
-
+images:
+  - https://images.unsplash.com/photo-1589320011103-48e428abcbae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80
 ---
 
 You've probably came across a term called "Design Patters" when you were preparing for an interview or reading something CS related. It's one of the things that's so simple yet so confusing to understand unless you already know it. So it's one of the great candidates for interviewers to ask questions related to design patterns and stuff. It's also one of the things that when taught you usually try to memorize them instead of understanding the underlying abstractions and reasoning behind them. So in this article I would like to introduce you some design patterns I've seen in the wild or used personally. But before jumping right into it I wanna let you know that they are called patterns for a purpose, well they're "patterns", so instead of remembering the examples or the definitions try to understand the underlying design decisions and structure. Because in real world examples you'll come across lots of variations of well known patterns, or you might already have written some of them on your own without noticing, so remembering examples or definitions will not help you to get most out of this knowledge. So if everything to this point is alright, let's start from simpler patterns.

@@ -3,7 +3,8 @@ title: Improving Search with Fuzziness
 date: 2021-05-10T17:22:00
 tags:
   - engineering
-thumbnail: https://images.unsplash.com/photo-1534278854415-5c9afbb021a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDExfHxzZWFyY2h8ZW58MHx8fHwxNjIwNjM3NjQw&ixlib=rb-1.2.1&q=80&w=2000
+images:
+  - https://images.unsplash.com/photo-1534278854415-5c9afbb021a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDExfHxzZWFyY2h8ZW58MHx8fHwxNjIwNjM3NjQw&ixlib=rb-1.2.1&q=80&w=2000
 ---
 
 As a software engineer at marketplace startup, one day I had to add search functionality to the app. Actually I have already planned how could I set-up search from the beginning. I was using PostgreSQL for storing most of the product related data. And I was aware of [full text search](https://www.postgresql.org/docs/current/textsearch.html) (FTS) feature of PostgreSQL. So I thought I'll just setup Postgres FTS and it'll just work.
