@@ -283,7 +283,7 @@ As you can see unlike conventional constructors, factories let us to have lots o
 
 It also doesn't falls into some issues we had earlier. For example both cirlce and rectangle has different parameter sets checked by analyzer that ensures us to not have something like  `new Shape(ShapeType.Rectangle, 4)` pushed into production. You can add new methods to interface or extend constructor with ease without having to change too much public APIs. Now you can only expose `IShape` interface publicly, make `Shape`, `Circle` and `Rectangle` classes private and encapsulate underlying logic from outside world.
 
-> I referred. `Shape`, `Circle` and `Rectangle` as classes but declared them as records. Because records are actually a syntactic sugar over plain classes. So what you write as a record on your IDE ends up as a class when gets compiled into IL (unless you declare struct records). 
+> I referred `Shape`, `Circle` and `Rectangle` as classes but declared them as records. Because records are actually a syntactic sugar over plain classes. So what you write as a record on your IDE ends up as a class when gets compiled into IL (unless you declare struct records). 
 
 That's all I'm going to say about factory patterns. Simply they are like constructors but more flexible and extensible. They let you to expose less detail while providing more control over the implementation. But please don't create a builder for every object or entity. Use it when required and use regular functions or constructors for other cases. Android API are well known for its overuse of builder patterns, actually I think most java libraries does this for some reason.
 
