@@ -1,5 +1,5 @@
 ---
-title: "Design Patterns with Examples #1 - The Factory Pattern"
+title: "The Factory Pattern - Design Patterns with Examples"
 date: 2022-06-13T04:41:45+04:00
 tags:
   - engineering
@@ -80,7 +80,7 @@ This is a regular class. A class with a constructor that we can also call a fact
 
 And the class has a method called `GetArea` that returns area of the shape. In this example it just returns `a * b` which is area of a rectangle. But what if requirements changes and now your shape interface needs to support both rectangular and circular areas.
 
-On first iteration, you declare a enum to specify shape type and use it to calculate area from provided values.
+On first iteration, you declare an enum to specify shape type and use it to calculate area from provided values.
 
 ```csharp
 enum ShapeType { Rectangle, Circle }
@@ -116,7 +116,7 @@ new Shape(ShapeType.Circle, 4).GetArea(); // idk, calculate it yourself..
 
 ```
 
-You patch it, push to prod and voila! 2 weeks passes.. For some reason some of rectanglar area calculations are returning 0. You check all the usages of Shape class and confirm that all the values are > 0. So there's no way that our `GetArea` method returns 0. Wait.. you read the constructor again and saw `double b = 0` . You did this to make sure circular areas can be constructed by providing only radius value. But a few days ago when working on a new module you forget that and wrote `new Shape(ShapeType.Rectangle, 4)` and went away to take a coffee, then wen you got back to your computer you saw that IDE doesn't shows any syntax or analysis errors, so it should be fine. You commit and push it for testing. All tests passes because who does testing with 100% coverage? ;)
+You patch it, push to prod and voila! 2 weeks passes.. For some reason some of rectanglar area calculations are returning 0. You check all the usages of Shape class and confirm that all the values are > 0. So there's no way that our `GetArea` method returns 0. Wait.. you read the constructor again and saw `double b = 0` . You did this to make sure circular areas can be constructed by providing only radius value. But a few days ago when working on a new module you forget that and wrote `new Shape(ShapeType.Rectangle, 4)` and went away to take a coffee, then when you got back to your computer you saw that IDE doesn't shows any syntax or analysis errors, so it should be fine. You commit and push it for testing. All tests passes because who does testing with 100% coverage? ;)
 
 Now that you see it you wish there's a way to make sure your IDE do those checks for you before the code gets into production. So you came up with more clever solution. You convert your Shape class into an interface that has a single method called, you guessed it right:  `GetArea`. And write separate implementations of that interface for different shapes:
 
