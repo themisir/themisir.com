@@ -26,7 +26,7 @@ int Factorial(int n) {
 }
 ```
 
-However the following code isn't perfect. Before applying futher optimization, let's fix obvois issues, like stack overflow. As you can see the function is going to call itself multiple times, but as that happens each function call will be stored on call stack of the process memory which is not an infinite resource. So this function is clearly limited by how many entries does current runtime, OS, cpu arcitecture supports. So let's "fix" this issue by implementing factorial function using loops:
+However the following code isn't perfect. Before applying further optimization, let's fix obvious issues, starting from stack overflow. As you can see the function is going to call itself multiple times, but as that happens each function call will be stored on call stack of the process memory which is not an infinite resource. So this function is clearly limited by how many entries does current runtime, OS, cpu architecture supports. So let's "fix" this issue by implementing factorial function using loops:
 
 ```csharp 
 int Factorial(int n) {
@@ -39,9 +39,9 @@ int Factorial(int n) {
 }
 ```
 
-This implementation is good enough for most use cases. But let's see how much futher we can optimize this implementation.
+This implementation is good enough for most use cases. But let's see how much further we can optimize this implementation.
 
-Let's say you are working on a game and for some reason you need to calculate factorial of some number on each frame (est: 60 times per second). Games is one of the types of software that you have to count on time each function takes. Because you usually have less than 16 milliseconds to calculate everything and draw them on to screen + prepare for the next update. Our "optimized" factorial function might get job done for some time, but at some point the time it takes to calculate result will become noticable, especially if you're working with big numbers.
+Let's say you are working on a game and for some reason you need to calculate factorial of some number on each frame (est.: 60 times per second). Games is one of the types of software that you have to count on time each function takes. Because you usually have less than 16 milliseconds to calculate everything and draw them on to screen + prepare for the next update. Our "optimized" factorial function might get job done for some time, but at some point the time it takes to calculate result will become noticeable, especially if you're working with big numbers.
 
 So... Let's see what we can do? Let's calculate a bunch of factorials by hand:
 
@@ -88,15 +88,15 @@ The method above is called memoization (**not** *memorization*). Instead of calc
 
 Perfect, now this function can go TO THE MOOOON! Unless you're living in 1960s and happened to be writing a program for [Apollo Guidance Computer](https://en.wikipedia.org/wiki/Apollo_Guidance_Computer) to help astronauts safely navigate to the Moon which only had 72K of memory. 
 
-> Yeah, the above implementation has a major flaw - it's a memory hog, it'll be going to use a lot of memory on long runs. We usually don't always have that luxry of using as much memory as we want. To optimize memory usage there's some known methods.
+> Yeah, the above implementation has a major flaw - it's a memory hog, it'll be going to use a lot of memory on long runs. We usually don't always have that luxury of using as much memory as we want. To optimize memory usage there's some known methods.
 >
-> One of them is to using a data structure called LRU cache to store previous calculations. The magic behind LRU cache is that it stores value only if they're accessed regularly. Otherwise it just forgets them so you'll end up storing values that's most usable in given situation stored on cache. Obviously depending on use case you can write custom optimizations, you're not limited to LRU cache, but it's situational and there's trade-offs for each implementation.
+> One of them is, using a data structure called LRU cache to store previous calculations. The magic behind LRU cache is that it stores value only if they're accessed regularly. Otherwise it just forgets them so you'll end up storing values that's most usable in given situation stored on cache. Obviously depending on use case you can write custom optimizations, you're not limited to LRU cache, but it's situational and there's trade-offs for each implementation.
 
 ## A generic Memoization implementation
 
-To make things more interesting let's take stuff a level above. Let's replace our factorial functon with a dynamic value of  function type that takes an argument and returns some value, let's call it `Func<TArg, TResult>`. Can we write an utility to memoize any function that matches the following pattern? That's exactly what we're going to do!
+To make things more interesting let's take stuff a level above. Let's replace our factorial function with a dynamic value of  function type that takes an argument and returns some value, let's call it `Func<TArg, TResult>`. Can we write a utility to memoize any function that matches the following pattern? That's exactly what we're going to do!
 
-Let's first start with a simple interface to store our expensive calculate method and provide a public method for returning memozied result.
+Let's first start with a simple interface to store our expensive calculate method and provide a public method for returning memoized result.
 
 ```csharp
 public class Memo<TArg, TResult> {
@@ -136,7 +136,7 @@ public TResult Calculate(TArg arg) {
 }
 ```
 
-That seems like good enough for most use cases, but we can move futher by separating our cache layer from memoization, so we can use different cache backends for different use cases. Ok, let me explain. Let's assume you need to use LRU cache on some memoization implementations, or on other cases you might need to distribute that cache across multiple nodes so you decide to use Redis or Memcached to store cached values. Instead of reimplementing `Memo` class for different cache backends we can separate both layers so they can become pluggable.
+That seems like good enough for most use cases, but we can move further by separating our cache layer from memoization, so we can use different cache backends for different use cases. Ok, let me explain. Let's assume you need to use LRU cache on some memoization implementations, or on other cases you might need to distribute that cache across multiple nodes so you decide to use Redis or Memcached to store cached values. Instead of reimplementing `Memo` class for different cache backends we can separate both layers so they can become pluggable.
 
 Let's design an interface for our cache layer. As you can see from our above example we've only used 2 methods of `_memo` dictionary: TryGetValue - to check if value exists, and get the value and `[key] = value` setter to cache a new value. So, our interface will be going to have similar interface:
 
@@ -185,7 +185,7 @@ public sealed class DictionaryCache<TArg, TResult> : IMemoCache<TArg, TResult> {
 }
 ```
 
-That's it. I think our current implementation is good enough for most use cases. Obviously you can go futher by using source generators or reflection to simplify memoization API using decodator pattern. But that level of *magic* might be a bit too much or unnecessary. You usually don't need to memoize all the functions on your program, only just a few ones that's called often does worth the additional complexity and memory overhead.
+That's it. I think our current implementation is good enough for most use cases. Obviously you can go further by using source generators or reflection to simplify memoization API using decorator pattern. But that level of *magic* might be a bit too much or unnecessary. You usually don't need to memoize all the functions on your program, only just a few ones that's called often does worth the additional complexity and memory overhead.
 
 ---
 

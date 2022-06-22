@@ -55,7 +55,7 @@ factory.SetSecondValue(5);
 var result = factory.Build();
 ```
 
-Ok, but wtf is that? Why would anyone write a simple addition operation like this? Well the guy who's clearly obsesed with *enterprise style* coding would do it, because who cares about performance? Alright, let me show another factory example:
+Ok, but wtf is that? Why would anyone write a simple addition operation like this? Well the guy who's clearly obsessed with *enterprise style* coding would do it, because who cares about performance? Alright, let me show another factory example:
 
 ```csharp
 class Shape {
@@ -76,7 +76,7 @@ new Shape(4, 5).GetArea(); // 20
 
 This is a regular class. A class with a constructor that we can also call a factory of the class. As you can see the constructor simply requires 2 arguments and "returns" the value - instance of `Shape` class.
 
-> Constructor only initializes instance fields in this example, but on underlying level when you call `new` on that constructor we get instance of that class, so we can kind of assume it as a function that implicilty returns current instance of the class. However this is just for the simplification. In reality this statements does not reflects what happens under the hood.
+> Constructor only initializes instance fields in this example, but on underlying level when you call `new` on that constructor we get instance of that class, so we can kind of assume it as a function that implicitly returns current instance of the class. However this is just for the simplification. In reality this statements does not reflects what happens under the hood.
 
 And the class has a method called `GetArea` that returns area of the shape. In this example it just returns `a * b` which is area of a rectangle. But what if requirements changes and now your shape interface needs to support both rectangular and circular areas.
 
@@ -116,7 +116,7 @@ new Shape(ShapeType.Circle, 4).GetArea(); // idk, calculate it yourself..
 
 ```
 
-You patch it, push to prod and voila! 2 weeks passes.. For some reason some of rectanglar area calculations are returning 0. You check all the usages of Shape class and confirm that all the values are > 0. So there's no way that our `GetArea` method returns 0. Wait.. you read the constructor again and saw `double b = 0` . You did this to make sure circular areas can be constructed by providing only radius value. But a few days ago when working on a new module you forget that and wrote `new Shape(ShapeType.Rectangle, 4)` and went away to take a coffee, then when you got back to your computer you saw that IDE doesn't shows any syntax or analysis errors, so it should be fine. You commit and push it for testing. All tests passes because who does testing with 100% coverage? ;)
+You patch it, push to prod and voila! 2 weeks passes.. For some reason some of rectangular area calculations are returning 0. You check all the usages of Shape class and confirm that all the values are > 0. So there's no way that our `GetArea` method returns 0. Wait.. you read the constructor again and saw `double b = 0` . You did this to make sure circular areas can be constructed by providing only radius value. But a few days ago when working on a new module you forget that and wrote `new Shape(ShapeType.Rectangle, 4)` and went away to take a coffee, then when you got back to your computer you saw that IDE doesn't shows any syntax or analysis errors, so it should be fine. You commit and push it for testing. All tests passes because who does testing with 100% coverage? ;)
 
 Now that you see it you wish there's a way to make sure your IDE do those checks for you before the code gets into production. So you came up with more clever solution. You convert your Shape class into an interface that has a single method called, you guessed it right:  `GetArea`. And write separate implementations of that interface for different shapes:
 
@@ -138,7 +138,7 @@ new Rectangle(3, 5).GetArea(); // 15
 new Rectangle(4).GetArea(); // analysis error
 ```
 
-Works like a charm! Now you modify old usages and forget about this shape stuff all together. Until the day for some reason one of the clients asked for her cirlces to be red. Why? Don't ask me, ask her. But for some reason our sales team accepts that feature request and now you're supposed to have colored shapes. Alright let's modify our interface a bit:
+Works like a charm! Now you modify old usages and forget about this shape stuff all together. Until the day for some reason one of the clients asked for her circles to be red. Why? Don't ask me, ask her. But for some reason our sales team accepts that feature request and now you're supposed to have colored shapes. Alright let's modify our interface a bit:
 
 ```csharp
 interface IShape {
@@ -161,7 +161,7 @@ Suddenly you realize that the `Color` struct you're using for storing color valu
 
 > In computer graphics colors are usually stored as a mix of multiple channels. On formats like PNG, BMP, JPEG each color channel is 1 byte (values ranging from 0 to 255). So a typical 32bit PNG pixel has 4 separate values: red intensity, green intensity, blue intensity and alpha - opacity.
 >
-> > Usually formats like PNG and JPEG doesn't directly store per pixel data. Because storing colors in that way will consume a lot of storage for high resolution images. So instead each format do use some sort of compression algorithms to reduce data needed to create finalized image and instead of soring per pixel data they might store color values on somewhere else and use pointers to refer to them.
+> > Usually formats like PNG and JPEG doesn't directly store per pixel data. Because storing colors in that way will consume a lot of storage for high resolution images. So instead each format do use some sort of compression algorithms to reduce data needed to create finalized image and instead of storing per pixel data they might store color values on somewhere else and use pointers to refer to them.
 
 Ok enough nerd talk. Let's get back to our shape interface and add opacity value to there:
 
@@ -212,7 +212,7 @@ public record Circle(double Radius, Color Color = Color.Black, byte Opacity = 25
 new Circle(4, Opacity: 0).GetOpacity(); // 0
 ```
 
-Yeah, now it looks a bit more cleaner. But now you think that those consturctors doesn't seems too well. They're a bit too long, well 4 arguments aren't that much, but in future  there might be other ton of requirements that'll require us to add additional arguments. Do you remember we were talking about factories in the beginning of this article? And I referred constructors as a "kind of" factory in one of the paragraphs. Well, let's somehow hide all the dirty stuff under a factory.
+Yeah, now it looks a bit more cleaner. But now you think that those constructors doesn't seems too well. They're a bit too long, well 4 arguments aren't that much, but in future  there might be other ton of requirements that'll require us to add additional arguments. Do you remember we were talking about factories in the beginning of this article? And I referred constructors as a "kind of" factory in one of the paragraphs. Well, let's somehow hide all the dirty stuff under a factory.
 
 ```csharp
 enum ShapeType { Rectangle, Circle }
@@ -281,7 +281,7 @@ shape.GetArea();
 
 As you can see unlike conventional constructors, factories let us to have lots of flexibility when creating objects. You can pass factory to another method that sets specific arguments and another method sets another set of arguments. Or you can clone factory and use base parameters to create 2 different results. Or you can create multiple objects from same parameter set just by calling `Build()` method multiple times.
 
-It also doesn't falls into some issues we had earlier. For example both cirlce and rectangle has different parameter sets checked by analyzer that ensures us to not have something like  `new Shape(ShapeType.Rectangle, 4)` pushed into production. You can add new methods to interface or extend constructor with ease without having to change too much public APIs. Now you can only expose `IShape` interface publicly, make `Shape`, `Circle` and `Rectangle` classes private and encapsulate underlying logic from outside world.
+It also doesn't falls into some issues we had earlier. For example both circle and rectangle has different parameter sets checked by analyzer that ensures us to not have something like  `new Shape(ShapeType.Rectangle, 4)` pushed into production. You can add new methods to interface or extend constructor with ease without having to change too much public APIs. Now you can only expose `IShape` interface publicly, make `Shape`, `Circle` and `Rectangle` classes private and encapsulate underlying logic from outside world.
 
 > I referred `Shape`, `Circle` and `Rectangle` as classes but declared them as records. Because records are actually a syntactic sugar over plain classes. So what you write as a record on your IDE ends up as a class when gets compiled into IL (unless you declare struct records). 
 
@@ -289,4 +289,4 @@ That's all I'm going to say about factory patterns. Simply they are like constru
 
 ---
 
-This article did become longer than I expected, so I'm going to leave it here and I'll write about other patterns on upcoming articles. Thanks [@javinpaul](https://twitter.com/javinpaul/status/1536002894394056705) for the inspration to create this article (and hopefully upcoming articles as well). And thanks YOU for reading this far :)
+This article did become longer than I expected, so I'm going to leave it here and I'll write about other patterns on upcoming articles. Thanks [@javinpaul](https://twitter.com/javinpaul/status/1536002894394056705) for the inspiration to create this article (and hopefully upcoming articles as well). And thanks YOU for reading this far :)

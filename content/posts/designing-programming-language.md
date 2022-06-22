@@ -48,7 +48,7 @@ But in a statically typed language it's possible for compiler to pre-calculate p
 
 Please note that this calculation will be done during compilation and the result will be hardcoded into bytecode or machine code to be used during runtime.
 
-In conclusion, one of my goals with this language is that it has to be statically typed language. It'll also support object oriented programming (classes, methods, properties). Because even if I won't add OOP support into it, people can try to mimick oop features by writing some hacks. For example for a long time javascript didn't supported classes. But eventually people started using other features of language to mimick OOP in javascript like:
+In conclusion, one of my goals with this language is that it has to be statically typed language. It'll also support object oriented programming (classes, methods, properties). Because even if I won't add OOP support into it, people can try to mimic oop features by writing some hacks. For example for a long time javascript didn't supported classes. But eventually people started using other features of language to mimic OOP in javascript like:
 
 ```js
 function User(name, age) {
@@ -94,7 +94,7 @@ pub enum Option<T> {
 }
 ```
 
-But for us this also means we have to support ADT to use this `null` alternative. Not only ADT but as you can see it uses generic types too for implementing this feature. Of course we'll need generics in a static typed language to reduce code repition. But I wasn't planning to implement it at the beginning.
+But for us this also means we have to support ADT to use this `null` alternative. Not only ADT but as you can see it uses generic types too for implementing this feature. Of course we'll need generics in a static typed language to reduce code repetition. But I wasn't planning to implement it at the beginning.
 
 Of course the third option would be adding `null` literals without strong null checks (null safety). This is how lots of languages today handle null values. But as time passed languages which didn't support null safety, slowly but surely adopted it like C# and Dart. And languages which become popular recently came out with null safety from day one (Kotlin or Swift for example). So it's not hard to see that null safety is kind of industry standart nowadays. But as of now, I'm still not sure which path should I follow and instead I'll try to decide this later on based on other decisions. For example If I were to implement ADT and generics I'll probably go with rust way, otherwise I might consider adding nullable type annotations instead. Or in a small chance I might find out another way of implementing alternative to `null`.
 
@@ -125,7 +125,7 @@ var name = "John"; // implicit type declaration
 var age: int = 23; // explicit type declaration
 ```
 
-As you can see it'll be possible to declare variables both implictly or explicitly typed. When implicitly typed, compiler will try to figure out type for the variable from the given context. But if compiler couldn't figure out for some reason, it might throw a compile time error and force user to explicitly type the variable.
+As you can see it'll be possible to declare variables both implicitly or explicitly typed. When implicitly typed, compiler will try to figure out type for the variable from the given context. But if compiler couldn't figure out for some reason, it might throw a compile time error and force user to explicitly type the variable.
 
 Also I want to add shorter version for implicit type variable declarations using `:=` operator like Golang.
 
@@ -135,7 +135,7 @@ name := "John";
 
 This might seem unnecessary feature, but we'll going to see that it's more cleaner looking when we're going to use declarations in statements like if conditions.
 
-By the way you might ask why not just use `name = value` equations for both declaring new variables and also assignments. Well the reason is simple. Compiler have to distinguish between declaration and assignment to decide when to create a new variable and when to use existing one. This also going to help you notice typos on code like:
+By the way you might ask why not just use `name = value` equations for both declaring new variables and also assignments. Well, the reason is simple. Compiler have to distinguish between declaration and assignment to decide when to create a new variable and when to use existing one. This also going to help you notice typos on code like:
 
 ```js
 updated := false;
@@ -161,7 +161,7 @@ func function_name(arg1: int, arg2: int): int[] {
 
 For functions that doesn't indeed need to return any value, you can indeed ignore return type.
 
-The language will be also going to support anonlymous functions which is also called lambdas in some languages. Lambdas in general usually useful when using functions as values.
+The language will be also going to support anonymous functions which is also called lambdas in some languages. Lambdas in general usually useful when using functions as values.
 
 ```go
 isEven := func (n: int): bool {
@@ -259,7 +259,7 @@ Our language design syntax is could be considered somewhat completed. Let's move
 
 # Goals
 
-Well we have somewhat completed syntax design for our language, but why do we need another language? What's our goals with this project? Asking this kind of questions is important during the design phase of projects because it lets us to avoid feature creep and focus on what's important for us. In the end we're humand and we'll eventually get bored, so we have small time frame until we get into that stage and we have to use that time more effective. So let's define our goals with this project.
+Well we have somewhat completed syntax design for our language, but why do we need another language? What's our goals with this project? Asking this kind of questions is important during the design phase of projects because it lets us to avoid feature creep and focus on what's important for us. In the end we're human and we'll eventually get bored, so we have small time frame until we get into that stage and we have to use that time more effective. So let's define our goals with this project.
 
 ## C style syntax
 
@@ -271,7 +271,7 @@ I've already listed my reasoning on this goal on [static or dynamic typing](#sta
 
 ## Embeddable
 
-We want to use that language for scripting on our game engine, so the language should be easily embeddable into different projects. To make a language embeddable the language should have a interface which could be used to add foreign functions into it, register types, share data with embedded system and so on. Foreign functions are a languag feature that let's you declare functions inside language and implement it in another language or system. For example you can add a function named "print" into your language and write implementation in runtime side like:
+We want to use that language for scripting on our game engine, so the language should be easily embeddable into different projects. To make a language embeddable the language should have an interface which could be used to add foreign functions into it, register types, share data with embedded system and so on. Foreign functions are a language feature that let's you declare functions inside language and implement it in another language or system. For example you can add a function named "print" into your language and write implementation in runtime side like:
 
 ```c++
 void init_vm(VM *vm) {
@@ -286,11 +286,11 @@ Value vm_print(Value []args) {
 }
 ```
 
-*The code bellow is written for demostration purposes, foreign function interface API might be written differently during the implementation*.
+*The code bellow is written for demonstration purposes, foreign function interface API might be written differently during the implementation*.
 
 ## Performance 
 
-While performance is not one of our main golas for initial versions, as time passes we have to put some effort into making our language performant as much as possible, because in the end our main goal is to use this language on our game engine that *hopefully* we'll be building in future.
+While performance is not one of our main goals for initial versions, as time passes we have to put some effort into making our language performant as much as possible, because in the end our main goal is to use this language on our game engine that *hopefully* we'll be building in future.
 
 For initial implementation I am planning to start with simple recursive Abstract Syntax Tree (AST) visitor type interpreter which does not preform good as alternatives but good enough for our starting point. But afterwards we can implement bytecode interpreter to increase runtime performance and use some advantages like CPU caches. If you don't have any clue on what's the difference or even what does AST visitor and bytecode interpreter does, let me quickly explain.
 
@@ -360,11 +360,11 @@ The following code could be represented as AST like this:
 }
 ```
 
-Yes it's a lot bigger than the original code, but it's a lot easier to understand for programs, and also you can run the following data structure without any futher processing needed. You can simply create a for loop that interates items in the body of first Program node, and executes each node according to its type and given properties. That's what AST visitor interpreter does behind the scene. It parses raw code into easy to understand form of AST and then walks over nodes one by one. It's easy to understand and implement this kind of interpreters so that's why we're going to implement AST visitor interpreter for starting point.
+Yes it's a lot bigger than the original code, but it's a lot easier to understand for programs, and also you can run the following data structure without any further processing needed. You can simply create a for loop that iterates items in the body of first Program node, and executes each node according to its type and given properties. That's what AST visitor interpreter does behind the scene. It parses raw code into easy to understand form of AST and then walks over nodes one by one. It's easy to understand and implement this kind of interpreters so that's why we're going to implement AST visitor interpreter for starting point.
 
-But, if you know a bit about data structures and especially trees, you might now that tree nodes connected to each other with heap pointers, and those pointers might be scattered across the memory. When you walk throught the tree program would have to resolve values from different chunks of memory. Memory itself is pretty fast but you know what's faster? CPU cache. Modern CPU's has their own small but very fast built-in storage that used to cache frequently accessed memory chunks. The key points here is that CPU cache has limited space and it caches frequently accessed memory chunks. But in our case AST nodes could be spread over different chunks of memory - which results CPU not caching the part we need very fast access. To simplify, CPU cache will work well for string of data that's stored near each other on memory rather than spread out data.
+But, if you know a bit about data structures and especially trees, you might now that tree nodes connected to each other with heap pointers, and those pointers might be scattered across the memory. When you walk through the tree program would have to resolve values from different chunks of memory. Memory itself is pretty fast but you know what's faster? CPU cache. Modern CPU's has their own small but very fast built-in storage that used to cache frequently accessed memory chunks. The key points here is that CPU cache has limited space and it caches frequently accessed memory chunks. But in our case AST nodes could be spread over different chunks of memory - which results CPU not caching the part we need very fast access. To simplify, CPU cache will work well for string of data that's stored near each other on memory rather than spread out data.
 
-Soo, to gain even more performance boost from CPU cache we can optimize our implementation which will be our next goal - bytecode interpreter. Bytecode interpreters works similar to hardcoded interpreters inside CPU that acts on machine code. But instead of machine code, bytecode interpreters uses it's own set of instructions which is not dependent on device it's running on. Bytecode itself is just string of bytes that simply stores our program. But instead of tree like structure, our program flattened into array structure so that the whole program could be loaded into nearby chunks of memory.
+Soo, to gain even more performance boost from CPU cache we can optimize our implementation which will be our next goal - bytecode interpreter. Bytecode interpreters works similar to hardcoded interpreters inside CPU that acts on machine code. But instead of machine code, bytecode interpreters uses its own set of instructions which is not dependent on device it's running on. Bytecode itself is just string of bytes that simply stores our program. But instead of tree like structure, our program flattened into array structure so that the whole program could be loaded into nearby chunks of memory.
 
 To convert above example code into bytecode we first have to define opcodes for our bytecode. Opcode is simply fixed size (usually 1 byte) codes representing different operations.
 
@@ -428,17 +428,17 @@ As you can see it's a lot easier to execute this code since instructions are so 
 
 # Chicken or egg?
 
-You might ask yourself that if compilers written using another compilers, how did first compilers were invented in the first place? Well the answer is actually quite simple. Someone had to hard code a compiler program into puch cards. It didn't ever needed to be perfect because they could use that compiler to compile even better compiler for future uses. In same manner moden languages can also have compilers written in the same language, but before that they need to create a simple compiler in another language to compile first compiler in source language. If you want to dig deeper into this concept in Computer Science it's called [bootstrapping](https://en.wikipedia.org/wiki/Bootstrapping_%28compilers%29).
+You might ask yourself that if compilers written using another compilers, how did first compilers were invented in the first place? Well the answer is actually quite simple. Someone had to hard code a compiler program into punch cards. It didn't ever needed to be perfect because they could use that compiler to compile even better compiler for future uses. In same manner moden languages can also have compilers written in the same language, but before that they need to create a simple compiler in another language to compile first compiler in source language. If you want to dig deeper into this concept in Computer Science it's called [bootstrapping](https://en.wikipedia.org/wiki/Bootstrapping_%28compilers%29).
 
 [![bootstrapping](https://craftinginterpreters.com/image/introduction/bootstrap.png#invert)](https://craftinginterpreters.com/introduction.html#:~:text=This%20is%20called%20bootstrapping)
 
-But as for ourselves, we don't need our compiler to be written in source language. We are going to use it for embedding into another programs, so it's better to write compiler in well known language to make embdedding easier. But which language are we going to write our compiler with?
+But as for ourselves, we don't need our compiler to be written in source language. We are going to use it for embedding into another programs, so it's better to write compiler in well known language to make embedding easier. But which language are we going to write our compiler with?
 
 Short answer is C++ *most probably*. Because building compilers with low level memory access with pointer artimetrics is makes it easier to implement different parts especially when implementing bytecode virtual machine. For example `uint8_t *ip;` holds both pointer to current instruction, you can advance it by adding +1 to it and you can dereference it without needing another variable. Otherwise you'll have to store 2 variables first one for storing bytecode array and second one to store instruction index in that array, and to dereference instruction you'll have to use `code[ip]` which is not a huge deal breaker but I prefer first option.
 
 # Conclusion
 
-This article is already very long and I don't have anything else to say to be honest. To conclude the article I am planning to create a programming language that we're designed together above to use in game engine I'll be building in future. The language will be C-style, statically typed and the compiler will be embeddable to other systems alongside with ability to be extended using foreign functions support.
+This article is already very long and I don't have anything else to say to be honest. To conclude the article I am planning to create a programming language that we're designed together above to use in game engine Ill be building in future. The language will be C-style, statically typed and the compiler will be embeddable to other systems alongside with ability to be extended using foreign functions support.
 
 Thanks for reading till this far 😇
 
