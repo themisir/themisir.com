@@ -189,4 +189,6 @@ That's it. I think our current implementation is good enough for most use cases.
 
 ---
 
-Originally this article supposed to be about "system programming" but for some reason I ended up writing about memoization instead. But, I liked how it turned out and continued to write it. Thanks for reading this far 😇
+Oh, second article in a month! Now I'll have a good excuse to take a long break from blogging :D
+
+Originally this article supposed to be about "system programming" but for some reason I ended up writing about memoization instead. But, I liked how it turned out and continued to write it. Thanks for reading this far 😇 Cya!
