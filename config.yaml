@@ -14,3 +14,15 @@ params:
 
 permalinks:
   posts: /:filename/
+  essays: /essays/:filename/
+
+menu:
+  main:
+    - identifier: "archive"
+      name: "Archive"
+      url: "/posts"
+      weight: 10
+    - identifier: "essays"
+      name: "Essays"
+      url: "/essays"
+      weight: 20
