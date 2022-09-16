@@ -10,6 +10,11 @@
       "source": "/free-books",
       "destination": "https://www.reddit.com/r/Piracy/comments/oreyow/heres_the_definitive_list_of_sites_for_ebooks_and/",
       "permanent": false
+    },
+    {
+      "source": "/tb2022",
+      "destination": "https://themisir.com/distributed-systems",
+      "permanent": false
     }
   ]
 }
