@@ -1,7 +1,6 @@
 ---
 title: "Introduction to Distributed Systems"
 date: 2022-09-15T15:12:56+04:00
-draft: true
 tags:
   - engineering
 images:
