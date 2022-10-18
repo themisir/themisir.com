@@ -15,6 +15,11 @@
       "source": "/tb2022",
       "destination": "https://themisir.com/distributed-systems",
       "permanent": false
+    },
+    {
+      "source": "/calendar",
+      "destination": "https://cal.com/themisir",
+      "permanent": false
     }
   ]
 }
