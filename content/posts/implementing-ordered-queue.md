@@ -7,7 +7,7 @@ images:
   - https://images.unsplash.com/photo-1628557960762-0d884fd31ea0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2233&q=80
 ---
 
-Working with data structures is fun — said nobody ever. What about "inventing" our own data structures? It's gotta be a lot more fun, huh? In this blog post I am gonna go step by step through implementation of one of the data structures I recently wrote on one of my graveyard projects — Ordered Concurrent Queue.
+Working with data structures is fun — said nobody ever. What about "inventing" our own data structures? It's gotta be a lot more fun, huh? In this blog post I am gonna go step by step through implementation of one of the data structures I recently wrote for one of my graveyard projects — Ordered Concurrent Queue.
 
 ## Wait, what?
 
