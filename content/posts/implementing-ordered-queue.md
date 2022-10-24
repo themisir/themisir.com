@@ -400,4 +400,10 @@ func (q *OrderedQueue[T]) Hold() (value T, free func(pop bool), ok bool) {
 
 There's still 2 disadvantages of this method though. First one is the user has to be careful with it in order to not cause [deadlocks](https://en.wikipedia.org/wiki/Deadlock). The queue should not be used before releasing any held values and such values should be always released. Dealing with software issues is much easier compared to protecting programs from people who write them. That's why today we have various tooling from simple linters to compilers like `rustc` that shouts at you if you've done anything stupid. All of those are in place to protect us from ourselves. And yet we always find a way to mess things up.
 
+## Conclusion
+
+Data structures doesn't have to be boring. They can be boring, but in this article I tried to make them boring and annoying at the same time. Jokes aside, in the above article I tried to not just step-by-step implement a data structure but also explain reasoning behind different choices I made during the implementation. Which to me is more valuable thing for programmers rather than writing code.
+
+The snippets on the article are from my currently private (soon might become open-source) side-project which I am hoping to finish up in a few months if I don't lose my motivation to do so. The article in general took about 2 days because it was late night when I started writing and felt asleep after writing the first few sections.
+
 I hope you enjoyed reading the article. If you have anything to say don't hesitate to reach out me via twitter (link on the header) or send a mail to `me at themisir dot com`. Cheers and bye ✌️ 
