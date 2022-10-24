@@ -26,3 +26,8 @@ menu:
       name: "Essays"
       url: "/essays"
       weight: 20
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
