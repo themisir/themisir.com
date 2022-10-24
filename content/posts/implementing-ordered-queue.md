@@ -374,27 +374,27 @@ The implementation of the `Hold` method is similar to the `Peek` and `Pop` ones 
 ```go
 // Hold peeks a value and temporarily locks queue until the held value is freed.
 func (q *OrderedQueue[T]) Hold() (value T, free func(pop bool), ok bool) {
-	q.rw.Lock()
+  q.rw.Lock()
   // We do not defer unlocking here because the held value will be released
   // from the outside of the function
   
-	if q.head == nil {
+  if q.head == nil {
     // If the queue is empty we can release the lock
-		q.rw.Unlock()
-		ok = false
-		return
-	}
+    q.rw.Unlock()
+    ok = false
+    return
+  }
   
   head := q.head
   
   // Otherwise we'll return value of the head node alongside with
   // a delegate to release the lock and pop the value if requested
-	return head.value, func(pop bool) {
-		defer q.rw.Unlock()
-		if pop {
-			q.head = head.next
-		}
-	}, true
+  return head.value, func(pop bool) {
+    defer q.rw.Unlock()
+    if pop {
+      q.head = head.next
+    }
+  }, true
 }
 ```
 
