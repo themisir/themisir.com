@@ -3,6 +3,7 @@ title: "Implementing Ordered Concurrent Queue"
 date: 2022-10-25T01:48:09+04:00
 tags:
   - engineering
+  - golang
 images:
   - https://images.unsplash.com/photo-1628557960762-0d884fd31ea0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2233&q=80
 ---
