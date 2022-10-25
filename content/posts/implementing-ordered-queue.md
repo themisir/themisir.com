@@ -401,6 +401,45 @@ func (q *OrderedQueue[T]) Hold() (value T, free func(pop bool), ok bool) {
 
 There's still 2 disadvantages of this method though. First one is the user has to be careful with it in order to not cause [deadlocks](https://en.wikipedia.org/wiki/Deadlock). The queue should not be used before releasing any held values and such values should be always released. Dealing with software issues is much easier compared to protecting programs from people who write them. That's why today we have various tooling from simple linters to compilers like `rustc` that shouts at you if you've done anything stupid. All of those are in place to protect us from ourselves. And yet we always find a way to mess things up.
 
+The second problem is actually unfortunate one. It won't cause any significant performance or synchronization penalties, but it's still enough to annoy a perfectionist one like me. Problem is that, because we are acquiring writer lock to hold a value we won't let any read operation to happen until the held value is freed which is fine, but we use the same writer lock for checking if `head == nil`, which can be done using a reader lock instead. The unfortunate part is that golang `sync.RWMutex` doesn't support lock upgrading, we can't first acquire a reader lock and upgrade it to a writer one before moving on to the next step.
+
+### Lock upgrading
+
+**RW Lock upgrading** is a mechanism in various RW Lock implementations that lets you first acquire a non-exclusive lock (reader lock usually) and if needed lets you to atomically "upgrade" it to an exclusive lock (eg: writer lock). Similarly there's also concept of **RW Lock downgrading**, which is reverse process of lock upgrading — user first acquires an exclusive lock, then downgrades it to a non-exclusive lock if exclusivity is no longer needed.
+
+If you are wondering why can't we just release a lock and acquire another one right after that to upgrade or downgrade them, the problem is atomacity. Which means releasing and acquiring of locks should happen simultaneously. Otherwise this could happen:
+
+```go
+var value int
+``` 
+
+1. **Thread #1** acquires a writer lock
+2. **Thread #1** `value = 1`
+3. **Thread #1** releases the held writer lock
+4. **Thread #2** acquires a writer lock
+5. **Thread #2** `value = 2`
+6. **Thread #2** releases the held lock
+7. **Thread #1** tries to upgrade by acquiring a writer lock
+8. **Thread #1** `print(value)`
+9. **Thread #1** releases the held writer lock
+...
+
+Here 2 threads race with each other to set `value` to a specific number and print it. What **Thread #1** were expecting is to set `value = 1` and see "1" getting printed on the standard output. However because our lock downgrade operation were not atomic another thread can [race](https://en.wikipedia.org/wiki/Race_condition) to acquire a lock between our downgrading operation and so does **Thread #2** and wins the race. And this costed **Thread #1** with an inconsistent result. Instead of printing value which it previously set to `value` (which was `1`), now it will print value of `2` instead which was set by **Thread #2** during the race.
+
+<small>Don't ask me why would anyone do that, if you have a better yet simple example to represent lock upgrading/downgrading concepts let me know.</small>
+
+Atomic upgrades on the other hand would have solved the issue by releasing and acquiring another lock simultaneously.
+
+1. **Thread #1** acquires a writer lock
+2. **Thread #1** `value = 1`
+3. **Thread #1** downgrades held lock to a reader lock atomically
+4. **Thread #1** `print(value)`
+5. **Thread #1** releases the held lock
+6. **Thread #2** acquires a writer lock
+...
+
+As you can see here the upgrade happened within a single operation compared to the first example which required 2 separate operations which gave a chance to **Thread 2** to acquire a lock in between them.
+
 ## Conclusion
 
 Data structures doesn't have to be boring. They can be boring, but in this article I tried to make them boring and annoying at the same time. Jokes aside, in the above article I tried to not just step-by-step implement a data structure but also explain reasoning behind different choices I made during the implementation. Which to me is more valuable thing for programmers rather than writing code.
