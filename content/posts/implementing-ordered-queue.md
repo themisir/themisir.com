@@ -85,7 +85,7 @@ Then how do we order items as they are pushed to the queue? Before answering tha
 
 ```go
 type Comparer[T any] interface {
-	Less(a, b T) bool
+  Less(a, b T) bool
 }
 ```
 
@@ -100,13 +100,13 @@ Let's start by creating a structure that holds internal parts for the queue. Tha
 
 ```go
 type OrderedQueue[T any] struct {
-	head     *Node[T]
-	comparer Comparer[T]
+  head     *Node[T]
+  comparer Comparer[T]
 }
 
 type Node[T any] struct {
-	value T
-	next  *Node[T]
+  value T
+  next  *Node[T]
 }
 ```
 
@@ -114,7 +114,7 @@ And a "constructor" function that initializes an empty `OrderedQueue[T]` for us 
 
 ```go
 func NewOrderedQueue[T any](comparer Comparer[T]) OrderedQueue[T] {
-	return OrderedQueue[T]{
+  return OrderedQueue[T]{
     comparer: comparer,
   }
 }
@@ -126,30 +126,30 @@ We only initialized comparer property here and left  `head` as is because an emp
 // Pop removes and returns value of the head node if exists
 func (q *OrderedQueue[T]) Pop() (value T, ok bool) {
   // If head is nil, we don't have any value to pop, so we can return (nil, false)
-	if q.head == nil {
-		ok = false
-		return
-	}
+  if q.head == nil {
+    ok = false
+    return
+  }
   
-	ok = true
-	value = q.head.value
+  ok = true
+  value = q.head.value
   
   // We replace head node with the sibling of it, thus removing head node itself
-	q.head = q.head.next
-	
+  q.head = q.head.next
+  
   return
 }
 
 // Pop returns value of the head node if exists
 func (q *OrderedQueue[T]) Peek() (value T, ok bool) {
   // If head is nil, we don't have any value to peek so we return (nil, false)
-	if q.head == nil {
-		ok = false
-		return
-	}
+  if q.head == nil {
+    ok = false
+    return
+  }
   
   // Otherwise we can return value from the head node and true indicating we have a value
-	return q.head.value, true
+  return q.head.value, true
 }
 ```
 
@@ -295,8 +295,8 @@ Knowing that, we can add a reader lock to our `Peek` method and writer locks to 
 ```go
 type OrderedQueue[T any] struct {
   rw.      sync.RWMutex
-	head     *Node[T]
-	comparer Comparer[T]
+  head     *Node[T]
+  comparer Comparer[T]
 }
 
 func (q *OrderedQueue[T]) Peek() (value T, ok bool) {
