@@ -15,5 +15,5 @@ Check out [my blog](https://themisir.com) for all the existing and upcoming blog
 There's really not a simple answer to this, but there's multiple answers that together will make some sense:
 
 - I get to use tools I am familiar with: git, cli, html+css
-- It is lightweight af, website opens within less than a second
+- It is lightweight af, website loads within less than a second
 - Less hosting costs, the website does not have any dynamic content so I can just upload contents to some bucket + CDN or something and serve it from there. Right now I am using [vercel](http://vercel.com) to host it which is more than enough for me.
