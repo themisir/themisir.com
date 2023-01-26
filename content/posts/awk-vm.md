@@ -76,7 +76,7 @@ However, jumping back was a different story. Since we only got to process each i
 
 ![segfault on awk](https://i.imgur.com/CtNd7Wb.jpg)
 
-After a bunch of back & forth I realized my mistake. Apparently my implementation of `jump` instruction was not the best way to accomplish it. My first implementation did involved using recursive function calls to execute jumps. However buth the logic and the implementation was flawed. The cause of the SEGFAULT was due to recursive calls causing program to run out of space on the call stack. After optimizing/fixing my implementation it did worked flawlessly!
+After a bunch of back & forth I realized my mistake. Apparently my implementation of `jump` instruction was not the best way to accomplish it. My first implementation did involved using recursive function calls to execute jumps. However both the logic and the implementation was flawed. The cause of the SEGFAULT was due to recursive calls causing program to run out of space on the call stack. After optimizing/fixing my implementation it did worked flawlessly!
 
 # Running some programs
 
