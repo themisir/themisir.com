@@ -142,8 +142,8 @@ Then the final result is:
 120
 ```
 
-Checking that `fac(5) = 5*4*3*2*1 = 120` is in fact the correct answer. Volia! I wrote a calculator using a tool used for processing data streams on unix systems. The implementation is publicly available here [as a gist](https://gist.github.com/themisir/6947e44e1adf394e673a607fd1b5ebaa) if you want to take a look. I also added some handy flags for turning on debug mode, which does dumps VM state after each instruction, letting you "debug" the code and figure out where you did have messed up.
+Checking that `fac(5) = 5*4*3*2*1 = 120` is in fact the correct answer. Volia! I wrote a calculator using a tool used for processing data streams on unix systems. The implementation is publicly available here [as a gist](https://gist.github.com/themisir/6947e44e1adf394e673a607fd1b5ebaa) if you want to take a look. I also added some handy flags for turning on debug mode, which dumps the VM state after each instruction, letting you "debug" the code and figure out where you have messed up.
 
-I just want to remind that it was all started with the laziness of not bearing to manually lowercase 3 letters. If I had done it manually, I would've probably never had to waste time on writing this cursed virtual machine implementation nor this blog post. I am glad, I did though! I will definitely see myself overusing `awk` tool in future for various purposes. Mistakes been made.
+I just want to remind that it was all started with the laziness of not bearing to manually lowercase 3 letters. If I had done it manually, I would've probably never had to waste time on writing this cursed virtual machine implementation nor this blog post. I am glad, I did though! I definitely see myself overusing `awk` tool for various purposes in future. Mistakes been made.
 
 Thanks for bearing with me. <3
