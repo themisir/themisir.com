@@ -65,4 +65,11 @@ I think that's also the reason why I like writing software, especially during th
 
 Lastly I know that some (alright, most... all? ok) of those photos will look like a crap. So what? You have just spent about 2-3 minutes of your life reading suff that's been written by a random dude. You did that by choice. It was your own will to start reading this, and it was my own will to take those crappy photos. Why? Belive me, I don't even now. I just enjoyed the process. Maybe the music I have been listening (it was mostly soundtracks from the games I have played) did hypnotized me so that I didn't cared enough to do something else but take photos. I don't know how I am still able to come up with words to continue this blog post even further. In fact I don't know anything. That's the only thing I am sure about. I don't have any piece of information that I am 100% sure of. I don't know what I am supposed to do. I don't know when I am supposed to end this post. I don't know what should I do next. I don't know how to live the life itself. I don't know where to steer the wheel. I don't...
 
-I didn't expected this to end like that, but I am glad it did. Take care! 🤞
+## Acknowledgments
+
+- https://imageoptim.com/mac - for optimizing (compressing) the above images
+- https://www.cloudflare.com/products/r2 - for providing a backend for hosting & serving those images
+- https://manuelmoreale.com/unsolicited-blogging-advice - for inspration to write more
+- https://www.rahim.li - for sharing the link above and being acompany while researching weird stuff at 3am
+
+I didn't expected this post to turn out something philosophical like that, but I am glad it did. Take care! 🤞
