@@ -1,0 +1,33 @@
+---
+title: "Why am I writing this blogs?"
+date: 2023-03-18T04:38:20+04:00
+
+---
+
+I don't know.. would I say. Or just give back to the community that gave me a lot. Or maybe because I just like writing stuff? Like this one.. Why I am writing this article I asked myself, well actually this sentences came to my mind before I decided to start writing the article. Then I realized something. I wasn't writing to help others. Maybe I do, but the primary reason for me to write, or to create stuff all in all is something else, something different, something we all crave for.
+
+It's the will to be heard. It's the will to be valued, or the feeling of participation. Participation in something greater than what we are. All of want to be heard, some people just like talking a lot. Whether someone is listening, or pretending to be listening they would happily continue talking. They fulfill their will that way, by projecting their thoughts to others, by either willfully or forcefully letting others listen to them.
+
+I be not like that. I am afraid of judgement even though I lie to myself that I don't care what the others thinking about me. I know it's still there, I still care about others, what they are thinking about me. All of us do. Some just doesn't care at all, some care a lot, some keep this in balance. I am not sure where am I on this spectrum. Perhaps somewhere near the "caring a lot" section I guess. It doesn't matter how hard I try, I can't just let it go. Probably that's why I avoid confrontation, or worse I avoid people. I hide myself, my identity, the things going inside me from them, because I don't want them to know too much about me.
+
+This way though - by writing on a blog (that kind of starting to become like a public journal of mine, which I have a private one too) I feel like I am putting myself out there while reducing the risk of judgement. I am using this virtual space of mine to share my thought, share my identity (part of it at least). I am using it to be heard. I try to not care too much about if people will ever read them or not, or how many of them will read, how many will judge, will agree, will get angry or appreciate it, maybe they will just throw it away. Not sure I am. However, I am sure that this definitley helps me to feel being heard. This definitely fulfills it. Maybe not entirely, I still would prefer a real human-to-human interaction than whatever this is. But it's way less risky.
+
+# And you, my dear friend
+
+**A quick note to friends** whom might or might not read this. I love you all, you know this. If you don't, well I truthly do love all my friends. I do care about them, get sad when they feel sad, and be happy when seeing their achievements. I might have hurt some of you from time and time, and am sorry for that. I might have made it to not happen, but I have no ability to change the past. Perhaps, future is the thing we can make better instead. Also, relationships whether it's a friendship or a romantic one does get stronger when been challenged. While this might not be a good excuse, I am sure it made our relationship way stronger.
+
+Where have I come, I was supposed to go another direction, sorry about that. I was going to say, I appreciate all of your effort at being supportive and all. I just want you to know that, how hard I try I can't just put myself all in there. It's not because I don't trust you, It's just I can not do it for different reasons. Sometimes I don't want to bore you, sometimes I know it's not interesting for you, and sometimes I just can't to do it. That's why sometimes I need another medium to share my thoughts. That way I wouldn't bore anybody, if they are they can leave the page, I wouldn't notice it. I don't care if nobody even reads this. All I know is that it's out there, someone may read it. Probably nobody will, but the chance is not zero. And that's all I need in order to feel fulfilled. Just a chance is enough to give me that spark.
+
+There's so much that I would wanted to say. So many thoughts, so many stories, so many ideas, so much that I don't think anybody would have time to listen, nor I have time to say either. I guess, if I had time I would've still not said much. Why bore someone with things they are not willing to hear. If they want to hear, then boy do I have things to talk about.
+
+---
+
+Last a few things before closing this out. I decided to star watching one of the series I have wanted to dive in, but never got a chance to do so, until now - Star Wars. Well, It's not a big deal for you if you already have watched. For me however, it will be completely new experience. I never watched, nor played, nor read anything Star Wars related. Why tho? I really don't know. Maybe I just wanted an excuse for purchasing a [Millenium Falcon Lego Set](https://www.lego.com/en-us/product/millennium-falcon-75192) in future, who knows `¯\_(ツ)_/¯ `
+
+Anyways, I decided to ask a friend of mine to give me a headstart to the series. She gave me some pointers on where to start and a good guide to look for. With that, I started watching without any expectations, because I had no idea whether I would like it or not. I started watching the original trilogy, then the prequel trilogy, and post sequel trilogy at last. It took a whole week (only nights though) to complete it all, but in the end I did watched the series and the fact that I watched all the episodes of "Skywalker's Story" should've tell you that "I LOVED IT". The emotion roaller coasters, betrayals, hope, love, enemies, selfishness, selflessness, it was literally a story of [Yin and Yang](https://en.wikipedia.org/wiki/Yin_and_yang).
+
+What now? I will probably start watching Obi-Wan Kenobi series to learn more about the events between the original series and the post sequel series.
+
+Diving into a fantasy universe was a great experience all in all. It felt kind of like looking at a mirror from all the humanity's perspective. I saw ourselves there, but in a different characters. I saw love and hate there. I saw hope there. I am not sure why exactly, but it gave me hope about the humanity as well - that the goodness is still there, maybe buried deep down somewhere, but it's not lost all together yet. There's still a chance that it may rise, it's not much, but it's there. And that's all matters, just like the starting of this article. It doesn't matter that the chance of someone reading this is very low. But it's there, and if you are reading this, that means someone already did.
+
+Take care of yourself dear friend. May the force be with you ;)
