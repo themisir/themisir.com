@@ -16,13 +16,13 @@ matrix:
             - pre
       # stolen from https://github.com/PipedreamHQ/pipedream/blob/master/.spellcheck.yml
       - pyspelling.filters.context:
-        delimiters:
-          # Ignore multiline content in frontmatter (frontmatter has 3 dashes)
-          # ---
-          # content
-          # ---
-          - open: '(?s)^(?P<open> *\-{3})$'
-            close: "^(?P=open)$"
+          delimiters:
+            # Ignore multiline content in frontmatter (frontmatter has 3 dashes)
+            # ---
+            # content
+            # ---
+            - open: '(?s)^(?P<open> *\-{3})$'
+              close: "^(?P=open)$"
     sources:
       - "**/*.md"
     default_encoding: utf-8
