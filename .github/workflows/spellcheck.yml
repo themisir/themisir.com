@@ -3,13 +3,13 @@ name: Spellcheck
 on: [push, pull_request]
 
 jobs:
-  test:
+  spellcheck:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: rojopolis/spellcheck-github-actions@0.30.0
         name: Spellcheck
         with:
-          source_files: content/**.md
           task_name: Markdown
           output_file: spellcheck-output.txt
+          config_path: .github/spellcheck/config.yml

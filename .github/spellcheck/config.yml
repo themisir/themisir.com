@@ -1,0 +1,28 @@
+matrix:
+  - name: Markdown
+    aspell:
+      lang: en
+      ignore-case: true
+    dictionary:
+      encoding: utf-8
+      wordlists:
+        - .github/spellcheck/wordlist.txt
+    pipeline:
+      - pyspelling.filters.markdown:
+      - pyspelling.filters.html:
+          comments: false
+          ignores:
+            - code
+            - pre
+      # stolen from https://github.com/PipedreamHQ/pipedream/blob/master/.spellcheck.yml
+      - pyspelling.filters.context:
+          delimiters:
+            # Ignore multiline content in frontmatter (frontmatter has 3 dashes)
+            # ---
+            # content
+            # ---
+            - open: '(?s)^(?P<open> *\-{3})$'
+              close: "^(?P=open)$"
+    sources:
+      - "**/*.md"
+    default_encoding: utf-8
