@@ -1,13 +1,13 @@
 ---
 title: "Don't Lie to Yourself"
-date: 2023-03-21T10:49:18+04:00
+date: 2023-03-21T11:51:18+04:00
 ---
 
 I am not going to say that you should not lie to people. Nowadays, it is really hard to not to. Or worse not-lying may actually make your life harder for yourself, but I am not going to ethics of lying. As a matter of fact, it's totally subjective, and depends on one's own beliefs, life and expectations from themselves. It's up to you to whether or not you may or may not lie, or when to lie, when to not. If you ask me, I am trying to have a strong rule for myself to not lie to people I trust, love and care. For each other scenario - it depends, and it's just my own belief and subjective view. I am not intending to make others lean in that way.
 
 However, I believe there's one thing that everybody should practice when it comes to lying, or not lying would be more suitable. I am humble believer that we should not lie to ourselves. It might not make any sense if you never truly reflected on yourself.
 
-## We are our own bestie
+## We are our own besties
 
 We are our own true friends. Nobody else can understand us more than ourselves, nobody would be able to experience the world from our eyes, nobody ever lived any part of our live as ourselves, nobody really knows what's it like to be us. Don't get me wrong, family, friends or significant other can become empathetic during times. However, it's not right to expect them to truly understand us. They just can't! Nor you! You haven't lived anyone else's live, nor they have done it. Really understanding someone requires truly living the exact same life up until the point from the day of birth in exact same situation. I know who has gone thru all. It's YOU! You have gone through all the ups and downs of your life, you have experienced all the happy and sad moments of your life first hand. Who's better to understand you than your own self?
 
@@ -23,3 +23,6 @@ That's also why when having an intimate conversation, the talking party usually 
 
 [^listening]: You can check out ["You're Not Listening: What You're Missing and Why It Matters" by Kate Murphy](https://www.goodreads.com/book/show/45892276-you-re-not-listening) to read more on the topic of listening
 
+This is also the reason why journalling works too. Because, it gives us a chance to be intimate with ourselves. We force ourselves to get deeper into thoughts and avoid lies if possible, we can become all vulnerable and write down our thoughts without worrying about the consequences when journalling. All it matters is that, we give ourselves a chance to be honest. It's all about the self reflection and telling the truth. If done correctly, it feels like a bliss, you will not solve your problems but you will know what it is at least. And the next step will be to work on it, or just wait if it's something that [time can heal](https://www.youtube.com/watch?v=3MHxPuWld5o).
+
+That's all I got to say. Have a wonderful life, dear reader! ☺️

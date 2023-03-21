@@ -17,3 +17,6 @@ $RECYCLE.BIN/
 
 # Miscellaneous
 .hugo_build.lock
+
+# Backups
+*.bak
