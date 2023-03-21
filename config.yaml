@@ -18,8 +18,8 @@ permalinks:
 
 menu:
   main:
-    - identifier: "archive"
-      name: "Archive"
+    - identifier: "posts"
+      name: "Posts"
       url: "/posts"
       weight: 10
     - identifier: "essays"
