@@ -1,6 +1,6 @@
 ---
-title: "Don't Lie to Yourself"
-date: 2023-03-21T11:51:18+04:00
+title: "Don't Lie"
+date: 2023-03-21T11:51:19+04:00
 ---
 
 I am not going to say that you should not lie to people. Nowadays, it is really hard to not to. Or worse not-lying may actually make your life harder for yourself, but I am not going to ethics of lying. As a matter of fact, it's totally subjective, and depends on one's own beliefs, life and expectations from themselves. It's up to you to whether or not you may or may not lie, or when to lie, when to not. If you ask me, I am trying to have a strong rule for myself to not lie to people I trust, love and care. For each other scenario - it depends, and it's just my own belief and subjective view. I am not intending to make others lean in that way.
