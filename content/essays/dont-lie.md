@@ -1,0 +1,25 @@
+---
+title: "Don't Lie to Yourself"
+date: 2023-03-21T10:49:18+04:00
+---
+
+I am not going to say that you should not lie to people. Nowadays, it is really hard to not to. Or worse not-lying may actually make your life harder for yourself, but I am not going to ethics of lying. As a matter of fact, it's totally subjective, and depends on one's own beliefs, life and expectations from themselves. It's up to you to whether or not you may or may not lie, or when to lie, when to not. If you ask me, I am trying to have a strong rule for myself to not lie to people I trust, love and care. For each other scenario - it depends, and it's just my own belief and subjective view. I am not intending to make others lean in that way.
+
+However, I believe there's one thing that everybody should practice when it comes to lying, or not lying would be more suitable. I am humble believer that we should not lie to ourselves. It might not make any sense if you never truly reflected on yourself.
+
+## We are our own bestie
+
+We are our own true friends. Nobody else can understand us more than ourselves, nobody would be able to experience the world from our eyes, nobody ever lived any part of our live as ourselves, nobody really knows what's it like to be us. Don't get me wrong, family, friends or significant other can become empathetic during times. However, it's not right to expect them to truly understand us. They just can't! Nor you! You haven't lived anyone else's live, nor they have done it. Really understanding someone requires truly living the exact same life up until the point from the day of birth in exact same situation. I know who has gone thru all. It's YOU! You have gone through all the ups and downs of your life, you have experienced all the happy and sad moments of your life first hand. Who's better to understand you than your own self?
+
+So, if we have only one truly understanding friend of ours, why would we cheat them, why would we lie to them, why would we let them wander around, why be dishonest with them? It does not make any sense, it literally has net negative effect on our life. We don't gain any advantages like we would do by lying to others in certain real-life situations. The most we can get is a temporary satisfaction maybe, but I am sure the feeling will be gone immediately and you will start to feel a weird kind of emptiness on you. The feeling that you can not label. You wouldn't identify why would you feel like that with literally no reason to do so.
+
+Yet, we fail ourselves from time and time. We lie to ourselves. And we convince ourselves into believing our own lies. It's the same as closing your own eyes and saying that you're invisible. Sure, you may become invisible if there's nobody around to see you (what's "being invisible" anyways?). However, when someone knocks the door and enters to the room, you would no longer be invisible, unless you already convinced yourself that you are. They will try to convince you that you are in fact visible, but you may continue to believe that they are lying to you. The more you continue the more you will feel the outside pressure. Except, when we lie to ourselves, that pressure comes from inside and without any clear reason. Because we have already believed in our own lies, it's really hard to dig down and unravel what's really haunting us deep down.
+
+## It's not about advice
+
+Do you know why talking to others help us? Not because they are listening, in fact most of the time people are thinking of something else while you speak. Listening is really a hard task at hand, but it's not what we care about here. It works because we give ourselves a chance to be true to ourselves, it's because we get a chance to reflect, we get a chance to truly open up to ourselves. From the outside it may seem like we open up to others, but in reality we do it to ourselves. Others are just a mirror that we can look at while doing so. We stop telling lies because when we open up, we usually do it to people we care about. And we don't want to lie to them. So we get a chance and a purpose to be truly open with ourselves.
+
+That's also why when having an intimate conversation, the talking party usually doesn't like it when the listener interrupts them by giving advice or any other reasons. Surely, it depends on case-by-case basis. However, I can assure you more than half of the cases people do just want someone to be a mirror so they can be true to themselves, they don't want your advice, or worse they don't want you to shift the conversation to yourself [^listening]. They want you to just be there and truthfully listen. Just listen and let them unravel their thoughts to themselves. Just be there and give them a chance to become honest. They already know the answers, it's just buried deep down that requires a bit of effort to get hands on.
+
+[^listening]: You can check out ["You're Not Listening: What You're Missing and Why It Matters" by Kate Murphy](https://www.goodreads.com/book/show/45892276-you-re-not-listening) to read more on the topic of listening
+
