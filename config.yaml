@@ -12,6 +12,10 @@ params:
   github: "themisir"
   instagram: "themisir0"
 
+  license:
+    url: "https://creativecommons.org/licenses/by/4.0/"
+    title: "CC-BY-4.0"
+
 permalinks:
   posts: /:filename/
   essays: /essays/:filename/
