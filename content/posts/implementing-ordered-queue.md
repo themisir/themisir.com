@@ -39,7 +39,7 @@ Okay, why did I explained all the above? Well, because I am going to use one of 
 
 ---
 
-Usually queues are implemented using an array (static array if the queue is bounded[^1] or dynamic array if unbounded). Aside from the internal array, queue also holds a *pointer* to the first and last item of the queue, and those *pointers* are respectively called head and tail.
+Usually queues are implemented using an array (static array if the queue is bounded[^bounded queue] or dynamic array if unbounded). Aside from the internal array, queue also holds a *pointer* to the first and last item of the queue, and those *pointers* are respectively called head and tail.
 
 When you add a new item to a regular queue, the item will be set to the `array[tail+1]`. And when you pop an item from the queue, the item at `array[head]` will be returned and value of the head will be increased. If you are interested about in depth implementation details please check out related keywords on your favourite search engine. Or just use javascript which has an array that's in fact a dictionary, that can also be used as a queue (and stack as well, YAY!).
 
@@ -67,7 +67,7 @@ The above snippet is a simple interface we are going to come up with eventually.
 
 Since we choose our internal data structure —which is going to be "linked list" in this case, we are ready to pick up from where we left off. Linked list by itself is mostly enough for writing a proper queue implementation. But that's not what we planned to make in the first place. Since the *queue* part is almost ready, we can jump right into implementing "ordered" part of the "Ordered Concurrent Queue".
 
-[^1]: bounded queue can only hold up to predefined number of items, while unbounded queue can expand and shrink on-demand just like a list would. In fact we can call a bounded queue as ring buffer as well because of the same characteristics.
+[^bounded queue]: bounded queue can only hold up to predefined number of items, while unbounded queue can expand and shrink on-demand just like a list would. In fact we can call a bounded queue as ring buffer as well because of the same characteristics.
 
 ## Implementation details
 
