@@ -1,5 +1,5 @@
 ---
-title: "What can Possibly go wrong?"
+title: "What can possibly go wrong?"
 date: 2023-04-22T04:36:03+04:00
 tags:
   - kubernetes
