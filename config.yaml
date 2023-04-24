@@ -2,6 +2,7 @@ baseURL: "https://themisir.com/"
 languageCode: "en-us"
 title: "TheMisir"
 theme: "paper"
+copyright: "Licensed under CC-BY-4.0"
 
 author:
   email: "me@themisir.com"
@@ -20,6 +21,11 @@ permalinks:
   posts: /:filename/
   essays: /essays/:filename/
 
+taxonomies:
+  category: "categories"
+  series: "series"
+  tag: "tags"
+
 menu:
   main:
     - identifier: "posts"
@@ -30,6 +36,10 @@ menu:
       name: "Essays"
       url: "/essays"
       weight: 20
+    - identifier: "about"
+      name: "About"
+      url: "/about"
+      weight: 30
 
 markup:
   goldmark:
