@@ -17,7 +17,7 @@ To give you a bit of context, I have a small kubernetes cluster for hosting some
 
 The cluster itself is built using [k3s](http://k3s.io), because I can not bear maintaining a full blown kubernetes cluster by myself. But, k3s is kinda feels lightweight, so I went for it. Some may say that using kubernetes for self hosting is just an overhead. However, I really like it, especially the fact that I can get any app up and running in a few minutes (if I don't mess up the YAML indentation). This lets me try out new stuff without having to deal with the boring deployment process. All I need to is just duplicate an existing YAML deployment file, replace image, name, ports and host name, and run `kubectl apply -f miniflux/app.yaml` and pray for the best. If luck is on our side, the service will start working within a few seconds (assuming I have done my DNS configuration to point the right hostname).
 
-Well, everything I've said above may seem too good to be true. Well, it's usually true. Well, having this kind of autonomous system requires lots of moving part to work in a harmony. Moving parts are prone to failure. And everything that can go wrong, will eventually go wrong as [Murphy's law](https://en.wikipedia.org/wiki/Murphy%27s_law) states.
+Everything I've said above may seem too good to be true. Apparently, it's usually true. Well, having this kind of autonomous system requires lots of moving part to work in a harmony. Moving parts are prone to failure. And everything that can go wrong, will eventually go wrong as [Murphy's law](https://en.wikipedia.org/wiki/Murphy%27s_law) states.
 
 ## The Downfall
 
