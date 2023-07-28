@@ -8,8 +8,9 @@ author:
   name: "Misir Jafarov"
 
 params:
-  github: "themisir"
-  instagram: "themisir0"
+  github: "https://github.com/themisir"
+  instagram: "https://instagram.com/themisir0"
+  mastodon: "https://mastodon.social/@themisir"
 
   license:
     url: "https://creativecommons.org/licenses/by/4.0/"
