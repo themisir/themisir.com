@@ -1,6 +1,6 @@
 ---
-title: "Random Dump"
-description: "A collection of my favorite photos of random moments"
+title: "Photo Dump"
+description: "A collection of my favorite photos"
 date: 2023-08-03T03:03:55+04:00
 images:
   - url: https://cdn-images.themisir.com/IMG_1639.jpg
