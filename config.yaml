@@ -35,10 +35,14 @@ menu:
       name: "Essays"
       url: "/essays"
       weight: 20
+    - identifier: "random-gallery"
+      name: "Gallery"
+      url: "/galleries/random"
+      weight: 30
     - identifier: "about"
       name: "About"
       url: "/about"
-      weight: 30
+      weight: 40
 
 markup:
   goldmark:
