@@ -3,7 +3,7 @@ title: "About"
 date: "2023-04-23"
 ---
 
-Hi, I'm Misir. I write software to make living and sometimes just for fun.
+Hi, I'm Misir. I write software to make living; and sometimes just for fun.
 
 I like designing systems and eventually building them if I left with enough motivation to do so. This blog does not have any primary subject or target  audience as of writing this article. I generally write whatever comes off to my mind usually during the mid-night.
 
