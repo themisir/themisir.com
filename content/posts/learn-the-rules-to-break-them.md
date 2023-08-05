@@ -1,6 +1,6 @@
 ---
 title: "Learn the rules to break them"
-date: 2023-07-05T21:13:01+04:00
+date: 2023-08-05T21:13:01+04:00
 tags:
   - art
   - engineering
