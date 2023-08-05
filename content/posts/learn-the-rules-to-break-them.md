@@ -8,8 +8,6 @@ images:
   - https://images.unsplash.com/photo-1474552226712-ac0f0961a954?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1742&q=80
 ---
 
-This article is based on my personal opinions and views and should not be taken seriously without adding your own views and opinions on the same matter.
-
 For last 2 years I have been trying to learn new skills, just to keep myself engaged. Compared to interests, none of those new skills are tech related. Instead as you may or may not already know I have decided to learn an instrument (because it's cool, and something I wanted to do when I was a kid), and now trying to learn photography alongside with it. Though I consdier myself beginner on both line of interests, I realised a pattern emerging while learning them.
 
 When does someone get better at something? Why creations of certain people, certain art pieces seem more valuable, more interesting, more creative than the rest? And believe it or not, I will onnect all of these to software engineering. I will try at least.
