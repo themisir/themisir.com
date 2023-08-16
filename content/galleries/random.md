@@ -3,7 +3,7 @@ title: "Photo Dump"
 description: "A collection of my favorite photos"
 date: 2023-08-03T03:03:55+04:00
 images:
-  - url: https://cdn-images.themisir.com/IMG_3600.jpg
+  - url: https://cdn-images.themisir.com/IMG_3600-a.jpg
     title: "A light post in the dramatic view"
   - url: https://cdn-images.themisir.com/IMG_1121.jpg
     title: "Cute parrot at the Zoo (no fancy caption)"
