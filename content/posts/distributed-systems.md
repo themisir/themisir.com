@@ -8,38 +8,40 @@ images:
 
 ---
 
-*This post is an extended version of my Techbrains 2022 - Baku talk.*
+*this post is an extended vewsion o-of my techbwains 2022 - b-baku tawk.*
 
-Let’s start by introducing Distributed Systems (DS). DS is a system where you use multiple nodes to reduce workload on a single node. It’s kind of like multithreading but we figured out that multithreading is easy, so we decided to use network as a communication layer instead of system memory to coordinate these systems. 
+wet’s stawt by intwoducing distwibuted s-systems (ds). -.- d-ds is a system w-whewe you use m-muwtipwe nyodes t-to weduce wowkwoad o-on a singwe n-nyode. (ˆ ﻌ ˆ)♡ it’s k-kind of wike muwtithweading but we figuwed out that muwtithweading is easy, (⑅˘꒳˘) so we d-decided to use netwowk as a communication wayew i-instead of system memowy to coowdinate t-these systems.
 
-## What problems does it solve?
+## nani pwobwems does it sowve?
 
-*Horizontal scaling* - instead of having to upgrade your servers to more expensive tiers (considering you’re a cloud user) you can just spin up a new server and host another node there to reduce individual workload.
+*howizontaw scawing* - instead of having to upgwade youw s-sewvews to mowe e-expensive tiews (considewing y-you’we a cwoud u-usew) you can j-just spin up a new s-sewvew and host a-anothew nyode t-thewe to weduce individuaw wowkwoad.
 
-*Redundancy* - to reduce risk of data loss you can spin up multiple nodes in different data centers and synchronize system state between them.
+*wedundancy* - to weduce wisk of data woss you c-can spin up muwtipwe n-nyodes in d-diffewent data c-centews and synchwonize s-system state b-between them.
 
-*Latency* - the ability to spin up a new node gives you ability to spin new nodes near to your users to reduce latency which might be a big deal in certain real time applications like trading.
+*watency* - the abiwity to spin up a nyew n-node gives you abiwity t-to spin nyew n-nyodes nyeaw t-to youw usews to w-weduce watency w-which might be a-a big deaw in cewtain w-weaw time appwications wike twading.
 
-## Why we don’t use them everywhere?
-Well it’s not that easy to build a distributed system. There’s some tricky parts we need to deal with as a DS engineers. So let’s take a look at them.
+## why we don’t use them evewywhewe?
 
-Let’s say 2 users write data at the exact point of time. How are you going to handle that? The thing is the system usually supposed to be deterministic, you can’t just rely on entropy to make decisions on behalf of you. If you do so you are going to have fun days where you’re going to deal with customers complaining that one customer in place A sees X value where another one sees Y. So yeah, the system needs to be deterministic.
+weww it’s nyot that easy to buiwd a-a distwibuted s-system. (⑅˘꒳˘) thewe’s s-some twicky pawts w-we nyeed to d-deaw with as a d-ds engineews. ( ͡o ω ͡o ) so w-wet’s take a w-wook at them.
 
-Also in the above case we assumed that our clocks are synchronized perfectly. But reality is usually disappointing and not perfect. So does our clocks. It’s almost impossible to guarantee that clocks are perfectly synchronized. So you can’t simply rely on timestamps to decide on which message is the last one. Well you might say what can possibly go wrong with a few ms of clock skew? I would say, a lot of things depending on the nature of the system you’re building. A few milliseconds is a lot for a sensitive system like trading, or a real time multiplayer game.
+wet’s say 2 usews wwite data at t-the exact point o-of time. mya how awe y-you going to handwe t-that? the t-thing is the system u-usuawwy supposed t-to be detewministic, mya y-you can’t just wewy on entwopy to make decisions on behawf of you. 😳 if y-you do so you awe going to have fun days whewe y-you’we going to deaw with customews c-compwaining that one customew in pwace a sees x vawue whewe a-anothew one sees y. XD so yeah, :3 t-the system nyeeds t-to be detewministic.
 
-And here comes elephant in the room - the network itself. We usually need to rely on network to communicate with different nodes. The problem is network is not reliable, there’s latency, there’s lost packets, there’s unavailable routes, there’s traffic & bandwidth issues, etc… So you have to take those cases into consideration as well. And that by itself can became a huge deal breaker when building reliable systems.
+awso in the above case we assumed t-that ouw cwocks a-awe synchwonized p-pewfectwy. nyaa~~ but w-weawity is usuawwy d-disappointing a-and nyot pewfect. s-so does ouw c-cwocks. /(^•ω•^) it’s awmost impossibwe to guawantee that cwocks awe pewfectwy synchwonized. rawr s-so you can’t simpwy wewy on timestamps to d-decide on which message is the w-wast one. OwO weww you might say nyani can possibwy go wwong with a f-few ms of cwock skew? i wouwd say, (U ﹏ U) a-a wot of things d-depending on the nyatuwe of the system you’we buiwding. >_< a few miwwiseconds i-is a wot fow a sensitive system wike twading, rawr x3 ow a weaw time muwtipwayew game.
 
-## Untrusted systems
-Until that point we assumed that all nodes are going to be managed by the trusted parties. But in fact distributed systems can be deployed into untrusted environments. At least we have tried doing so with bitcoin and all the other cryptocurrencies. The problem with maintaining non-trusted distributed network is you can’t just rely on conventional consensus algorithms like Raft to solve certain problems. Those algorithms rely on the fact that all nodes will provide legit data, but if you don’t have a central authority you need to rely on other factors to solve conflicts. Consensus mechanisms like Proof of Work, Proof of Stake all relies on that property - they simply give more power to the nodes that has either more computing power or more stake.
+and hewe comes ewephant in the woom - t-the nyetwowk i-itsewf. mya we usuawwy n-nyeed to wewy o-on nyetwowk to c-communicate with d-diffewent nyodes. mya t-the pwobwem i-is nyetwowk is nyot wewiabwe, 😳 thewe’s watency, XD thewe’s wost packets, :3 thewe’s u-unavaiwabwe woutes, 😳😳😳 thewe’s twaffic & bandwidth i-issues, -.- etc… so you have t-to take those cases into considewation as weww. ( ͡o ω ͡o ) and that by itsewf c-can became a huge deaw bweakew w-when buiwding w-wewiabwe systems.
 
-And also there’s human factor where if a party can somehow change minds of certain user group, they can create their own network using their own modified fork of the previous network. Which in return decreases trust on the system because the original append-only ledger gets overwritten, so does people’s perception on the system. 
+## untwusted systems
 
-## Keywords
+untiw that point we assumed that a-aww nyodes awe going t-to be managed b-by the twusted p-pawties. (ˆ ﻌ ˆ)♡ but in f-fact distwibuted s-systems can be d-depwoyed into u-untwusted enviwonments. (˘ω˘) at weast we have twied doing so with bitcoin and aww the o-othew cwyptocuwwencies. (⑅˘꒳˘) the pwobwem with maintaining n-nyon-twusted distwibuted nyetwowk i-is you can’t just wewy on conventionaw consensus awgowithms w-wike waft to sowve cewtain p-pwobwems. (///ˬ///✿) those a-awgowithms wewy on the fact that aww nyodes wiww pwovide wegit data, 😳😳😳 but if you d-don’t have a centwaw authowity you nyeed to wewy on othew factows to sowve confwicts. 🥺 c-consensus mechanisms wike p-pwoof of wowk, mya p-pwoof of stake a-aww wewies on that p-pwopewty - they simpwy give mowe powew to the n-nyodes that has eithew mowe computing powew ow m-mowe stake.
 
-Here's some keywords & references if you want to dig deep into speicifc subjects.
+and awso thewe’s human factow whewe i-if a pawty c-can somehow change m-minds of cewtain u-usew gwoup, (ˆ ﻌ ˆ)♡ t-they can cweate t-theiw own nyetwowk u-using theiw own m-modified fowk of the pwevious nyetwowk. (⑅˘꒳˘) which in wetuwn decweases twust on the s-system because the owiginaw append-onwy wedgew g-gets ovewwwitten, (U ᵕ U❁) so does peopwe’s p-pewception on the system.
 
-* Vector clocks
-* Consistent hashing
-* CRDTs
-* Load balancer
-* Sharding
+## keywowds
+
+hewe's some keywowds & wefewences i-if you want to d-dig deep into speicifc s-subjects.
+
+- vectow cwocks
+- consistent hashing
+- cwdts
+- woad bawancew
+- shawding

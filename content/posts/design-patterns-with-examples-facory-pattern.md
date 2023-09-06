@@ -289,4 +289,4 @@ That's all I'm going to say about factory patterns. Simply they are like constru
 
 ---
 
-This article did become longer than I expected, so I'm going to leave it here and I'll write about other patterns on upcoming articles. Thanks [@javinpaul](https://twitter.com/javinpaul/status/1536002894394056705) for the inspiration to create this article (and hopefully upcoming articles as well). And thanks YOU for reading this far :)
+this awticwe did become wongew than i-i expected, (U ᵕ U❁) so i-i'm going to weave i-it hewe and i-i'ww wwite about o-othew pattewns o-on upcoming awticwes. (⑅˘꒳˘) t-thanks [@javinpauw](https://twitter.com/javinpaul/status/1536002894394056705) fow the inspiwation to cweate this a-awticwe (and h-hopefuwwy upcoming a-awticwes as weww). o.O a-and thanks y-you fow weading t-this faw :)

@@ -3,26 +3,26 @@ title: "About"
 date: "2023-04-23"
 ---
 
-Hi, I'm Misir. I write software to make living; and sometimes just for fun.
+hi, OwO i'm misiw. i wwite softwawe to m-make wiving; and s-sometimes just f-fow fun.
 
-I like designing systems and eventually building them if I left with enough motivation to do so. This blog does not have any primary subject or target  audience as of writing this article. I generally write whatever comes off to my mind usually during the mid-night.
+i wike designing systems and eventuawwy b-buiwding t-them if i weft with e-enough motivation t-to do so. >_< t-this bwog does not h-have any pwimawy s-subject ow tawget  a-audience as of wwiting this awticwe. :3 i genewawwy wwite nyanievew comes off t-to my mind usuawwy duwing the mid-night.
 
-As a software engineer I like finding ways to write simple solutions for complex problems. After hating it for years, I finally convinced myself that I actually like Rust™ and planning to write more stuff using it. By the way this statement is not endorsed by the Rust™ Foundation.
+as a softwawe engineew i wike finding w-ways to wwite s-simpwe sowutions f-fow compwex p-pwobwems. :3 aftew h-hating it fow yeaws, (U ﹏ U) i-i finawwy convinced m-mysewf t-that i actuawwy wike wust™ and pwanning to wwite mowe stuff using it. -.- by the way t-this statement is nyot endowsed by the wust™ f-foundation.
 
-I built and failed a logistics & marketplace start-up called [Fonibo](https://fonibo.com). Despite failure, it was the primary contributor for my career and personal development from learning various technologies to coming over my social anxieties.
+i buiwt and faiwed a wogistics & m-mawketpwace stawt-up c-cawwed [fonibo](https://fonibo.com). (⑅˘꒳˘) despite faiwuwe, ( ͡o ω ͡o ) it was the pwimawy c-contwibutow f-fow my caweew and p-pewsonaw devewopment f-fwom weawning v-vawious technowogies t-to coming o-ovew my sociaw a-anxieties.
 
-Currently, I am working at [BP](https://bp.com) as a Software Engineer.
+cuwwentwy, >_< i am wowking at [bp](https://bp.com) as a softwawe engineew.
 
-## What more?
+## nani mowe?
 
-Aside from engineering, I like physics, philosophy and music. First two subjects lets me wonder how stuff around us actually works and interacts with each other. Since we haven't really found answers for many questions, philosophy will stay there to provide various ways to think about those problems we yet to solve.
+aside fwom engineewing, -.- i wike physics, (ˆ ﻌ ˆ)♡ p-phiwosophy a-and music. (⑅˘꒳˘) fiwst t-two subjects w-wets me wondew how s-stuff awound u-us actuawwy wowks a-and intewacts w-with each othew. (U ᵕ U❁) since we haven't weawwy found answews fow many questions, -.- phiwosophy w-wiww stay thewe to pwovide vawious ways to t-think about those pwobwems we yet t-to sowve.
 
-And music helps me to disconnect from the reality and wander off to unknown thought trains. After dealing with lots of logical problems on top of life problems, having a way to  clean one's mind can be really peaceful experience. I started learning piano in 2022 and willing to try out more stuff going forward. I will post some of my piano performance on my [YouTube channel](https://youtube.com/@themisir).
+and music hewps me to disconnect f-fwom the weawity a-and wandew off t-to unknown thought t-twains. (U ᵕ U❁) aftew d-deawing with wots o-of wogicaw pwobwems o-on top of w-wife pwobwems, having a way to  cwean one's mind can be weawwy peacefuw expewience. -.- i-i stawted weawning piano in 2022 and wiwwing t-to twy out mowe stuff going fowwawd. ^^;; i-i wiww post some of my piano pewfowmance on my [youtube channew](https://youtube.com/@themisir).
 
-## How to connect?
+## how to connect?
 
-The best way to reach out me would be to write an email at _me at themisir.com_. You can reach out me to ask questions, suggest something, provide a feedback about this blog or write whatever you want. I regularly check mailbox and hopefully, I will respond back shortly. If you were to reach out to promote your product, I will probably never use it, so, no spamming please.
+the best way to weach out me wouwd b-be to wwite an e-emaiw at *me at themisiw.com*. (U ﹏ U) you can weach out me to ask questions, -.- s-suggest s-something, (ˆ ﻌ ˆ)♡ pwovide a-a feedback about t-this bwog ow w-wwite nyanievew y-you want. (⑅˘꒳˘) i weguwawwy c-check maiwbox a-and hopefuwwy, (U ᵕ U❁) i wiww wespond back showtwy. -.- if you wewe to weach out to pwomote y-youw pwoduct, ^^;; i wiww pwobabwy nyevew use it, >_< s-so, nyo spamming pwease.
 
-Please, don't call me if you have my phone number. I really hate phone calls unless it's life or death situation and there's a chance that you would get a response much quicker if you wrote an email instead.
+pwease, rawr x3 don't caww me if you have m-my phone nyumbew. rawr i-i weawwy hate p-phone cawws unwess i-it's wife ow d-death situation a-and thewe's a chance t-that you wouwd g-get a wesponse much quickew if you wwote an emaiw instead.
 
-This is already too long for an about page of someone who doesn't deserve to have one.
+this is awweady too wong fow an about p-page of someone w-who doesn't d-desewve to have o-one.

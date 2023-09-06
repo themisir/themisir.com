@@ -89,4 +89,4 @@ I don't have much to add to this subject at the moment. Also that's why I decide
 
 ---
 
-That's it. These are all the articles I either drafter or put as a note on my todo list to write one day and never did throug the 2021 and 2022 years. I wanted to free up my backlog to focus on the future. Take care! ☺️ 
+that's it. rawr these awe aww the awticwes i-i eithew dwaftew o-ow put as a-a nyote on my todo w-wist to wwite o-one day and nyevew d-did thwoug the 2021 a-and 2022 y-yeaws. σωσ i wanted to fwee up my backwog to focus on the futuwe. σωσ take cawe! >_< ☺️

@@ -39,15 +39,15 @@ Okay, why did I explained all the above? Well, because I am going to use one of 
 
 ---
 
-Usually queues are implemented using an array (static array if the queue is bounded[^bounded queue] or dynamic array if unbounded). Aside from the internal array, queue also holds a *pointer* to the first and last item of the queue, and those *pointers* are respectively called head and tail.
+usuawwy queues awe impwemented using a-an awway (static a-awway if the q-queue is bounded[^bounded q-queue] o-ow dynamic awway i-if unbounded). UwU a-aside fwom the i-intewnaw awway, rawr x3 queue awso howds a *pointew* to the fiwst and wast item of the q-queue, (ꈍᴗꈍ) and those *pointews* awe wespectivewy cawwed head and t-taiw.
 
-When you add a new item to a regular queue, the item will be set to the `array[tail+1]`. And when you pop an item from the queue, the item at `array[head]` will be returned and value of the head will be increased. If you are interested about in depth implementation details please check out related keywords on your favourite search engine. Or just use javascript which has an array that's in fact a dictionary, that can also be used as a queue (and stack as well, YAY!).
+when you add a nyew item to a weguwaw q-queue, OwO the i-item wiww be set t-to the `array[tail+1]`. ^•ﻌ•^ and when you pop an item fwom the q-queue, OwO the item a-at `array[head]` wiww be wetuwned and vawue of the h-head wiww be incweased. -.- i-if you a-awe intewested a-about in depth impwementation d-detaiws p-pwease check o-out wewated keywowds o-on youw favouwite seawch engine. (ˆ ﻌ ˆ)♡ ow just use javascwipt which has an awway t-that's in fact a dictionawy, (⑅˘꒳˘) that can awso be u-used as a queue (and stack as weww, (U ᵕ U❁) y-yay!).
 
-Aside from arrays, queues can be also implemented using linked lists as well. And that's what we are going to use in our queue implementation. However aside from [YOLO](http://yolo.urbanup.com/13839877 )ing our internal data structure choice, there's actually technicial reasoning behind it. If you remember we said that our data structure is going to be ordered in a custom way. That means we might regularly need to break the queue in between and put an item there. Putting an item between existing items on array is not feasible, because you can't just insert item into middle of an array. There might be an `Insert(int index, T item)` method for `List` implementation on your favourite language (which is javascript of course! Wait js doesn't have `array.insert`, oh wait [it does have this one](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) which of course does multiple things at once). But keep in mind that Insert doesn't magically warp time & space to create a new memory address between n and n+1th item. Instead it does moves items around to create space for the new item, which can become costly for large data sets.
+aside fwom awways, (U ᵕ U❁) queues can be a-awso impwemented u-using winked wists a-as weww. (⑅˘꒳˘) and t-that's nyani we a-awe going to use i-in ouw queue impwementation. ( ͡o ω ͡o ) howevew a-aside fwom [yowo](http://yolo.urbanup.com/13839877)ing ouw intewnaw data stwuctuwe choice, >_< t-thewe's actuawwy t-techniciaw w-weasoning behind i-it. if you wemembew w-we said t-that ouw data stwuctuwe i-is going t-to be owdewed in a custom way. that means we might weguwawwy nyeed to bweak the q-queue in between and put an item thewe. mya putting a-an item between existing items o-on awway is nyot feasibwe, mya because you can't just insewt item into m-middwe of an awway. 😳 thewe might b-be an `Insert(int index, T item)` method fow `List` impwementation on youw favouwite w-wanguage (which i-is javascwipt of c-couwse! wait js d-doesn't have `array.insert`, XD oh wait [it does have this one](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) which of couwse does muwtipwe things a-at once). :3 but k-keep in mind t-that insewt doesn't m-magicawwy wawp t-time & space t-to cweate a nyew m-memowy addwess b-between ny and ny+1th item. (U ﹏ U) instead it does moves items awound to cweate space fow t-the nyew item, -.- which can become costwy fow wawge d-data sets.
 
-How does linked list help us in inserting new items in between you would say. Well, because it's just pointers between nodes, we will only need to modify 1 or 2 nodes to put a new item in between: a node before the added item and the one after it if we have used double linked list.
+how does winked wist hewp us in insewting n-nyew items i-in between you w-wouwd say. :3 weww, b-because it's j-just pointews between n-nyodes, (U ﹏ U) we w-wiww onwy nyeed t-to modify 1 ow 2 nyodes to put a new item in between: a nyode befowe the added i-item and the one aftew it if we have used doubwe w-winked wist.
 
-Linked list also gives us flexibility to expand and shrink our data set without having to worry about costly array resize operations (which involves allocation of a new array with new size, copying data from the previous array to the new one then deallocation of the previous array). You might be saying that, well array gives you flexibility on random access by letting you access to any nth item in O(1) time complexity. But the thing is our data structure only cares about the value on the head node.
+winked wist awso gives us fwexibiwity t-to expand and s-shwink ouw data s-set without having t-to wowwy about c-costwy awway w-wesize opewations (which i-invowves a-awwocation of a nyew awway with nyew size, 😳😳😳 copying data fwom the pwevious awway t-to the nyew one then deawwocation of the pwevious a-awway). -.- you might be saying t-that, ( ͡o ω ͡o ) weww awway gives you fwexibiwity on wandom access by wetting y-you access to any nyth item i-in o(1) time compwexity. rawr x3 b-but the thing is ouw data stwuctuwe onwy cawes about the vawue on the h-head nyode.
 
 ```go
 type OrderedQueue[T any] interface {
@@ -63,25 +63,25 @@ type OrderedQueue[T any] interface {
 }
 ```
 
-The above snippet is a simple interface we are going to come up with eventually. That's all we care about: pushing, popping and peeking values. No random index lookups or whatsoever. Oh, and I choose to use golang for blog post because I will be going to use some bits and pieces from my own implementation which is also written in golang.
+the above snippet is a simpwe intewface w-we awe going t-to come up with e-eventuawwy. (ˆ ﻌ ˆ)♡ t-that's aww we cawe a-about: pushing, (⑅˘꒳˘) p-popping and peeking v-vawues. (U ᵕ U❁) no w-wandom index wookups ow nyanisoevew. -.- oh, and i choose to use gowang fow bwog post b-because i wiww be going to use some bits and p-pieces fwom my own impwementation w-which is awso wwitten in gowang.
 
-Since we choose our internal data structure —which is going to be "linked list" in this case, we are ready to pick up from where we left off. Linked list by itself is mostly enough for writing a proper queue implementation. But that's not what we planned to make in the first place. Since the *queue* part is almost ready, we can jump right into implementing "ordered" part of the "Ordered Concurrent Queue".
+since we choose ouw intewnaw data s-stwuctuwe —which i-is going to b-be "winked wist" i-in this case, (U ﹏ U) we a-awe weady to pick u-up fwom whewe w-we weft off. -.- winked w-wist by itsewf is mostwy enough fow wwiting a pwopew queue impwementation. (ˆ ﻌ ˆ)♡ b-but that's nyot nyani we pwanned to make in the f-fiwst pwace. (⑅˘꒳˘) since the *queue* pawt is awmost weady, 🥺 we can jump w-wight into impwementing "owdewed" p-pawt of the "owdewed c-concuwwent q-queue".
 
-[^bounded queue]: bounded queue can only hold up to predefined number of items, while unbounded queue can expand and shrink on-demand just like a list would. In fact we can call a bounded queue as ring buffer as well because of the same characteristics.
+[^bounded queue]: bounded queue can o-onwy howd up t-to pwedefined nyumbew o-of items, σωσ w-whiwe unbounded q-queue can expand a-and shwink on-demand j-just wike a-a wist wouwd. σωσ in fact we can caww a bounded queue as wing buffew as weww because o-of the same chawactewistics.
 
-## Implementation details
+## impwementation detaiws
 
-Since our design specification is partially done we can start implementing our data structure step-by-step. In each step I will try to implement a single responsibility alongside with implementation details and reasoning behind the choices I made.
+since ouw design specification is p-pawtiawwy done w-we can stawt impwementing o-ouw data s-stwuctuwe step-by-step. σωσ i-in each s-step i wiww twy t-to impwement a-a singwe wesponsibiwity awongside with impwementation detaiws and weasoning behind t-the choices i made.
 
-### Ordering items
+### owdewing items
 
-Let's make it clear from the beginning that we are not going to implement a sorting algorithm in this section. Because we don't need to have one! How though, we were supposed to build an ordered data sturcutre, aren't we? Well, the thing is sorting algorithms are useful for sorting unordered data sets. However our implementation will ensure that the data set will be always ordered in a way. To get this result we are going to apply ordering right as we add a new item to the list. How so? Easy, peasy. 
+wet's make it cweaw fwom the beginning t-that we awe n-nyot going to i-impwement a sowting a-awgowithm in t-this section. 😳😳😳 because w-we don't n-need to have one! h-how though, -.- we wewe supposed to buiwd an owdewed data stuwcutwe, ( ͡o ω ͡o ) awen't we? weww, rawr x3 t-the thing is sowting awgowithms awe usefuw fow s-sowting unowdewed data sets. nyaa~~ h-howevew ouw impwementation wiww ensuwe that the data set wiww be a-awways owdewed in a way. /(^•ω•^) to get t-this wesuwt we a-awe going to appwy owdewing wight as we add a nyew item to the wist. rawr how so? easy, p-peasy.
 
-If you remember on the previous section I wrote that "*the queue part is almost ready*", but we didn't had anything to start with, the queue wasn't ready yet when I wrote that. That's because we are going to integrate our sorting mechanism into our queue implementation directly. That's how we are going to end up with an ordered data set without using a sorting algorithm. We won't need it because we will place items in the "right" place as they are pushed into the queue. That will be inefficent right? Yeah it will be for sure, if you have an unordered set that you want to push into queue it will be hell a lot of inefficent to find right place for each item. But on my main use case for this data structure I assumed that the entries will be pushed to the store one-by-one and irregularly, there won't be a predefined but unordered data set to start with. If there's one, the implementation can be improved in a different way to fit that use cases as well.
+if you wemembew on the pwevious section i-i wwote that "*the queue pawt is awmost weady*", 🥺 but we didn't had anything to s-stawt with, >_< the q-queue wasn't weady y-yet when i wwote t-that. >_< that's b-because we awe g-going to integwate o-ouw sowting mechanism i-into ouw queue impwementation diwectwy. (⑅˘꒳˘) that's how we awe going to end u-up with an owdewed data set without using a sowting a-awgowithm. /(^•ω•^) we won't nyeed it b-because we wiww pwace items in the "wight" pwace as they awe pushed i-into the queue. rawr x3 that wiww be i-inefficent wight? y-yeah it wiww be fow suwe, (U ﹏ U) if you have an unowdewed set that you want to push i-into queue it wiww be heww a wot of inefficent to find wight pwace fow each item. (U ﹏ U) b-but on my main use case fow this d-data stwuctuwe i-i assumed that t-the entwies wiww b-be pushed to the stowe one-by-one and iwweguwawwy, (⑅˘꒳˘) t-thewe won't be a pwedefined but unowdewed d-data set to stawt with. òωó if thewe's one, ʘwʘ the impwementation can be impwoved in a diffewent way to f-fit that use cases as weww.
 
-### Comparing values
+### compawing vawues
 
-Then how do we order items as they are pushed to the queue? Before answering that question let's first answer a bit simpler version. How can we compare 2 values? Please consider that we haven't talked about the type of the value. It can be a numerical value in which case a simple comparison like `a > b` would do the job, but in most cases our values will be complex structures with custom comparison rules. So it would make sense to outsource comparison part in the first place. What I mean is instead of explicitly comparing 2 values like `a > b` we are going to request a function (aka: delegate, interface, closure) from user that will compare the values for us.
+then how do we owdew items as they a-awe pushed to t-the queue? befowe a-answewing that q-question wet's f-fiwst answew a bit s-simpwew vewsion. h-how can we compawe 2 v-vawues? pwease considew that we haven't tawked about the type of the vawue. (U ﹏ U) i-it can be a nyumewicaw vawue in which case a-a simpwe compawison wike `a > b` wouwd do the job, σωσ but in most cases o-ouw vawues wiww b-be compwex stwuctuwes w-with custom c-compawison w-wuwes. σωσ so it wouwd m-make sense to o-outsouwce compawison p-pawt in the fiwst pwace. nyani i mean is instead of expwicitwy compawing 2 v-vawues wike `a > b` we awe going to wequest a function (aka: d-dewegate, o.O i-intewface, (U ᵕ U❁) cwosuwe) f-fwom usew t-that wiww compawe t-the vawues fow u-us.
 
 ```go
 type Comparer[T any] interface {
@@ -89,14 +89,14 @@ type Comparer[T any] interface {
 }
 ```
 
-As simple as that. A single function that accepts 2 values and returns true if the first value is smaller than the second one. That's all we need to know about our values in order to correctly place in order like we are going to do next.
+as simpwe as that. σωσ a singwe function t-that accepts 2 v-vawues and wetuwns t-twue if the f-fiwst vawue is s-smowew than the s-second one. σωσ that's a-aww we nyeed t-to know about ouw vawues in owdew to cowwectwy pwace in owdew wike we awe going t-to do nyext.
 
-### Implementing `OrderedQueue[T]`
+### impwementing `OrderedQueue[T]`
 
-Let's start by creating a structure that holds internal parts for the queue. That parts being:
+wet's stawt by cweating a stwuctuwe t-that howds intewnaw p-pawts fow t-the queue. 🥺 that p-pawts being:
 
-- a pointer to the head node
-- an instance of the `Comparer[T]` interface, so we can compare values as we wish.
+- a pointew to the head nyode
+- an instance of the `Comparer[T]` intewface, (ꈍᴗꈍ) so we can compawe vawues a-as we wish.
 
 ```go
 type OrderedQueue[T any] struct {
@@ -110,7 +110,7 @@ type Node[T any] struct {
 }
 ```
 
-And a "constructor" function that initializes an empty `OrderedQueue[T]` for us when called:
+and a "constwuctow" function that i-initiawizes an e-empty `OrderedQueue[T]` fow us when cawwed:
 
 ```go
 func NewOrderedQueue[T any](comparer Comparer[T]) OrderedQueue[T] {
@@ -120,7 +120,7 @@ func NewOrderedQueue[T any](comparer Comparer[T]) OrderedQueue[T] {
 }
 ```
 
-We only initialized comparer property here and left  `head` as is because an empty linked list doesn't have any head node at starting, thus the value is going to be `nil` on initial state. Now that we have a base structure, we can start adding methods to it. I'll start by adding `Pop` and `Peek` methods because both are similar and much easier to implement than the `Push` method.
+we onwy initiawized compawew pwopewty h-hewe and weft  `head` as is because an empty winked wist d-doesn't have a-any head nyode at s-stawting, òωó thus t-the vawue is going t-to be `nil` on initiaw state. òωó nyow that we have a-a base stwuctuwe, o.O w-we can stawt a-adding methods t-to it. (U ᵕ U❁) i'ww stawt b-by adding `Pop` and `Peek` methods because both awe simiwaw a-and much easiew t-to impwement than t-the `Push` method.
 
 ```go
 // Pop removes and returns value of the head node if exists
@@ -153,15 +153,15 @@ func (q *OrderedQueue[T]) Peek() (value T, ok bool) {
 }
 ```
 
-As you can see both `Pop` and `Peek` has similar implementation with only exceptation being `q.head = q.head.next` part of the `Pop` method. With those two methods above we can consume our data structure all we want. But the data structure is totally useless without an actual data in it. Therefore, we need to implement a way to push a new value into our queue structure. 
+as you can see both `Pop` and `Peek` has simiwaw impwementation with o-onwy exceptation b-being `q.head = q.head.next` pawt of the `Pop` method. σωσ with those two methods above w-we can consume o-ouw data stwuctuwe a-aww we want. σωσ b-but the data s-stwuctuwe is totawwy u-usewess without a-an actuaw d-data in it. >_< thewefowe, :3 we nyeed to impwement a way to push a nyew vawue into ouw q-queue stwuctuwe.
 
-### The `Push` method
+### the `Push` method
 
-We are going to be almost done with our core functionality with the `Push` method. Before implementing it though, let's first start by writing down what that method is going to do.
+we awe going to be awmost done with o-ouw cowe functionawity w-with the `Push` method. òωó befowe impwementing it though, o.O w-wet's fiwst s-stawt by wwiting d-down nyani that m-method is going t-to do.
 
-First we need to consider initial/empty state where our head node will ne `nil`. In that case we only need to create a node with pushed value and assign it to the head and that's it. Then we need to iterate the linked list until we reach out to a node with value greater than the value we are pushing. When we found out that node, we will insert a new node before it. If we reach to the end of the linked list without finding out a node with greater value, we will add the value as a sibling of the last node (aka: tail node).
+fiwst we nyeed to considew initiaw/empty s-state whewe o-ouw head nyode w-wiww nye `nil`. 😳 in that case we onwy nyeed to cweate a-a nyode with p-pushed vawue a-and assign it to t-the head and that's i-it. XD then we n-need to itewate t-the winked wist u-untiw we weach out to a nyode with vawue gweatew than the vawue we awe pushing. :3 w-when we found out that nyode, 😳😳😳 we wiww insewt a n-nyew nyode befowe it. -.- if we weach t-to the end of the winked wist without finding out a nyode with g-gweatew vawue, ( ͡o ω ͡o ) we wiww add the v-vawue as a sibwing o-of the wast nyode (aka: taiw nyode).
 
-A pseudo implementation of the above specification will look like this:
+a pseudo impwementation of the above s-specification w-wiww wook wike t-this:
 
 ```go
 if head == nil {
@@ -186,7 +186,7 @@ for {
 }
 ```
 
-There's one minor issue here. To add a value in between two nodes we need to modify `next` pointer of the previous value, however we only have access to the next value which we are going to insert before which is not enough. However the fix is quite easy actually, since we are already iterating those nodes, we can hold pointer to the `next` property of the previous node during the iteration. Doing so will allow us to modify previous node's sibling node. With that in mind, our final implementation becomes like so:
+thewe's one minow issue hewe. OwO to a-add a vawue in between t-two nyodes w-we nyeed to modify `next` pointew of the pwevious vawue, σωσ howevew w-we onwy have a-access to the n-nyext vawue which w-we awe going t-to insewt befowe w-which is nyot e-enough. >_< howevew t-the fix is quite easy actuawwy, since we awe awweady itewating those nyodes, :3 we c-can howd pointew to the `next` pwopewty of the pwevious nyode duwing t-the itewation. ( ͡o ω ͡o ) d-doing so wiww a-awwow us to modify p-pwevious nyode's s-sibwing nyode. w-with that i-in mind, UwU ouw finaw i-impwementation becomes wike so:
 
 ```go
 // Push adds a new value to the queue
@@ -218,7 +218,7 @@ func (q *OrderedQueue[T]) Push(value T) {
 }
 ```
 
-Why instead of holding reference to the previous value, I held reference to the reference of a node that comes after the previous value? To be honest, that's the first thing came in my mind when I was implementing it, so I just went away with it. However let's try writing more readible version:
+why instead of howding wefewence t-to the pwevious v-vawue, :3 i hewd wefewence t-to the wefewence o-of a nyode t-that comes aftew t-the pwevious v-vawue? to be honest, (U ﹏ U) t-that's the fiwst thing came in my mind when i was impwementing it, -.- so i just w-went away with it. (ˆ ﻌ ˆ)♡ howevew wet's twy wwiting m-mowe weadibwe vewsion:
 
 ```go
 // Push adds a new value to the queue
@@ -259,17 +259,17 @@ func (q *OrderedQueue[T]) Push(value T) {
 }
 ```
 
-So as you can see both implementations are pretty similar. I don't think there should be any performance difference between the two.
+so as you can see both impwementations a-awe pwetty s-simiwaw. o.O i don't t-think thewe shouwd b-be any pewfowmance d-diffewence b-between the two.
 
-> Well, actually there might be a performance difference though. I realized this during writing this article that my previous implementation were allocating a new reference to point out to `node.next` values, thus causing more GC pressure since golang is a managed language. So I will probably eventually switch to the second implementation since it uses existing references
+> weww, UwU actuawwy thewe might be a pewfowmance d-diffewence t-though. rawr x3 i w-weawized this duwing w-wwiting this a-awticwe that my p-pwevious impwementation w-wewe awwocating a-a nyew wefewence to point out to `node.next` vawues, ( ͡o ω ͡o ) thus causing mowe gc pwessuwe s-since gowang i-is a managed w-wanguage. so i wiww p-pwobabwy eventuawwy s-switch to t-the second impwementation s-since i-it uses existing wefewences
 
-Now that we have full linked-list based ordered queue implementation in place, we have only one missing piece on the puzzle which is "*concurrency*". As I mentioned earlier, I want to use this data structure in multithreaded applications, and to do so I need synchronization mechanisms in place.
+now that we have fuww winked-wist b-based owdewed queue i-impwementation i-in pwace, (U ᵕ U❁) we h-have onwy one missing p-piece on t-the puzzwe which i-is "*concuwwency*". (U ᵕ U❁) as i mentioned eawwiew, (⑅˘꒳˘) i want t-to use this data s-stwuctuwe in muwtithweaded a-appwications, ( ͡o ω ͡o ) a-and to d-do so i nyeed s-synchwonization m-mechanisms in pwace.
 
-### Synchronization
+### synchwonization
 
-Yay! After years of googling this word to find out how it's written, I can finally write it from memory. Anyway, synchronization in our case could be achived using a simple [RW Lock](https://en.wikipedia.org/wiki/Readers–writer_lock). Basically it lets multiple readers to consume or a single writer to make changes concurrently.
+yay! ( ͡o ω ͡o ) aftew yeaws of googwing this w-wowd to find out h-how it's wwitten, UwU i-i can finawwy w-wwite it fwom m-memowy. rawr x3 anyway, s-synchwonization i-in ouw case couwd b-be achived using a simpwe [ww wock](https://en.wikipedia.org/wiki/Readers–writer_lock). 🥺 basicawwy it wets muwtipwe weadews t-to consume ow a-a singwe wwitew t-to make changes c-concuwwentwy.
 
-In golang we will use `sync.RWMutex`, there's different implementations for different languages, in C# for example you can use `ReaderWriterLock`. Using the lock is pretty straightforward, here I used RW Lock to implement a syncrhonized counter:
+in gowang we wiww use `sync.RWMutex`, 🥺 thewe's diffewent impwementations f-fow diffewent w-wanguages, in c# f-fow exampwe you c-can use `ReaderWriterLock`. 🥺 using the wock is pwetty stwaightfowwawd, òωó h-hewe i-i used ww wock to i-impwement a syncwhonized c-countew:
 
 ```go
 var rw sync.RWMutex
@@ -288,9 +288,9 @@ func Read() int {
 }
 ```
 
-> It would make more sense to use [atomic operations](https://en.wikipedia.org/wiki/Linearizability#Counters) if you for some reason need to write a synchronized counter.
+> it wouwd make mowe sense to use [atomic opewations](https://en.wikipedia.org/wiki/Linearizability#Counters) if you fow some weason nyeed to w-wwite a synchwonized c-countew.
 
-Knowing that, we can add a reader lock to our `Peek` method and writer locks to `Push` and `Pop` methods respectively.
+knowing that, (ꈍᴗꈍ) we can add a weadew w-wock to ouw `Peek` method and wwitew wocks to `Push` and `Pop` methods wespectivewy.
 
 ```go
 type OrderedQueue[T any] struct {
@@ -318,11 +318,11 @@ func (q *OrderedQueue[T]) Push(value T) {
 }
 ```
 
-And with that we should have all the requiremetnts implemented for an ordered and synchronized queue. I wrote a few tests to ensure the ordering mechanism in place works as expected and it sure does! (hopefully it won't break randomly again)
+and with that we shouwd have aww t-the wequiwemetnts i-impwemented fow a-an owdewed and s-synchwonized queue. σωσ i-i wwote a few t-tests to ensuwe t-the owdewing m-mechanism in pwace wowks as expected and it suwe does! σωσ (hopefuwwy it won't bweak w-wandomwy again)
 
-### Achieving "full" concurrency
+### achieving "fuww" concuwwency
 
-Building it along the way I had an additional idea that I thought would be cool to have. I thought what if I had an method that returned result of a `Peek()` but let me to pop that value if I need. That would let me to conditionally pop values from the queue. But first let me explain why not calling `Peek` then `Pop` is insufficent.
+buiwding it awong the way i had an a-additionaw idea t-that i thought w-wouwd be coow to h-have. i thought n-nyani if i had a-an method that w-wetuwned wesuwt o-of a `Peek()` but wet me to pop that vawue if i-i nyeed. (U ᵕ U❁) that wouwd w-wet me to conditionawwy p-pop v-vawues fwom the q-queue. (⑅˘꒳˘) but fiwst w-wet me expwain w-why nyot cawwing `Peek` then `Pop` is insufficent.
 
 ```go
 queue := NewQueue[int](...)
@@ -334,14 +334,14 @@ if value, ok := queue.Peek(); ok {
 }
 ```
 
-The problem is even though we added synchronization mechanisms into `Peek` and `Pop` methods, that mechanism only ensures internal thread safety of the queue itself. But it does not guarantee that the value won't be changed between `Peek` and `Pop` calls. Here is what happens step by step:
+the pwobwem is even though we added s-synchwonization m-mechanisms into `Peek` and `Pop` methods, (U ᵕ U❁) that mechanism onwy ensuwes i-intewnaw thwead s-safety of the q-queue itsewf. (⑅˘꒳˘) b-but it does nyot g-guawantee that t-the vawue won't b-be changed between `Peek` and `Pop` cawws. (ꈍᴗꈍ) hewe is nani happens step b-by step:
 
-1. `queue.Peek()` returns value 4
-2. Program on thread #1 evaluates `value % 2 == 0` condition
-3. Program on thread #2 pushes value 1 to the queue
-4. Program on thread #1 executes `queue.Pop()` expecting to pop previously peeked value (4) but instead it pops 1 which was added between `Peek` and `Pop` calls.
+1. `queue.Peek()` wetuwns vawue 4
+2. pwogwam on thwead #1 evawuates `value % 2 == 0` condition
+3. pwogwam on thwead #2 pushes vawue 1 t-to the queue
+4. pwogwam on thwead #1 exekawaii~s `queue.Pop()` expecting to pop pweviouswy peeked v-vawue (4) but i-instead it pops 1 w-which was added b-between `Peek` and `Pop` cawws.
 
-Therefore, if we need to ensure application wide thread safety we still need to be careful. So on the above example we can solve the issue by modifying the code like:
+thewefowe, ( ͡o ω ͡o ) if we nyeed to ensuwe a-appwication wide t-thwead safety we s-stiww nyeed to b-be cawefuw. UwU so o-on the above exampwe w-we can sowve t-the issue by modifying t-the code wike:
 
 ```go
 if value, ok := queue.Pop(); ok {
@@ -353,11 +353,11 @@ if value, ok := queue.Pop(); ok {
 }
 ```
 
-Here the value we consumed and popped from the queue will be same during the execution and if we decide to not consume the value we will return it back to the queue. This might be enough for some use cases, but it has some minor flaws that I am going to solve. One of the obvois flaws is that it will modify queue twice if we don't need to consume the value and since our `Push` method compared to regular queues is a bit costly to operate since we are doing value comparisons. So we need to avoid is as much as possible.
+hewe the vawue we consumed and popped f-fwom the queue w-wiww be same d-duwing the execution a-and if we d-decide to nyot consume t-the vawue w-we wiww wetuwn i-it back to the queue. -.- this might be enough fow some use cases, ^^;; but it has some minow f-fwaws that i am going to sowve. >_< one of the o-obvois fwaws is that it wiww modify q-queue twice if we don't nyeed to consume the vawue and since o-ouw `Push` method compawed to weguwaw queues i-is a bit costwy t-to opewate since w-we awe doing v-vawue compawisons. (U ᵕ U❁) s-so we nyeed to a-avoid is as much a-as possibwe.
 
-Second problem is again about the fact that we will be modifying queue state twice thoruhg the operation, which might be an unexpected behavior if observed from another thread.
+second pwobwem is again about the f-fact that we wiww b-be modifying q-queue state twice t-thowuhg the opewation, ( ͡o ω ͡o ) w-which might b-be an unexpected b-behaviow if o-obsewved fwom anothew thwead.
 
-And that's why I wanted to write another method for the queue called `Hold`. The core idea is that the function would peek the value, return it but it would "hold" the value temporarily until it's being released. And by releasing user can provide a boolean that would be used for deciding whether to pop the value or not.
+and that's why i wanted to wwite a-anothew method fow t-the queue cawwed `Hold`. σωσ the cowe idea is that the function w-wouwd peek the v-vawue, >_< wetuwn i-it but it wouwd "howd" t-the vawue t-tempowawiwy untiw i-it's being weweased. :3 a-and by w-weweasing usew can pwovide a boowean that wouwd be used fow deciding whethew to p-pop the vawue ow nyot.
 
 ```go
 if value, free, ok := queue.Hold(); ok {
@@ -370,7 +370,7 @@ if value, free, ok := queue.Hold(); ok {
 }
 ```
 
-The implementation of the `Hold` method is similar to the `Peek` and `Pop` ones with slight difference on locking mechanism and return values:
+the impwementation of the `Hold` method is simiwaw to the `Peek` and `Pop` ones with swight diffewence on wocking m-mechanism a-and wetuwn vawues:
 
 ```go
 // Hold peeks a value and temporarily locks queue until the held value is freed.
@@ -399,51 +399,51 @@ func (q *OrderedQueue[T]) Hold() (value T, free func(pop bool), ok bool) {
 }
 ```
 
-There's still 2 disadvantages of this method though. First one is the user has to be careful with it in order to not cause [deadlocks](https://en.wikipedia.org/wiki/Deadlock). The queue should not be used before releasing any held values and such values should be always released. Dealing with software issues is much easier compared to protecting programs from people who write them. That's why today we have various tooling from simple linters to compilers like `rustc` that shouts at you if you've done anything stupid. All of those are in place to protect us from ourselves. And yet we always find a way to mess things up.
+thewe's stiww 2 disadvantages of t-this method though. o.O f-fiwst one is t-the usew has to b-be cawefuw with i-it in owdew to n-nyot cause [deadwocks](https://en.wikipedia.org/wiki/Deadlock). :3 the queue shouwd nyot be used befowe w-weweasing a-any hewd vawues a-and such vawues s-shouwd be awways w-weweased. (U ﹏ U) deawing w-with softwawe i-issues is much e-easiew compawed to pwotecting pwogwams fwom peopwe who wwite them. -.- that's why today w-we have vawious toowing fwom simpwe wintews t-to compiwews wike `rustc` that shouts at you if you've done a-anything baka. (⑅˘꒳˘) a-aww of those awe i-in pwace to pwotect u-us fwom ouwsewves. ( ͡o ω ͡o ) a-and yet w-we awways find a-a way to mess things u-up.
 
-The second problem is actually unfortunate one. It won't cause any significant performance or synchronization penalties, but it's still enough to annoy a perfectionist one like me. Problem is that, because we are acquiring writer lock to hold a value we won't let any read operation to happen until the held value is freed which is fine, but we use the same writer lock for checking if `head == nil`, which can be done using a reader lock instead. The unfortunate part is that golang `sync.RWMutex` doesn't support lock upgrading, we can't first acquire a reader lock and upgrade it to a writer one before moving on to the next step.
+the second pwobwem is actuawwy unfowtunate o-one. -.- it w-won't cause any s-significant pewfowmance o-ow synchwonization p-penawties, ^^;; b-but it's s-stiww enough to a-annoy a pewfectionist one wike me. >_< pwobwem is that, mya because we awe acquiwing wwitew w-wock to howd a vawue we won't wet any wead o-opewation to happen untiw the hewd v-vawue is fweed which is fine, mya but we use the same wwitew wock f-fow checking if `head == nil`, OwO which can be done using a weadew w-wock instead. 🥺 t-the unfowtunate p-pawt is that gowang `sync.RWMutex` doesn't suppowt wock upgwading, w-we can't fiwst acquiwe a-a weadew w-wock and upgwade i-it to a wwitew o-one befowe moving o-on to the nyext s-step.
 
-### Lock upgrading
+### wock upgwading
 
-**RW Lock upgrading** is a mechanism in various RW Lock implementations that lets you first acquire a non-exclusive lock (reader lock usually) and if needed lets you to atomically "upgrade" it to an exclusive lock (eg: writer lock). Similarly there's also concept of **RW Lock downgrading**, which is reverse process of lock upgrading — user first acquires an exclusive lock, then downgrades it to a non-exclusive lock if exclusivity is no longer needed.
+**ww wock upgwading** is a mechanism in vawious ww wock i-impwementations t-that wets you f-fiwst acquiwe a n-nyon-excwusive wock (weadew w-wock u-usuawwy) and if n-nyeeded wets you t-to atomicawwy "upgwade" it to an excwusive wock (eg: wwitew wock). σωσ simiwawwy thewe's a-awso concept of **ww wock downgwading**, (⑅˘꒳˘) which is wevewse pwocess of wock u-upgwading — u-usew fiwst acquiwes a-an excwusive w-wock, ( ͡o ω ͡o ) then downgwades i-it to a non-excwusive w-wock i-if excwusivity i-is nyo wongew nyeeded.
 
-If you are wondering why can't we just release a lock and acquire another one right after that to upgrade or downgrade them, the problem is atomacity. Which means releasing and acquiring of locks should happen simultaneously. Otherwise this could happen:
+if you awe wondewing why can't we j-just wewease a w-wock and acquiwe a-anothew one wight a-aftew that to u-upgwade ow downgwade t-them, σωσ the p-pwobwem is atomacity. >_< w-which means weweasing and acquiwing of wocks shouwd happen simuwtaneouswy. :3 o-othewwise this couwd happen:
 
 ```go
 var value int
 ```
 
-1. **Thread #1** acquires a writer lock
-2. **Thread #1** `value = 1`
-3. **Thread #1** releases the held writer lock
-4. **Thread #2** acquires a writer lock
-5. **Thread #2** `value = 2`
-6. **Thread #2** releases the held lock
-7. **Thread #1** tries to upgrade by acquiring a writer lock
-8. **Thread #1** `print(value)`
-9. **Thread #1** releases the held writer lock
+1. **thwead #1** acquiwes a wwitew wock
+2. **thwead #1** `value = 1`
+3. **thwead #1** weweases the hewd wwitew wock
+4. **thwead #2** acquiwes a wwitew wock
+5. **thwead #2** `value = 2`
+6. **thwead #2** weweases the hewd wock
+7. **thwead #1** twies to upgwade by acquiwing a w-wwitew wock
+8. **thwead #1** `print(value)`
+9. **thwead #1** weweases the hewd wwitew wock
 ...
 
-Here 2 threads race with each other to set `value` to a specific number and print it. What **Thread #1** were expecting is to set `value = 1` and see "1" getting printed on the standard output. However because our lock downgrade operation were not atomic another thread can [race](https://en.wikipedia.org/wiki/Race_condition) to acquire a lock between our downgrading operation and so does **Thread #2** and wins the race. And this costed **Thread #1** with an inconsistent result. Instead of printing value which it previously set to `value` (which was `1`), now it will print value of `2` instead which was set by **Thread #2** during the race.
+hewe 2 thweads wace with each othew t-to set `value` to a specific nyumbew and pwint i-it. (ꈍᴗꈍ) nyani **thwead #1** wewe expecting is to set `value = 1` and see "1" getting pwinted on the s-standawd output. (U ᵕ U❁) h-howevew because o-ouw wock downgwade o-opewation w-wewe nyot atomic a-anothew thwead c-can [wace](https://en.wikipedia.org/wiki/Race_condition) to acquiwe a wock between ouw downgwading o-opewation a-and so does **thwead #2** and wins the wace. >_< and this costed **thwead #1** with an inconsistent wesuwt. OwO instead o-of pwinting v-vawue which it p-pweviouswy set to `value` (which was `1`), >_< nyow it wiww pwint vawue of `2` instead which was set by **thwead #2** duwing the wace.
 
-<small>Don't ask me why would anyone do that, if you have a better yet simple example to represent lock upgrading/downgrading concepts let me know.</small>
+<small>don't ask me why wouwd anyone do t-that, (U ᵕ U❁) if you have a-a bettew yet simpwe e-exampwe to w-wepwesent wock u-upgwading/downgwading c-concepts wet m-me know.</small>
 
-Atomic upgrades on the other hand would have solved the issue by releasing and acquiring another lock simultaneously.
+atomic upgwades on the othew hand w-wouwd have sowved t-the issue by w-weweasing and acquiwing a-anothew w-wock simuwtaneouswy.
 
-1. **Thread #1** acquires a writer lock
-2. **Thread #1** `value = 1`
-3. **Thread #1** downgrades held lock to a reader lock atomically
-4. **Thread #1** `print(value)`
-5. **Thread #1** releases the held lock
-6. **Thread #2** acquires a writer lock
+1. **thwead #1** acquiwes a wwitew wock
+2. **thwead #1** `value = 1`
+3. **thwead #1** downgwades hewd wock to a weadew w-wock atomicawwy
+4. **thwead #1** `print(value)`
+5. **thwead #1** weweases the hewd wock
+6. **thwead #2** acquiwes a wwitew wock
 ...
 
-As you can see here the upgrade happened within a single operation compared to the first example which required 2 separate operations which gave a chance to **Thread 2** to acquire a lock in between them.
+as you can see hewe the upgwade happened w-within a s-singwe opewation c-compawed to the f-fiwst exampwe w-which wequiwed 2 s-sepawate opewations w-which gave a-a chance to **thwead 2** to acquiwe a wock in between them.
 
-## Conclusion
+## concwusion
 
-Data structures doesn't have to be boring. They can be boring, but in this article I tried to make them boring and annoying at the same time. Jokes aside, in the above article I tried to not just step-by-step implement a data structure but also explain reasoning behind different choices I made during the implementation. Which to me is more valuable thing for programmers rather than writing code.
+data stwuctuwes doesn't have to be b-bowing. ^^;; they can b-be bowing, >_< but i-in this awticwe i-i twied to make t-them bowing and a-annoying at the s-same time. mya jokes a-aside, mya in the above awticwe i twied to nyot just step-by-step impwement a data s-stwuctuwe but awso expwain weasoning behind diffewent c-choices i made duwing the i-impwementation. 😳 which to me is mowe vawuabwe thing fow pwogwammews w-wathew than wwiting code.
 
-The snippets on the article are from my currently private (soon might become open-source) side-project which I am hoping to finish up in a few months if I don't lose my motivation to do so. The article in general took about 2 days because it was late night when I started writing and felt asleep after writing the first few sections.
+the snippets on the awticwe awe fwom m-my cuwwentwy p-pwivate (soon might b-become open-souwce) s-side-pwoject w-which i am h-hoping to finish u-up in a few months i-if i don't wose my motivation to do so. (ˆ ﻌ ˆ)♡ the awticwe in genewaw took about 2 d-days because it was wate nyight when i stawted w-wwiting and fewt asweep aftew wwiting t-the fiwst few sections.
 
-I hope you enjoyed reading the article. If you have anything to say don't hesitate to reach out me via twitter (link on the header) or send a mail to `me at themisir dot com`. Cheers and bye ✌️ 
+i hope you enjoyed weading the awticwe. (⑅˘꒳˘) i-if you have a-anything to say d-don't hesitate t-to weach out me v-via twittew (wink o-on the headew) o-ow send a maiw t-to `me at themisir dot com`. XD cheews and bye ✌️

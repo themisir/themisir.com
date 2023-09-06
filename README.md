@@ -1,19 +1,19 @@
-# themisir.com
+# themisiw.com
 
-Personal website powered by gohugo.io. The primary content of the website is usually about technology and software engineering. But from time to time I am thinking about writing non tech related stuff as well.
+pewsonaw website powewed by gohugo.io. rawr x3 t-the pwimawy c-content of the w-website is usuawwy a-about technowogy a-and softwawe e-engineewing. rawr but f-fwom time to t-time i am thinking about wwiting nyon tech wewated stuff as weww.
 
-Here's some articles I am especially proud of:
+hewe's some awticwes i am especiawwy p-pwoud of:
 
-- [Role based Authorization with Identity Server 4](https://themisir.com/adding-role-claim-to-identity-server-4/) – this article was the reason why I decided to continue writing this blog. It got huge attention of search engines and I felt like I was there actually helping people! That was a great feeling.
-- [Introduction to Distributed Systems](https://themisir.com/distributed-systems/) – I wrote contents of this article to use as a speech material during a developer networking event that I attempted as a speaker for the first time. That event was special for me because it was the time I decided to "fix" my social anxiety and try exposing myself in order to see it's not really that hard.
-- [Implementing Ordered Concurrent Queue](https://themisir.com/implementing-ordered-queue/) – during the writing process of this I felt like a genius, only to realize afterwards that I am just re-implementing a priority queue. Still it was a great experience.
+- [wowe based authowization with identity s-sewvew 4](https://themisir.com/adding-role-claim-to-identity-server-4/) – this awticwe was the weason w-why i decided to c-continue wwiting t-this bwog. UwU it g-got huge attention o-of seawch engines a-and i fewt w-wike i was thewe a-actuawwy hewping peopwe! rawr x3 that was a gweat feewing.
+- [intwoduction to distwibuted systems](https://themisir.com/distributed-systems/) – i wwote contents of this awticwe t-to use as a s-speech matewiaw d-duwing a devewopew n-nyetwowking e-event that i attempted a-as a speakew f-fow the fiwst t-time. -.- that event was speciaw fow me because it was the time i decided to "fix" m-my sociaw anxiety and twy exposing mysewf in owdew t-to see it's not weawwy that h-hawd.
+- [impwementing owdewed concuwwent queue](https://themisir.com/implementing-ordered-queue/) – duwing the wwiting pwocess of t-this i fewt wike a-a genius, (⑅˘꒳˘) onwy t-to weawize aftewwawds t-that i am j-just we-impwementing a-a pwiowity q-queue. ( ͡o ω ͡o ) stiww it w-was a gweat expewience.
 
-Check out [my blog](https://themisir.com) for all the existing and upcoming blog posts.
+check out [my bwog](https://themisir.com) fow aww the existing and upcoming b-bwog posts.
 
 ## why gohugo?
 
-There's really not a simple answer to this, but there's multiple answers that together will make some sense:
+thewe's weawwy nyot a simpwe answew t-to this, òωó but t-thewe's muwtipwe a-answews that togethew w-wiww make s-some sense:
 
-- I get to use tools I am familiar with: git, cli, html+css
-- It is lightweight af, website loads within less than a second
-- Less hosting costs, the website does not have any dynamic content so I can just upload contents to some bucket + CDN or something and serve it from there. Right now I am using [vercel](http://vercel.com) to host it which is more than enough for me.
+- i get to use toows i am famiwiaw w-with: git, ^•ﻌ•^ cwi, OwO h-htmw+css
+- it is wightweight af, ^•ﻌ•^ website woads w-within wess than a-a second
+- wess hosting costs, ( ͡o ω ͡o ) the website does n-nyot have any d-dynamic content s-so i can just u-upwoad contents t-to some bucket + c-cdn ow something a-and sewve it fwom t-thewe. UwU wight nyow i am using [vewcew](http://vercel.com) to host it which is mowe than enough f-fow me.

@@ -8,11 +8,11 @@ images:
   - https://images.unsplash.com/photo-1643114823006-a0fd52f70670?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1828&q=80
 ---
 
-First and foremost I want to write quick disclaimer before you start reading the article. The reason I wanted to write such article is that becuase as of writing this article there was not much of resources available on the internet to cover the subject. For some reason Microsoft lately decided that it's *good* idea to write blog posts instead of proper documentation for the new features they've introducing. So I wanted to share my findings to let other devs save up some time. But for no means I don't have deep knowledge of this subject. I might have gone thru some "hacky" workarounds in some cases that could have been written much better. I will try to update this article as I learn more *efficient* ways of doing things explained in this article. 
+fiwst and fowemost i want to wwite q-quick discwaimew b-befowe you stawt w-weading the a-awticwe. (U ﹏ U) the weason i-i wanted to w-wwite such awticwe i-is that becuase a-as of wwiting this awticwe thewe was nyot much of wesouwces avaiwabwe on the i-intewnet to covew the subject. -.- fow some weason micwosoft w-watewy decided that it's *good* idea to wwite bwog posts instead o-of pwopew documentation f-fow the n-nyew featuwes they've i-intwoducing. -.- s-so i wanted t-to shawe my findings t-to wet othew d-devs save up some time. ^^;; but fow nyo means i don't have deep knowwedge of this s-subject. >_< i might have gone thwu some "hacky" wowkawounds i-in some cases that couwd h-have been wwitten much bettew. mya i wiww twy to update this awticwe a-as i weawn mowe *efficient* ways of doing things expwained in t-this awticwe.
 
-## Why would you need to use Source Generator?
+## why wouwd you nyeed to use souwce g-genewatow?
 
-Last week I was writing a binary serialization utility for converting runtime objects into binary format that can be efficiently serialized and deserialized. The serializer itself is composed of 2 parts. Binary encoder, writer or whatever you call it, that provides API to write primitives like byte, int, string to the buffer using methods like: `encoder.WriteUInt64(value)`. It's simple and straightforward. And the second part is the object serializer that maps fields of runtime objects into corresponding encoder method and writes its data to the buffer using that method. Here's what it looks like:
+wast week i was wwiting a binawy s-sewiawization utiwity f-fow convewting w-wuntime objects i-into binawy f-fowmat that can b-be efficientwy s-sewiawized and desewiawized. (⑅˘꒳˘) t-the sewiawizew itsewf is composed of 2 pawts. (U ᵕ U❁) binawy encodew, -.- wwitew o-ow nyanievew you caww it, ^^;; that pwovides api to w-wwite pwimitives wike byte, >_< int, s-stwing to the buffew using methods wike: `encoder.WriteUInt64(value)`. σωσ it's simpwe and stwaightfowwawd. σωσ a-and the second p-pawt is the object s-sewiawizew that m-maps fiewds o-of wuntime objects i-into cowwesponding e-encodew method a-and wwites its data to the buffew using that method. >_< hewe's nyani it wooks w-wike:
 
 ```csharp
 public sealed class Customer
@@ -32,19 +32,18 @@ public sealed class Serializer {
 }
 ```
 
-As you can see there's nothing complex happening here. It's just 1:1 mapping of properties to corresponding `Write___` methods. It will quickly become boring to write all those serializer implementation for each object type if you need to serialize lots of different object. You will have to write all the boilerplate one by one manually. So I decided to spend days to automate this instead of spending a few hours to write all of this manually.
+as you can see thewe's nyothing compwex h-happening h-hewe. 🥺 it's just 1:1 m-mapping of p-pwopewties to cowwesponding `Write___` methods. -.- it wiww quickwy become b-bowing to wwite a-aww those sewiawizew i-impwementation f-fow each object t-type if you n-nyeed to sewiawize w-wots of diffewent o-object. (ˆ ﻌ ˆ)♡ you wiww have to wwite aww the boiwewpwate one by one manuawwy. (⑅˘꒳˘) so i-i decided to spend days to automate this instead o-of spending a few houws to wwite a-aww of this manuawwy.
 
-> There's actually other *good* reasons to automate this kind of stuff aside from the boredom part.
->
-> - It will be much easier to introduce new object types and use them with the serializer in future
-> - You can and most probably will mess up when copy pasting from somewhere when writing boilerplate manually.
-> - It's just fun! And a good weekend activity.
+> thewe's actuawwy othew *good* weasons to automate this kind of s-stuff aside fwom t-the bowedom pawt.
+> - it wiww be much easiew to intwoduce n-nyew object types a-and use them w-with the sewiawizew i-in futuwe
+> - you can and most pwobabwy wiww mess u-up when copy p-pasting fwom somewhewe w-when wwiting b-boiwewpwate m-manuawwy.
+> - it's just fun! (ꈍᴗꈍ) and a good weekend a-activity.
 
-To automate the above process I decided to try out new C# feature introduced with C# 9: "Source Code Generators". Source generators (or just "codegen" if you fancy) is a metaprogramming pattern that's been there for a long time in other programming languages.
+to automate the above pwocess i decided t-to twy out n-nyew c# featuwe i-intwoduced with c-c# 9: "souwce c-code genewatows". σωσ s-souwce genewatows (ow j-just "codegen" i-if you fancy) is a metapwogwamming pattewn that's been thewe fow a wong time i-in othew pwogwamming wanguages.
 
-# Getting Started with C# source generators
+# getting stawted with c# souwce genewatows
 
-To get started with C# source generators first create an empty class library project. And add the following references to the project:
+to get stawted with c# souwce genewatows f-fiwst cweate a-an empty cwass w-wibwawy pwoject. o.O a-and add the f-fowwowing wefewences t-to the pwoject:
 
 ```xml
 <ItemGroup>
@@ -53,7 +52,7 @@ To get started with C# source generators first create an empty class library pro
 </ItemGroup>
 ```
 
-The next step is to create a class for our generator code. The class should implement `ISourceGenerator` interface and be annotated with the `[Generator]` attribute:
+the nyext step is to cweate a cwass f-fow ouw genewatow c-code. OwO the cwass s-shouwd impwement `ISourceGenerator` intewface and be annotated with t-the `[Generator]` attwibute:
 
 ```csharp
 [Generator]
@@ -74,9 +73,9 @@ public sealed class SampleSourceGenerator : ISourceGenerator
 }
 ```
 
-As you can see source generator interface contains 2 methods. I'm not entirely sure but I guess the `Initialize` method is executed when compiler starts to parse the source code and after parsing and resolving is done the `Execute` method will be called. We are going to write most of our generator logic inside `Execute` method which accepts `GeneratorExecutionContext` as an argument. Execution context contains all the needed information about the parsed source code and utilities for injecting source code and providing diagnostics messages.
+as you can see souwce genewatow intewface c-contains 2 m-methods. òωó i'm n-nyot entiwewy suwe b-but i guess t-the `Initialize` method is exekawaii~d when compiwew s-stawts to pawse t-the souwce code a-and aftew pawsing a-and wesowving i-is done the `Execute` method wiww be cawwed. OwO we awe going t-to wwite most o-of ouw genewatow w-wogic inside `Execute` method which accepts `GeneratorExecutionContext` as an awgument. execution context c-contains aww the n-nyeeded infowmation a-about the p-pawsed souwce code a-and utiwities f-fow injecting s-souwce code and p-pwoviding diagnostics messages.
 
-To test our generator let's create a sample console app project. Then reference newly created generator project:
+to test ouw genewatow wet's cweate a-a sampwe consowe a-app pwoject. òωó t-then wefewence newwy c-cweated genewatow p-pwoject:
 
 ```xml
 <ItemGroup>
@@ -86,15 +85,15 @@ To test our generator let's create a sample console app project. Then reference 
 </ItemGroup>
 ```
 
-After compiling sample project you can reference the code we dynamically injected using source generator. Try accessing `Example.Value` to see that in effect.
+aftew compiwing sampwe pwoject you c-can wefewence t-the code we dynamicawwy i-injected u-using souwce genewatow. òωó t-twy accessing `Example.Value` to see that in effect.
 
-That's the bare minimum for writing source generator. But what you can do with it doesn't end here. C# source generator is more than just a simple codegenerator, it also lets you access to parsed syntax tree of the project, so you can precudially generate code based on existing code.
+that's the bawe minimum fow wwiting s-souwce genewatow. :3 b-but nyani you c-can do with it d-doesn't end hewe. (U ﹏ U) c-c# souwce genewatow i-is mowe t-than just a simpwe c-codegenewatow, -.- it awso wets you access to pawsed syntax twee of the pwoject, s-so you can pwecudiawwy genewate code based on existing c-code.
 
-# Accessing to source code with Syntax receivers
+# accessing to souwce code with syntax w-weceivews
 
-Let's say for example you want to get list of classes that's been annotated with a specific attribute. In my use case I wanted to get list of classes that has `[Message]` attribute. Then I'll use that list to generate specific serialization code for each message type.
+wet's say fow exampwe you want to g-get wist of cwasses t-that's been a-annotated with a-a specific attwibute. (⑅˘꒳˘) i-in my use c-case i wanted to g-get wist of cwasses t-that has `[Message]` attwibute. 🥺 then i'ww use that wist t-to genewate specific s-sewiawization c-code fow each m-message type.
 
-Let's first implement a `ISyntaxReceiver` interface. The bellow implementation will store all class declarations that have attribute named "Message" or "MessageAttribute".
+wet's fiwst impwement a `ISyntaxReceiver` intewface. òωó the bewwow impwementation w-wiww stowe a-aww cwass decwawations t-that have a-attwibute nyamed "message" o-ow "messageattwibute".
 
 ```csharp
 public sealed class SampleSyntaxReceiver : ISyntaxReceiver
@@ -125,7 +124,7 @@ public sealed class SampleSyntaxReceiver : ISyntaxReceiver
 }
 ```
 
-To use the following syntax receiver we need to register it on the `Initialize` method of the source generator context:
+to use the fowwowing syntax weceivew w-we nyeed to w-wegistew it on the `Initialize` method of the souwce genewatow context:
 
 ```csharp
 public void Initialize(GeneratorInitializationContext context)
@@ -134,7 +133,7 @@ public void Initialize(GeneratorInitializationContext context)
 }
 ```
 
-To access list of messages from generator's Execute method you can do the following:
+to access wist of messages fwom genewatow's e-exekawaii~ m-method you c-can do the fowwowing:
 
 ```csharp
 public void Execute(GeneratorExecutionContext context)
@@ -150,9 +149,9 @@ public void Execute(GeneratorExecutionContext context)
 }
 ```
 
-# What is Syntax nodes and Symbols?
+# nani is syntax nyodes and symbows?
 
-Understanding difference between syntax nodes and symbols is a bit tricky when working with C# analyzers. Let's first take a look into syntax nodes. To simply take syntax nodes are just C# parse tree nodes. It's tree representation of the source code. The tricky part is that symbols are also looks like syntax tree nodes. It has similar tree structure and represents source code. But the difference is that identifiers on syntax nodes are not resolved, meaning you can't directly access properties of the certain identifiers. For example take a look at the following code:
+undewstanding diffewence between s-syntax nyodes and s-symbows is a bit t-twicky when wowking w-with c# anawyzews. nyaa~~ w-wet's f-fiwst take a wook i-into syntax nyodes. /(^•ω•^) t-to simpwy take syntax nyodes awe just c# pawse twee nyodes. rawr it's twee wepwesentation o-of the souwce code. OwO the twicky pawt is t-that symbows awe awso wooks wike s-syntax twee nyodes. (U ﹏ U) it has simiwaw twee stwuctuwe and wepwesents s-souwce code. >_< but the diffewence i-is that identifiews o-on syntax nyodes awe nyot wesowved, rawr x3 meaning you can't diwectwy access pwopewties o-of the cewtain identifiews. mya fow exampwe take a wook at the fowwowing code:
 
 ```csharp
 interface IHandler {
@@ -164,9 +163,9 @@ class MyHandler : IHandler {
 }
 ```
 
-If we find syntax node for `MyClass` declaration we can see that the class does implements a type called `IHandler` but to get more details about the type we will either need to scan syntax tree ourselves and find type with same name. To help with that C# analyzer API provides certain symbols. For example if we can find matching `ITypeSymbol` for `MyHandler` declaration node we can directly access type details for the implemented interfaces.
+if we find syntax nyode fow `MyClass` decwawation we can see that the c-cwass does impwements a-a type cawwed `IHandler` but to get mowe detaiws about the t-type we wiww eithew n-nyeed to scan s-syntax twee o-ouwsewves and find t-type with same n-nyame. rawr to hewp w-with that c# anawyzew a-api pwovides cewtain symbows. σωσ fow exampwe if we can find matching `ITypeSymbol` fow `MyHandler` decwawation nyode we can diwectwy a-access type detaiws f-fow the impwemented i-intewfaces.
 
-To resolve a matching symbol for certain syntax node you'll need `GeneratorExecutionContext` from syntax generator's Execute method.
+to wesowve a matching symbow fow c-cewtain syntax node y-you'ww nyeed `GeneratorExecutionContext` fwom syntax genewatow's exekawaii~ m-method.
 
 ```csharp
 TypeDeclarationSyntax typeNode;
@@ -178,9 +177,9 @@ if (semanticModel.GetDeclaredSymbol(typeNode) is ITypeSymbol typeSymbol)
 }
 ```
 
-### Bonus: Get element type symbol from array `ITypeSymbol`
+### bonus: get ewement type symbow fwom a-awway `ITypeSymbol`
 
-If you ever need to get element type of an array type symbol (eg: to get type symbol for `byte` from `[]byte` type symbol), first try casting type symbol into `IArrayTypeSymbol` and then you can get element type from `IArrayTypeSymbol.ElementType` property:
+if you evew nyeed to get ewement t-type of an awway t-type symbow (eg: t-to get type symbow f-fow `byte` fwom `[]byte` type symbow), (ꈍᴗꈍ) fiwst twy casting t-type symbow into `IArrayTypeSymbol` and then you can get ewement type f-fwom `IArrayTypeSymbol.ElementType` pwopewty:
 
 ```csharp
 if (typeSymbol is IArrayTypeSymbol { Rank: 1 } arrayTypeSymbol)
@@ -189,11 +188,11 @@ if (typeSymbol is IArrayTypeSymbol { Rank: 1 } arrayTypeSymbol)
 }
 ```
 
-# Debugging C# source generators
+# debugging c# souwce genewatows
 
-When developing source generators another sturggle I had is debugging the generators themselves. Because those generators were ran during compilation you can't debug it like casual C# projects. So we have to somehow attach our debugger into compiler process. But at this stage we'll have to pay the price of writing good performing code. The problem is the generator will run so fast that you won't have enough time to attach debugger to the compiler. Or even if you get lucky a few times, it will be very annoying to do it consistently. So when researching possible options I came across a nice workaround.
+when devewoping souwce genewatows a-anothew stuwggwe i-i had is debugging t-the genewatows t-themsewves. rawr b-because those genewatows w-wewe wan d-duwing compiwation y-you can't debug it wike casuaw c# pwojects. OwO so we have to somehow attach ouw d-debuggew into compiwew pwocess. (U ﹏ U) but at this stage w-we'ww have to pay the pwice o-of wwiting good pewfowming code. >_< the pwobwem is the genewatow wiww w-wun so fast that you won't have e-enough time to a-attach debuggew to the compiwew. rawr x3 ow even if you get wucky a few times, mya it wiww b-be vewy annoying to do it consistentwy. nyaa~~ so when weseawching possibwe options i c-came acwoss a nyice wowkawound.
 
-The trick is actually pretty simple. You just wait until the debugger is attached.
+the twick is actuawwy pwetty simpwe. OwO y-you just wait u-untiw the debuggew i-is attached.
 
 ```csharp
 public void Execute(GeneratorExecutionContext context)
@@ -207,21 +206,21 @@ public void Execute(GeneratorExecutionContext context)
 }
 ```
 
-To make sure I can toggle debugging I added an `#if DEBUG_GENERATOR`  macro. When I need to attach debugger I just add a line on top of the file:
+to make suwe i can toggwe debugging i-i added an `#if DEBUG_GENERATOR`  macwo. OwO when i need to attach debuggew i-i just add a-a wine on top o-of the fiwe:
 
 ```csharp
 #define DEBUG_GENERATOR
 ```
 
-After adding this piece of code, just compile your project as usual and you'll see that compiler will hang at some point, it's becaue of our sleep loop. At that point you can attach debugger to the active `cscript` process.
+aftew adding this piece of code, j-just compiwe youw p-pwoject as usuaw a-and you'ww see t-that compiwew w-wiww hang at some p-point, rawr x3 it's becaue o-of ouw sweep w-woop. rawr at that point you can attach debuggew to the active `cscript` pwocess.
 
-Source: https://nicksnettravels.builttoroam.com/debug-code-gen/
+souwce: [https://nicksnettwavews.buiwttowoam.com/debug-code-gen/](https://nicksnettravels.builttoroam.com/debug-code-gen/)
 
-# Diagnostics
+# diagnostics
 
-Sometimes we might want to provide some diagnostics feedback to the developer to let them know when things aren't going as expected. As mentioned earlier the context provided on `Execute` method does provides needed utility for logging diagnostic messages using `context.ReportDiagnostic(Diagnostic.Create(descriptor, location, ...args))` method. The diagnostic entity requires diagnostic descriptor which contains stuff like message, message type, title, diagnostic code, help link and other stuff, optional location to pinpoint exact location of the issue on the source code, and optional arguments for descriptor (works same way as `string.Format` args). 
+sometimes we might want to pwovide s-some diagnostics f-feedback to the d-devewopew to w-wet them know when t-things awen't g-going as expected. a-as mentioned e-eawwiew the context pwovided on `Execute` method does pwovides nyeeded utiwity f-fow wogging d-diagnostic messages u-using `context.ReportDiagnostic(Diagnostic.Create(descriptor, location, ...args))` method. (U ﹏ U) the diagnostic entity wequiwes d-diagnostic d-descwiptow which c-contains stuff w-wike message, -.- m-message type, (ˆ ﻌ ˆ)♡ titwe, d-diagnostic c-code, (⑅˘꒳˘) hewp wink a-and othew stuff, (U ᵕ U❁) optionaw wocation to pinpoint exact wocation of the issue on the s-souwce code, -.- and optionaw awguments fow descwiptow (wowks s-same way as `string.Format` awgs).
 
-To keep things clean I would suggest storing diagnostic descriptors on a separate static class like this:
+to keep things cwean i wouwd suggest s-stowing diagnostic d-descwiptows o-on a sepawate s-static cwass wike t-this:
 
 ```csharp
 internal static class DiagnosticDescriptors
@@ -232,7 +231,7 @@ internal static class DiagnosticDescriptors
 }
 ```
 
-To report a diagnostic message just call `ReportDiagnostic` with all the needed parameters:
+to wepowt a diagnostic message just c-caww `ReportDiagnostic` with aww the nyeeded pawametews:
 
 ```csharp
 context.ReportDiagnostic(Diagnostic.Create(
@@ -241,11 +240,11 @@ context.ReportDiagnostic(Diagnostic.Create(
   messageType.ToDisplayString())); // Argument will be used to format descriptor message
 ```
 
-# Bonus: Generating source code
+# bonus: genewating souwce code
 
-First of all DO use `StringBuilder` if you are going to build source code procedurally. Because concatenating strings using `+` operator will cause unnecessary memory allocations and will put some pressure on the garbage collector. This might not seem like a big deal, and indeed it's not. It's just waste of resources and possibly time depending on generator and project scale.
+fiwst of aww do use `StringBuilder` if you awe going to buiwd souwce c-code pwoceduwawwy. 🥺 b-because concatenating s-stwings u-using `+` opewatow wiww cause unnecessawy m-memowy awwocations a-and wiww put s-some pwessuwe on t-the gawbage cowwectow. t-this might n-nyot seem wike a-a big deaw, σωσ and i-indeed it's nyot. >_< it's just waste of wesouwces and possibwy time depending on g-genewatow and pwoject scawe.
 
-One think I always wanted when writing source generators was to using templating engine to generate source code. I thought something like razor pages would be so cool to use with source generators. So instead of writing:
+one think i awways wanted when wwiting s-souwce genewatows w-was to using t-tempwating e-engine to genewate s-souwce code. rawr i-i thought something w-wike wazow pages w-wouwd be so coow to use with souwce genewatows. σωσ so instead of wwiting:
 
 ```csharp
 var sb = new StringBuilder();
@@ -254,7 +253,7 @@ sb.AppendLine("  public const int Version = 5;");
 sb.AppendLine("}");
 ```
 
-.. i could write much more readible and maintainable templates like:
+.. i couwd wwite much mowe weadibwe a-and maintainabwe t-tempwates wike:
 
 ```razor
 public @(Model.IsSealed ? "sealed" : "")partial class @Model.ClassName {
@@ -262,17 +261,17 @@ public @(Model.IsSealed ? "sealed" : "")partial class @Model.ClassName {
 }
 ```
 
-I didn't wanted to use razor pages because runtime compiling razor pages is kind of overwhelming, so I wanted something lightweight. For a moment I even thought about writing another source generator for a custom templating language to write templates and generate template builder procedurally. Then I decided to do some research to see if there's any preexisting solution for that problem, and indeed there was - T4 text templates. And it's kind of built-in feature of .NET. What a shame I haven't heard of it in a long time. Better late than never I guess... Anyway, I ended up using T4 templates to generate source code which made maintiaining templates much more efficent and less painful.
+i didn't wanted to use wazow pages b-because wuntime c-compiwing wazow p-pages is kind o-of ovewwhewming, mya s-so i wanted something w-wightweight. f-fow a moment i-i even thought about wwiting anothew souwce genewatow fow a custom tempwating wanguage t-to wwite tempwates and genewate tempwate b-buiwdew pwoceduwawwy. nyaa~~ then i decided t-to do some weseawch to see if thewe's any pweexisting sowution f-fow that pwobwem, (⑅˘꒳˘) and indeed t-thewe was - t4 t-text tempwates. rawr x3 and it's kind of buiwt-in featuwe of .net. (✿oωo) nyani a shame i haven't h-heawd of it in a wong time. (ˆ ﻌ ˆ)♡ bettew wate than nyevew i guess... (˘ω˘) anyway, i ended u-up using t4 tempwates to genewate s-souwce code w-which made maintiaining t-tempwates m-much mowe efficent and wess painfuw.
 
-You can read more about T4 templates here: https://docs.microsoft.com/en-us/visualstudio/modeling/code-generation-and-t4-text-templates
+you can wead mowe about t4 tempwates h-hewe: [https://docs.micwosoft.com/en-us/visuawstudio/modewing/code-genewation-and-t4-text-tempwates](https://docs.microsoft.com/en-us/visualstudio/modeling/code-generation-and-t4-text-templates)
 
-To get started with T4 templates add the following package reference if the IDE won't add it automatically otherwise the project won't compile:
+to get stawted with t4 tempwates a-add the fowwowing p-package wefewence i-if the ide won't a-add it automaticawwy o-othewwise t-the pwoject w-won't compiwe:
 
 ```csharp
 <PackageReference Include="System.CodeDom" Version="6.0.0" />
 ```
 
-Then create a file with `.tt` extension (or choose runtime T4 template option from new item dialog). The above template can be written like this in that template file:
+then cweate a fiwe with `.tt` extension (ow choose wuntime t4 t-tempwate option f-fwom nyew item diawog). (U ᵕ U❁) t-the above t-tempwate can be w-wwitten wike this i-in that tempwate f-fiwe:
 
 ```csharp
 <#@ template language="C#" #>
@@ -282,7 +281,7 @@ public <#= Model.IsSealed ? "sealed " : "" #>partial class <#= Model.ClassName #
 }
 ```
 
-To inject parameters into the template create a partial class with the same name as the template file. For example if you created `Example.tt` the partial class should be called `Example`. In that class you can define properties that will be visible from the template:
+to inject pawametews into the tempwate c-cweate a pawtiaw c-cwass with t-the same nyame a-as the tempwate f-fiwe. o.O fow exampwe i-if you cweated `Example.tt` the pawtiaw cwass shouwd be cawwed `Example`. OwO in that cwass you can define pwopewties t-that wiww b-be visibwe fwom t-the tempwate:
 
 ```csharp
 public partial class Example
@@ -296,7 +295,7 @@ public partial class Example
 }
 ```
 
-To execute the following template you need to instantiate template class and call `TransformText` method on the instance like:
+to exekawaii~ the fowwowing tempwate y-you nyeed to i-instantiate tempwate c-cwass and c-caww `TransformText` method on the instance wike:
 
 ```csharp
 var example = new Example(classModel);
@@ -304,8 +303,8 @@ var example = new Example(classModel);
 string source = example.TransformText();
 ```
 
-# Conclusion
+# concwusion
 
-That's it! I hope this article will cover some edge cases or poorly documented parts of writing source generators. This article definitely isn't beginner friendly, if you're looking for a step by step guide I would suggest checking out other articles or official documentation. However this article might help you when you want to do something kind of extraordinary. When I wrote my first source generator finding a decent resource to get answers for my questions was really struggling. Official documentation didn't covered most of the edge cases and advanced use cases. Existing implementations were either too simple or too complex (with multiple layers making it hard to navigate) to find useful parts. So I decided to cover up all my findings through the journey into an article to help "future me" and othrers as well.
+that's it! 😳😳😳 i hope this awticwe wiww c-covew some edge c-cases ow poowwy d-documented pawts o-of wwiting souwce g-genewatows. 🥺 t-this awticwe definitewy i-isn't b-beginnew fwiendwy, mya if you'we wooking fow a step by step guide i wouwd suggest checking o-out othew awticwes ow officiaw documentation. 🥺 h-howevew this awticwe might h-hewp you when you want to do something kind of extwaowdinawy. >_< when i-i wwote my fiwst souwce genewatow f-finding a decent w-wesouwce to get answews fow my questions was weawwy stwuggwing. >_< officiaw documentation d-didn't covewed most of the edge cases and advanced use cases. (⑅˘꒳˘) existing i-impwementations wewe eithew t-too simpwe ow too c-compwex (with m-muwtipwe wayews m-making it hawd to nyavigate) to find usefuw pawts. /(^•ω•^) s-so i decided to covew up aww my findings thwough t-the jouwney into an awticwe to hewp "futuwe me" and othwews as weww.
 
-Also I will try to update this article as I gain more experience with the source analyzers / generators. I'm currently at the first stage of Dunning-Kruger scale for C# source analyzers, I don't know much about it to say how well I know about it.
+awso i wiww twy to update this awticwe a-as i gain m-mowe expewience w-with the souwce a-anawyzews / genewatows. i-i'm cuwwentwy a-at the fiwst s-stage of dunning-kwugew s-scawe fow c# souwce anawyzews, σωσ i don't know much about it to say how w-weww i know about it.

@@ -8,23 +8,23 @@ images:
   - https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDN8fHNlY3VyaXR5fGVufDB8fHx8MTYyMDU1MjQwNw&ixlib=rb-1.2.1&q=80&w=2000
 ---
 
-If you ever wanted to add multi-client authentication to your ASP.NET Core based web application, you've probably used [Identity Server 4](https://github.com/IdentityServer/IdentityServer4/) because of its popularity. It helps to manage authentication clients, resource endpoints easily. The main feature is its OAuth 2.0 implementation. So you cheat time by not implementing your own token, user info, device, and other tons of endpoints.
+if you evew wanted to add muwti-cwient a-authentication t-to youw asp.net c-cowe based w-web appwication, o.O y-you've pwobabwy u-used [identity sewvew 4](https://github.com/IdentityServer/IdentityServer4/) because of its popuwawity. σωσ it hewps t-to manage authentication c-cwients, σωσ w-wesouwce endpoints e-easiwy. >_< t-the main featuwe i-is its oauth 2.0 i-impwementation. :3 s-so you cheat time by nyot impwementing youw own token, (U ﹏ U) usew info, -.- device, and o-othew tons of endpoints.
 
-## The Problem
+## the pwobwem
 
-But life doesn't goes well always and some weird things happen sometimes. Like IS4 documentation doesn't contains enough information about integrating ASP.NET Core Identity's Roles into access tokens. Why would you need that? Think about that scenario. You want to limit some endpoints to your own Staff users which does have **"Staff"** role. Like ASP.NET Core docs says [here](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles?view=aspnetcore-5.0#adding-role-checks) you simply add Roles property to `[Authorize]` attribute. But suddenly clients with the access tokens issued by IS4 couldn't access to those endpoints.
+but wife doesn't goes weww awways a-and some weiwd t-things happen sometimes. (ˆ ﻌ ˆ)♡ w-wike is4 d-documentation d-doesn't contains e-enough infowmation a-about integwating a-asp.net cowe identity's wowes into access tokens. (⑅˘꒳˘) why wouwd you nyeed that? t-think about that scenawio. (U ᵕ U❁) you want to wimit some e-endpoints to youw own staff u-usews which does have **"staff"** wowe. >_< wike asp.net cowe docs says [hewe](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles?view=aspnetcore-5.0#adding-role-checks) you simpwy add wowes pwopewty to `[Authorize]` attwibute. 🥺 but suddenwy cwients w-with the access t-tokens issued by i-is4 couwdn't access t-to those endpoints.
 
-The same thing happened to me when I wanted to make sure only some portion of users can be able to use some endpoints by implementing Role based authorization. After digging a bit deeper I found out that access tokens doesn't contains "role" claims which is required in order to use RBAC. It took many days to finally find out ways to add that claim to access tokens.
+the same thing happened to me when i-i wanted to make s-suwe onwy some p-powtion of usews c-can be abwe to u-use some endpoints b-by impwementing w-wowe based a-authowization. (U ᵕ U❁) aftew digging a bit deepew i found out that access tokens doesn't c-contains "wowe" cwaims which is wequiwed in owdew t-to use wbac. -.- it took many days t-to finawwy find out ways to add that cwaim to access tokens.
 
-## Adding claims to IS4
+## adding cwaims to is4
 
-Before adding role claim to access tokens, first we have to let IS4 know how to resolve "role" claims.
+befowe adding wowe cwaim to access t-tokens, 🥺 fiwst w-we have to wet is4 k-know how to wesowve "wowe" c-cwaims.
 
-Identity Server resolving claims from `IProfileService` service. Which is injected to DI container when you call `services.AddAspNetIdentity<T>()` in "Startup.cs". The profile service injected by IS4 - AspNet Identity integration itself uses another service called `IClaimsPrincipalFactory` to resolve claims.
+identity sewvew wesowving cwaims f-fwom `IProfileService` sewvice. ^•ﻌ•^ which is injected to di c-containew when y-you caww `services.AddAspNetIdentity<T>()` in "stawtup.cs". òωó the pwofiwe sewvice i-injected by i-is4 - aspnet identity i-integwation i-itsewf uses anothew s-sewvice cawwed `IClaimsPrincipalFactory` to wesowve cwaims.
 
-So, we either have to re-implement one of those services to add our custom claims.
+so, OwO we eithew have to we-impwement o-one of those sewvices t-to add ouw c-custom cwaims.
 
-I choose to extend exists class named `UserClaimsPrincipalFactory<TUser>` from [IdentityServer4.AspNetIdentity](https://www.nuget.org/packages/IdentityServer4.AspNetIdentity/?utm_source=themisir.com) package because it already contains implementation for adding default claims like sub, email, etc....
+i choose to extend exists cwass named `UserClaimsPrincipalFactory<TUser>` fwom [identitysewvew4.aspnetidentity](https://www.nuget.org/packages/IdentityServer4.AspNetIdentity/?utm_source=themisir.com) package because it awweady contains i-impwementation f-fow adding defauwt c-cwaims wike s-sub, 🥺 emaiw, òωó etc....
 
 ```cs
 namespace App.Services
@@ -54,7 +54,7 @@ namespace App.Services
 }
 ```
 
-And inject our implementation to DI container.
+and inject ouw impwementation to d-di containew.
 
 ```cs
 public void ConfigureServices(IServiceCollection services)
@@ -63,11 +63,11 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-## Adding Role claim to Access Tokens
+## adding wowe cwaim to access tokens
 
-### Create identity resource
+### cweate identity wesouwce
 
-I created an `IdentityResource` with name `"roles"`.
+i cweated an `IdentityResource` with nyame `"roles"`.
 
 ```
 new IdentityResource
@@ -78,9 +78,9 @@ new IdentityResource
 }
 ```
 
-### Allow requesting roles scope by the client
+### awwow wequesting wowes scope by the c-cwient
 
-Add the resource (scope) name to Client's `AllowedScopes` list.
+add the wesouwce (scope) nyame to c-cwient's `AllowedScopes` wist.
 
 ```cs
 new Client
@@ -102,11 +102,11 @@ new Client
 },
 ```
 
-The steps above ensures that "role" claim is added to IS4 user info endpoint. You can confirm the result by sending `GET /connect/userinfo` request.
+the steps above ensuwes that "wowe" c-cwaim is added t-to is4 usew info e-endpoint. òωó you c-can confiwm the w-wesuwt by sending `GET /connect/userinfo` wequest.
 
-### Add "role"  claim to access tokens
+### add "wowe"  cwaim to access tokens
 
-You have to update your **ApiResource**s to add additional claims to generated access tokens.
+you have to update youw **apiwesouwce**s to add additionaw cwaims to genewated a-access tokens.
 
 ```cs
 new ApiResource(
@@ -116,12 +116,12 @@ new ApiResource(
 ),
 ```
 
-> Previously logged-in users have to re-login to ensure access tokens are renewed in order to include `role` claims.
+> pweviouswy wogged-in usews have to w-we-wogin to ensuwe a-access tokens a-awe wenewed in o-owdew to incwude `role` cwaims.
 
-I would also recommend setting `UpdateAccessTokenClaimsOnRefresh` value to `true` on your client configuration to ensure that new issued access tokens will include **"role"** claim.
+i wouwd awso wecommend setting `UpdateAccessTokenClaimsOnRefresh` vawue to `true` on youw cwient configuwation to e-ensuwe that nyew i-issued access tokens w-wiww incwude **"wowe"** cwaim.
 
-## Conclusion
+## concwusion
 
-We have updated  IProfileService to add "role" claim to IS4. Then modified our client and resource configs to allow and include the claim in access token.
+we have updated  ipwofiwesewvice to add "wowe" cwaim t-to is4. (U ᵕ U❁) then m-modified ouw cwient a-and wesouwce c-configs to awwow a-and incwude t-the cwaim in access t-token.
 
-That's it. I hope this article helped you.
+that's it. (ꈍᴗꈍ) i hope this awticwe hewped y-you.

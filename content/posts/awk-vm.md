@@ -8,41 +8,41 @@ images:
 
 ---
 
-*This is a short (maybe long, I haven't thought about the length yet) story about what an act of laziness is capable of.*
+*this is a showt (maybe wong, o.O i haven't t-thought about t-the wength yet) s-stowy about n-nyani an act of w-waziness is capabwe o-of.*
 
-As of writing this my primary job was consist of maintaining an internal software used by the corp. The maintenance was consist of owning the whole process, from implementing new features, fixing bugs, managing deployments to dealing with customer complaints and spending some days with replying to emails with the same template reponse on how to install a particular software.
+as of wwiting this my pwimawy job w-was consist of m-maintaining an intewnaw s-softwawe u-used by the cowp. -.- t-the maintenance w-was consist of o-owning the whowe p-pwocess, ^^;; fwom impwementing nyew featuwes, >_< fixing bugs, mya managing depwoyments to d-deawing with customew compwaints and spending s-some days with wepwying to emaiws w-with the same tempwate weponse on how to instaww a pawticuwaw s-softwawe.
 
-This day was one of the days where I was working on setting up new environments to deploy the software onto. I got 2 new machines to deploy. The process is simplye yet can become burdensome or boring at times. I had to modify a bunch of configurations and deal with Windows related issues. To be honest, I really hate windows as a server software, but at the moment it was the best option we've got due to issues I can not put down here. Long story short, there was 2 machines I have to configure and install the software on.
+this day was one of the days whewe i-i was wowking o-on setting up nyew e-enviwonments t-to depwoy the softwawe o-onto. -.- i got 2 n-nyew machines t-to depwoy. ( ͡o ω ͡o ) the p-pwocess is simpwye yet can become buwdensome ow bowing at times. rawr x3 i had to modify a-a bunch of configuwations and deaw with windows w-wewated issues. nyaa~~ to be honest, /(^•ω•^) i-i weawwy hate windows as a sewvew softwawe, rawr but at the moment it w-was the best option we've got d-due to issues i c-can nyot put down hewe. OwO wong stowy showt, (U ﹏ U) thewe was 2 machines i have to configuwe a-and instaww the softwawe on.
 
-I put some [music to focus on](https://open.spotify.com/track/2bPGTMB5sFfFYQ2YvSmup0?si=5353b37d4f45492e), and started working. At one point I had a domain name for the machine something like "WH0023S878979.something.something.themisir.com". I had to write that domain name in lower case on one of the config files. To be honest it doesn't have to be, but I am a bit obsessed with consistency, so I had no choice. There was just 3-4 letters on the hostname that needed to be replaced with their matching lowercase characters. I could just place cursor on the right place and replace them. However, I am now writing a blog post about how I didn't bothered to do it because of my laziness, you see it would've just taken 2-3 seconds to just simply replace those characters and done. That's why I decided to use my time efficiently and went to search how can I lower case the string without having to do it manually. I know I could have written a small python script or something similar in seconds. That's just as boring as doing it manually, also heck that would take a few mintues to automate a few seconds of one-off job.
+i put some [music to focus on](https://open.spotify.com/track/2bPGTMB5sFfFYQ2YvSmup0?si=5353b37d4f45492e), (U ﹏ U) and stawted wowking. (⑅˘꒳˘) at one point i-i had a domain n-nyame fow the m-machine something w-wike "wh0023s878979.something.something.themisiw.com". òωó i-i had to w-wwite that domain n-nyame in wowew c-case on one of the config fiwes. ʘwʘ to be honest it doesn't have to be, /(^•ω•^) but i am a-a bit obsessed with consistency, ʘwʘ so i had nyo choice. σωσ t-thewe was just 3-4 wettews o-on the hostname that nyeeded to be wepwaced with theiw matching w-wowewcase chawactews. i couwd j-just pwace cuwsow o-on the wight pwace and wepwace them. OwO howevew, i am nyow wwiting a bwog post about h-how i didn't bothewed to do it because of my waziness, 😳😳😳 you see it wouwd've just t-taken 2-3 seconds to just simpwy w-wepwace those c-chawactews and d-done. 😳😳😳 that's why i-i decided to use my time efficientwy and went t-to seawch how can i wowew case the stwing without h-having to do it manuawwy. o.O i know i couwd have wwitten a smow python scwipt ow something simiwaw i-in seconds. ( ͡o ω ͡o ) that's just as bowing a-as doing it m-manuawwy, (U ﹏ U) awso h-heck that wouwd take a few mintues to automate a few seconds of o-one-off job.
 
-I wanted somewhat elegant solution. Something that I can quickly fire off as needed. A bash shortcut would be neat. A quick search on [kagi](https://kagi.com) [^kagi] revealed a bunch of stack exchange links. I clicked on one of them and saw an answer with somewhat elegant solution. One of which looked like this:
+i wanted somenani ewegant sowution. (U ᵕ U❁) s-something that i-i can quickwy f-fiwe off as nyeeded. (⑅˘꒳˘) a-a bash showtcut w-wouwd be nyeat. ( ͡o ω ͡o ) a-a quick seawch o-on [kagi](https://kagi.com) [^kagi] weveawed a bunch of stack exchange w-winks. (U ᵕ U❁) i cwicked o-on one of them a-and saw an answew w-with somenani e-ewegant sowution. (⑅˘꒳˘) o-one of which w-wooked wike this:
 
 ```shell
 awk '{ print tolower($0) }'
 ```
 
-The solution looked neat, but for some reason I didn't had capability to remember it. It just seemed obscure to me, perhaps I didn't gasped what the `awk` tool is capable of. I remember using it in the past. Last time I have used it to automate a bunch of AWS operations because the "Empty" button which supposed to remove all the objects from a S3 bucket did not in fact removed them, so I had to use my precious AWS API call quota to query & delete them one by one (before you say it, the bucket was versioned which made recursive deletion useless since the objects would still persist with a tombstone on them). Anyway, I found a handy bash script off the stack exchange forums and tossed my api key in and ran it. The script was consist of a bunch of awk's piped with some awscli commands. I surely would review the script before executing it on my aws environment, would say any deliberate person. I wasn't one of them, I ran the script then went to play minecraft on my other machine with the boys on the server I had setup a few days ago. To be fair there wasn't much to lose, I was just cleaning up one of my old AWS accounts to retire, because it was going to run out of sweet AWS Activate credits.
+the sowution wooked nyeat, (⑅˘꒳˘) but fow s-some weason i d-didn't had capabiwity t-to wemembew i-it. ( ͡o ω ͡o ) it just seemed o-obscuwe to m-me, pewhaps i didn't g-gasped nyani t-the `awk` toow is capabwe of. /(^•ω•^) i wemembew using i-it in the past. ʘwʘ w-wast time i h-have used it to a-automate a bunch o-of aws opewations b-because the "empty" b-button which s-supposed to wemove aww the objects fwom a s3 bucket did nyot in fact wemoved t-them, σωσ so i had to use my pwecious aws api caww q-quota to quewy & dewete them one b-by one (befowe you say it, OwO the bucket was vewsioned which made w-wecuwsive dewetion usewess since t-the objects wouwd s-stiww pewsist with a tombstone on them). 😳😳😳 anyway, 😳😳😳 i found a handy bash scwipt o-off the stack exchange fowums and tossed my api key in and wan it. o.O the scwipt was c-consist of a bunch of awk's piped w-with some awscwi c-commands. ( ͡o ω ͡o ) i-i suwewy wouwd weview t-the scwipt befowe executing it on my aws enviwonment, (U ﹏ U) w-wouwd say any dewibewate pewson. (///ˬ///✿) i wasn't o-one of them, >w< i wan the scwipt then went to pway minecwaft on my othew machine with the boys o-on the sewvew i had setup a few d-days ago. rawr to be f-faiw thewe wasn't m-much to wose, mya i was just cweaning up one of my owd aws accounts t-to wetiwe, ^^ because i-it was going to wun out of s-sweet aws activate c-cwedits.
 
-[^kagi]: a great alternative to google btw, i've been using for a few months; really neat with lots of customization options which is pretty rare those days
+[^kagi]: a gweat awtewnative to googwe btw, (U ᵕ U❁) i-i've been using f-fow a few months; w-weawwy nyeat w-with wots of customization o-options w-which is pwetty w-wawe those days
 
-Back to awk, even though multiple times I have used it in the past, I never bothered to actually gasp it and try to understand. This resulted me never learning it how to use it properly. It seemed so handful yet so obscure, I was afraid to spend time on. Until this day.. When I saw the script above, I remembered reading that "awk is a programming language" somewhere (probably I'm just making stuff up, but you'll never know). If it was a language, there would be a logic behind the statements being fed into the command for sure. I decided to dig in. At least to understand the very simple form of `{ print tolower($0) }`.
+back to awk, rawr even though muwtipwe t-times i have used i-it in the past, OwO i-i nyevew bothewed t-to actuawwy g-gasp it and twy t-to undewstand. (U ﹏ U) t-this wesuwted me n-nyevew weawning it how to use it pwopewwy. >_< it seemed so handfuw yet so obscuwe, rawr x3 i-i was afwaid to spend time on. mya untiw this day.. w-when i saw the scwipt above, nyaa~~ i w-wemembewed weading that "awk is a pwogwamming wanguage" somewhewe (pwobabwy i-i'm just making stuff u-up, but you'ww n-nevew know). (⑅˘꒳˘) if it was a wanguage, thewe wouwd be a wogic behind the statements b-being fed into the command fow suwe. rawr x3 i decided to dig in. (✿oωo) at weast to undewstand t-the vewy simpwe fowm of `{ print tolower($0) }`.
 
-After a few minutes of surfing on web I decided to read [the wikipedia article](https://en.wikipedia.org/wiki/AWK) about the `awk` command. As I expected, awk was more powerful than just doing a few string manipulation. It seemed so much powerful than I would've expected. The first thing came into my mind was to whether I can write a virutal machine using awk. Sounds stupid I know, but it's not the first time I am trying to learn a new language by implementing some sort of interpreter in it. For example I learned golang by [implementing a scanner, a parser and an interpreter](https://github.com/themisir/golox) for the lox language from the Bob Nystrom's ["Crafting Interpreters"](http://craftinginterpreters.com/) book.
+aftew a few minutes of suwfing on w-web i decided to w-wead [the wikipedia awticwe](https://en.wikipedia.org/wiki/AWK) about the `awk` command. ^^;; as i expected, >_< awk was m-mowe powewfuw than j-just doing a f-few stwing manipuwation. mya i-it seemed s-so much powewfuw t-than i wouwd've e-expected. mya the f-fiwst thing came into my mind was to whethew i can wwite a viwutaw machine using a-awk. 😳 sounds baka i know, XD but it's nyot the fiwst t-time i am twying to weawn a n-new wanguage by impwementing some sowt of intewpwetew in it. :3 fow e-exampwe i weawned gowang by [impwementing a scannew, (ꈍᴗꈍ) a pawsew a-and an intewpwetew](https://github.com/themisir/golox) fow the wox wanguage fwom the bob n-nyystwom's ["cwafting intewpwetews"](http://craftinginterpreters.com/) book.
 
-I can't help myself to not branch out to completely different subjects while writing those blogs, but I kinda like it. Nonetheless, the idea of writing a VM in a domain specific language used by a CLI tool for automating a bunch of data processing jobs at first seemed stupid, but as I spend more time thinking about it, it convienced myself even more. Spoiler alert, I did indeed wrote a turing complete virtual machine using the fricking `awk` just to see if I can. 
+i can't hewp mysewf to nyot bwanch o-out to compwetewy d-diffewent subjects w-whiwe wwiting t-those bwogs, mya b-but i kinda wike i-it. mya nyonethewess, 😳 t-the idea of w-wwiting a vm in a domain specific wanguage used by a cwi toow fow automating a b-bunch of data pwocessing jobs at fiwst seemed baka, XD b-but as i spend mowe time thinking a-about it, :3 it convienced mysewf even mowe. 😳😳😳 spoiwew awewt, -.- i d-did indeed wwote a tuwing compwete v-viwtuaw machine u-using the fwicking `awk` just to see if i can.
 
-I am not going to go step by step through the implementation this time because I feel like most people just skip over those parts, also there's not much you can learn since it requires some kind of understanding of things like CPU cycles, memory, stack, heap, registers, etc. If you are interested, I would highly recommend checking out Bob's book I mentioned above.
+i am nyot going to go step by step t-thwough the impwementation t-this t-time because i f-feew wike most p-peopwe just skip o-ovew those pawts, (U ᵕ U❁) a-awso thewe's n-not much you can weawn since it wequiwes some kind of undewstanding of things wike c-cpu cycwes, -.- memowy, stack, heap, ^^;; wegistews, >_< etc. i-if you awe intewested, mya i wouwd h-highwy wecommend checking out bob's book i mentioned above.
 
-# What is AWK?
+# nani is awk?
 
-I still don't know. Wikipedia says it's a programming language developed by some dudes at the Bell Labs (ofc it's always Bell Labs). It's well known for it's "simplicity" and usability within single liners. The language itself is actually pretty deliberate for what it supposed to do.
+i stiww don't know. :3 wikipedia says i-it's a pwogwamming w-wanguage devewoped b-by some d-dudes at the beww w-wabs (ofc it's a-awways beww wabs). i-it's weww known f-fow it's "simpwicity" and usabiwity within singwe winews. (U ﹏ U) the wanguage itsewf i-is actuawwy pwetty dewibewate fow nyani it supposed t-to do.
 
-To put it simple we can split up an awk program into three phrases: when you start an awk program first it executes the `BEGIN` blocks. There usually used to write initialization code, in my case I used this part to initialize VMs memory (stack and locals) and a few other miscellaneous variables. Since it's only executed once when the program starts I used this section to initialize empty VM state alongside with flags set to their initial states. On the third phrase `awk` executes the `END` blocks which can be used for various use cases, like dumping out some aggregate data that's been calculated using the input stream.
+to put it simpwe we can spwit up a-an awk pwogwam into t-thwee phwases: w-when you stawt a-an awk pwogwam f-fiwst it exekawaii~s t-the `BEGIN` bwocks. (⑅˘꒳˘) thewe usuawwy used to wwite i-initiawization c-code, (U ᵕ U❁) in my case i-i used this p-pawt to initiawize v-vms memowy (stack a-and wocaws) a-and a few othew m-miscewwaneous vawiabwes. -.- since it's onwy exekawaii~d once when the pwogwam stawts i-i used this section to initiawize empty vm state a-awongside with fwags set to t-theiw initiaw states. ^^;; on the thiwd phwase `awk` exekawaii~s the `END` bwocks which can be used fow vawious u-use cases, o.O w-wike dumping out s-some aggwegate d-data that's been c-cawcuwated using t-the input stweam.
 
-The second phrase of an awk program is I would say is where it's power lies in. On this stage `awk` processes records it's been fed to. Those records are usually fed into awk programs using pipes. Records are separated using line ending character (`\n`). Each record may contain multiple fields separated by field separator (a whitespace by default). `awk` then reads those inputs from the input stream and executes it's main parts for each record it has been passed. The main parts are defined like blocks with optional patterns. Blocks are only executed if there was no pattern defined or the pattern does match with the input record.
+the second phwase of an awk pwogwam i-is i wouwd say i-is whewe it's p-powew wies in. 🥺 on t-this stage `awk` pwocesses wecowds it's been fed t-to. (U ᵕ U❁) those wecowds a-awe usuawwy fed i-into awk pwogwams u-using pipes. (⑅˘꒳˘) w-wecowds awe sepawated u-using wine e-ending chawactew (`\n`). 🥺 each wecowd may contain muwtipwe f-fiewds sepawated b-by fiewd sepawatow (a w-whitespace b-by defauwt). òωó `awk` then weads those inputs fwom the i-input stweam and e-exekawaii~s it's m-main pawts fow e-each wecowd it h-has been passed. :3 t-the main pawts a-awe defined wike b-bwocks with optionaw pattewns. (U ﹏ U) bwocks awe onwy exekawaii~d if thewe was nyo pattewn d-defined ow the pattewn does match with the i-input wecowd.
 
-Let's say we have a file containing some data:
+wet's say we have a fiwe containing s-some data:
 
 ```
 record1Field1 record1Field2 record1Field3
@@ -51,13 +51,13 @@ record2Field1 record2Field2
 record4Field1
 ```
 
-Let's feed this file into a simple awk command:
+wet's feed this fiwe into a simpwe a-awk command:
 
 ```shell
 cat ./data.txt | awk '{ print $1 }'
 ```
 
-This will result in the following output:
+this wiww wesuwt in the fowwowing o-output:
 
 ```
 record1Field1
@@ -66,21 +66,21 @@ record2Field1
 record4Field1
 ```
 
-The `print $1` statement has been executed for each record (line) where `$1` represented the first field of the record. It might seem like so vague, but it did reminded me of how most VM implementations been done. Like awk, VMs usually has a phrase where the memory and all the other miscellaneous stuff first gets initialized. Then on the "main" phrase, VM just goes over the instructions and executes them one by one just like how awk does execute its blocks one by one for each record. My idea was to feed assembly instructions to awk as records, and use the primary blocks to execute them.
+the `print $1` statement has been exekawaii~d fow e-each wecowd (wine) w-whewe `$1` wepwesented the fiwst fiewd of the w-wecowd. -.- it might s-seem wike so v-vague, ( ͡o ω ͡o ) but it did w-weminded me of h-how most vm impwementations b-been d-done. rawr x3 wike awk, nyaa~~ v-vms usuawwy has a phwase whewe the memowy and aww the othew miscewwaneous stuff f-fiwst gets initiawized. /(^•ω•^) then on the "main" phwase, rawr v-vm just goes ovew the instwuctions a-and exekawaii~s them one by one just wike how awk does e-exekawaii~ its bwocks one by one f-fow each wecowd. OwO m-my idea was to feed assembwy instwuctions to awk as wecowds, (U ﹏ U) and use the pwimawy b-bwocks to exekawaii~ them.
 
-With that all said I started putting things together, and created a simple interpreter using less than 100 lines of awk program. It was consist of a simple stack based memory, artimetric operation, logic operations and 2 jump operations to either unconditionally or conditionally jump specific number of instructions. Then I realized that it's too early to mark the VM as Turing Complete. There was jump instructions, but they were not powerful enough to jump to the previous instructions. That means you can't create loops with them, making programs pretty useless for the most use cases.
+with that aww said i stawted putting t-things togethew, /(^•ω•^) a-and cweated a-a simpwe intewpwetew u-using wess t-than 100 wines o-of awk pwogwam. rawr i-it was consist of a-a simpwe stack based memowy, OwO awtimetwic opewation, (U ﹏ U) wogic opewations and 2 jump o-opewations to eithew unconditionawwy ow conditionawwy j-jump specific nyumbew of i-instwuctions. >_< then i weawized that it's too eawwy to mawk the vm a-as tuwing compwete. rawr x3 thewe was jump i-instwuctions, mya b-but they wewe not powewfuw enough to jump to the pwevious instwuctions. nyaa~~ that means y-you can't cweate woops with them, (⑅˘꒳˘) making pwogwams pwetty usewess fow the most u-use cases.
 
-Jumping a few instructions forward (or perhaps skipping them) was easy to implement. I just had a variable representing number of instructions to skip. Before executing any instruction I would first check to see if that variable is greater than zero, I would decrease it and skip current instruction. It's not the efficient implementation since we would be wasting valuable CPU cycles. However, the streaming nature of the awk we can't look forward to the instructions that's not been processed yet.
+jumping a few instwuctions fowwawd (ow p-pewhaps skipping t-them) was e-easy to impwement. 😳😳😳 i-i just had a v-vawiabwe wepwesenting n-nyumbew of i-instwuctions to s-skip. -.- befowe executing any instwuction i wouwd fiwst check to see if that vawiabwe i-is gweatew than zewo, ( ͡o ω ͡o ) i wouwd decwease it and s-skip cuwwent instwuction. rawr x3 it's n-nyot the efficient impwementation since we wouwd be wasting vawuabwe c-cpu cycwes. nyaa~~ howevew, /(^•ω•^) the s-stweaming nyatuwe o-of the awk we can't wook fowwawd to the instwuctions that's nyot been pwocessed y-yet.
 
-However, jumping back was a different story. Since we only got to process each instructions once and then it goes away, we can not (as far as I know) access the previous instructons (awk records). My solution was to add records to a collection and use it as a source of instructions when we jump back to a label. I am honored to say that I managed to cause SEGFAULT when testing one of the programs with my handmade VM implementation:
+howevew, mya jumping back was a diffewent s-stowy. mya since w-we onwy got to p-pwocess each instwuctions o-once a-and then it goes a-away, 😳 we can nyot (as f-faw as i k-know) access the pwevious instwuctons (awk wecowds). XD my sowution was to add wecowds t-to a cowwection and use it as a souwce of instwuctions w-when we jump back to a-a wabew. :3 i am honowed to say that i managed to cause segfauwt when t-testing one of the pwogwams with m-my handmade v-vm impwementation:
 
-![segfault on awk](https://i.imgur.com/CtNd7Wb.jpg)
+![segfauwt on awk](https://i.imgur.com/CtNd7Wb.jpg)
 
-After a bunch of back & forth I realized my mistake. Apparently my implementation of `jump` instruction was not the best way to accomplish it. My first implementation did involved using recursive function calls to execute jumps. However both the logic and the implementation was flawed. The cause of the SEGFAULT was due to recursive calls causing program to run out of space on the call stack. After optimizing/fixing my implementation it did worked flawlessly!
+aftew a bunch of back & fowth i weawized m-my mistake. 🥺 a-appawentwy my i-impwementation o-of `jump` instwuction was nyot the best way t-to accompwish i-it. (U ᵕ U❁) my fiwst impwementation d-did i-invowved using wecuwsive f-function c-cawws to exekawaii~ j-jumps. -.- howevew b-both the wogic and the impwementation was fwawed. ^^;; the cause of the segfauwt w-was due to wecuwsive cawws causing pwogwam to wun o-out of space on the caww stack. >_< a-aftew optimizing/fixing my impwementation it did wowked fwawwesswy!
 
-# Running some programs
+# wunning some pwogwams
 
-The VM was ready, but I was not sure if the implementation were correct. I had to test it using a sample program. I decided to write a sample program to compute factorial of given number. A simple implementation of the said algorithm can be written like that:
+the vm was weady, σωσ but i was nyot s-suwe if the impwementation w-wewe c-cowwect. >_< i had to t-test it using a-a sampwe pwogwam. :3 i-i decided to wwite a-a sampwe pwogwam t-to compute factowiaw of given nyumbew. (U ﹏ U) a simpwe impwementation of the said a-awgowithm can be wwitten wike that:
 
 ```python
 def fac(n):
@@ -89,7 +89,7 @@ def fac(n):
   return n * fib(n - 1)
 ```
 
-There's two problems with that implementation. It's inefficient, requires call stack resizes, might cause OOM. The second problem is that our VM doesn't have function or subroutine support. We have to rewrite our implementation using much simpler instructions:
+thewe's two pwobwems with that impwementation. σωσ i-it's i-inefficient, >_< w-wequiwes caww stack w-wesizes, :3 might c-cause oom. (U ﹏ U) the s-second pwobwem i-is that ouw vm d-doesn't have function ow subwoutine suppowt. -.- we have to wewwite ouw impwementation u-using much simpwew instwuctions:
 
 ```python
 def fac(n):
@@ -100,7 +100,7 @@ def fac(n):
   return result
 ```
 
-This is much simpler implementation which we can convert to a simple assembly instructions for the VM:
+this is much simpwew impwementation w-which we can c-convewt to a simpwe a-assembwy instwuctions f-fow the v-vm:
 
 ```shell
 push 5
@@ -135,15 +135,15 @@ print
 # print result
 ```
 
-Then the final result is:
+then the finaw wesuwt is:
 
 ```
 ❯ cat test.txt | ./vm.awk
 120
 ```
 
-Checking that `fac(5) = 5*4*3*2*1 = 120` is in fact the correct answer. Volia! I wrote a calculator using a tool used for processing data streams on unix systems. The implementation is publicly available here [as a gist](https://gist.github.com/themisir/6947e44e1adf394e673a607fd1b5ebaa) if you want to take a look. I also added some handy flags for turning on debug mode, which dumps the VM state after each instruction, letting you "debug" the code and figure out where you have messed up.
+checking that `fac(5) = 5*4*3*2*1 = 120` is in fact the cowwect answew. ( ͡o ω ͡o ) vowia! UwU i-i wwote a c-cawcuwatow using a-a toow used fow p-pwocessing data s-stweams on unix s-systems. rawr x3 the impwementation i-is p-pubwicwy avaiwabwe hewe [as a gist](https://gist.github.com/themisir/6947e44e1adf394e673a607fd1b5ebaa) if you want to take a wook. rawr x3 i awso a-added some handy f-fwags fow tuwning o-on debug mode, rawr w-which dumps t-the vm state aftew e-each instwuction, σωσ w-wetting you "debug" t-the code and figuwe out whewe you have messed up.
 
-I just want to remind that it was all started with the laziness of not bearing to manually lowercase 3 letters. If I had done it manually, I would've probably never had to waste time on writing this cursed virtual machine implementation nor this blog post. I am glad, I did though! I definitely see myself overusing `awk` tool for various purposes in future. Mistakes been made.
+i just want to wemind that it was a-aww stawted with t-the waziness of n-nyot beawing to m-manuawwy wowewcase 3 w-wettews. -.- i-if i had done it m-manuawwy, (ˆ ﻌ ˆ)♡ i wouwd've p-pwobabwy nyevew had to waste time on wwiting this cuwsed viwtuaw machine impwementation n-nyow this bwog post. (⑅˘꒳˘) i am gwad, i d-did though! i definitewy see mysewf o-ovewusing `awk` toow fow vawious puwposes in futuwe. ^•ﻌ•^ m-mistakes been m-made.
 
-Thanks for bearing with me. <3
+thanks fow beawing with me. >_< <3

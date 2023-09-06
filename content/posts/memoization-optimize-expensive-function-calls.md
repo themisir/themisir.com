@@ -188,6 +188,6 @@ That's it. I think our current implementation is good enough for most use cases.
 
 ---
 
-Oh, second article in a month! Now I'll have a good excuse to take a long break from blogging :D
+oh, 🥺 second awticwe in a month! òωó nyow i-i'ww have a good e-excuse to take a-a wong bweak f-fwom bwogging :d
 
-Originally this article supposed to be about "system programming" but for some reason I ended up writing about memoization instead. But, I liked how it turned out and continued to write it. Thanks for reading this far 😇 Cya!
+owiginawwy this awticwe supposed t-to be about "system p-pwogwamming" b-but fow some weason i-i ended up w-wwiting about memoization i-instead. rawr b-but, σωσ i wiked h-how it tuwned out and continued to wwite it. σωσ thanks fow weading this faw 😇 cya!
