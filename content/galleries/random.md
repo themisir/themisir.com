@@ -29,7 +29,7 @@ images:
     title: "Cottages"
   - url: https://cdn-images.themisir.com/IMG_3254.jpg
     title: "A Birdhouse in Ganja, Azerbaijan"
-  - url: https://cdn-images.themisir.com/IMG_1989.jpg
+  - url: https://cdn-images.themisir.com/IMG_1989_2.jpg
     title: "Goergous mountain landscape in Goygol, Azerbaijan"
   - url: https://cdn-images.themisir.com/IMG_2750.jpg
     title: "Une Lune Renaissante"
