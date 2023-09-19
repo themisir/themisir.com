@@ -39,7 +39,7 @@ menu:
       weight: 20
     - identifier: "random-gallery"
       name: "Gallery"
-      url: "/galleries/random"
+      url: "/galleries"
       weight: 30
     - identifier: "about"
       name: "About"
