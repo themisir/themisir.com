@@ -8,27 +8,27 @@ images:
   - https://images.unsplash.com/photo-1474552226712-ac0f0961a954?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1742&q=80
 ---
 
-For last two years I have been trying to learn new skills, just to keep myself engaged. Compared to my existing interests, none of those new skills are tech related. Instead as you may (or may not) already know I have decided to learn an instrument (because it's cool, and something I wanted to do for a long time), and now trying to learn photography alongside with it. Though I consider myself beginner on both line of interests, I realized a pattern emerging while learning them.
+I have been trying to learn new skills for last few years. For example last year I started learning piano and this year I decided to get deep down into photography (so I can keep buying new lenses when I get bored). Though I consider myself as a beginner on both as a pianist and photographer, I realized an emerging pattern while learning them.
 
-When does someone get better at something? Why creations of certain people, certain art pieces seem more valuable, more interesting, more creative than the rest? And believe it or not, I will connect all of these to software engineering. I will try at least.
+When does someone get better at something? Why certain art pieces by certain people has more value than others? What is the difference that mastery teaches someone? I think I have an idea, and I will try to connect them with software engineering practices, to explain how can you create more value from what you already know?
 
 # To Learn
 
-Generally, learning any subject: whether it's a profession, an hobby or a subject at school - starts with learning certain rules. You learn alphabet, numbers, arthimetric, pitches, rhythms, golden ratio, elements, formulas, organs, features, languages, design patterns, algorithms, balancing, acrobatics, how to throw a ball, how to catch it, when to pass, when to shoot, aiming, peeking, recoil control, running, flanking, checking and castling in chess, and many more. These are what makes a complete beginner, an amateur. These teach you how to play the game as intended. These teach you the known pathways.
+Generally, learning any subject: whether it's a profession, an hobby, a subject at school or even a video game - starts with learning certain rules. You learn alphabet, numbers, arthimetric, pitches, rhythms, framing, light, chemical elements, formulas, organs, features, languages, design patterns, algorithms, balancing, acrobatics, how to throw a ball, how to catch it, when to pass, when to shoot, aiming, peeking, recoil control, running, flanking, checking and castling in chess, and many more (sorry for a bit long line of examples). These are what makes a complete beginner, an amateur. These teach you how to play the game as intended. These teach you walking through the known pathways.
 
 For the most part we spend our learning journey to explore those rules, those knowns discovered by the previous nomads. However there's one unavoidable truth that learning the same rules as everyone else isn't enough to create significant art pieces. We are bond to repeat what we've been taught.
 
-Unless, you decide to unlearn your habits and break out of your safeguards. Without exploring possibilities you have no way to create an art that's worth significance. And that's what emerges an amateur to become a professional. They mastered the rules so good that, they feel comfortable breaking them. And without realizing they break them so swiftly, it becomes an order of itself.
+Unless, you decide to unlearn your habits and break out of the safeguards. Without exploring possibilities you have no way to create an art that's worth significance. And that's what emerges an amateur to become a professional. They mastered the rules so good that, they feel comfortable breaking them. And without realizing they break them so swiftly, it becomes an order of itself.
 
-With music you learn rhythms and harmonics, but then you encounter some important pieces that doesn't follow those rules, and that's what makes them significant. That's how new genres are born. You learn photography rules, but here comes a moment where the best composition you can get out of a moment is by breaking the well known rules contrary to the general belief. You start learning math by simple arthimetric and rules, then there comes a moment in one's life where you have to accept that there's a non existent number when multiplied with itself results with `-1`.
+With music you learn rhythms and harmonics, but then you encounter some important pieces that doesn't follow those rules, and that's what makes them significant (and that's why It's more than 2 months and I am still practicing the same piece by Chopin). That's how new genres appear. You learn photography rules, but here comes a moment where the best composition you can get out of a moment can be accomplished only by breaking the well known rules. You start learning math by simple arthimetric and rules, then there comes a moment in one's life where you have to accept that there's a non existent number when multiplied with itself results with `-1`, or `infinity + infinity = infinity` (this is actually questionable, it was meaningless until the Set theory came out and created some sort of controversy in the Math world, but it's another story).
 
-If breaking the rules are that significant for creativity, one might ask if rules are holding us back...
+If breaking the rules are necessary for creativity, one might ask if rules are holding us back...
 
-# Why do We Learn?
+# Why Rules?
 
-To me the answer is: you can only break so much rules before your art loses its significance. I believe creating art is a game of creating a balance. You break the rules, not because it looks cool, but because you try to seek a balance in a different way.
+To me the answer is: you can only break so many rules before your art loses its significance. I believe that creativity is an art of balancing. You break the rules, not to look cool, but because you seek a balance in a different way.
 
-You need to balance harmony, rhythm, emotions and story when composing or playing music. You need to balance exposure and composition when shooting photographs. You need to balance maintainability and performance when writing software. You need to balance your freedom and responsibilities in life. You may consider not to do so, and still would get great results. However, unconsciously that would also be a form of balance by itself, just with unusual coefficients.
+You need to balance harmony, rhythm, emotions and story when composing music. You need to balance exposure, composition, environment, equipment, budget and many more factors when shooting photographs. You need to balance maintainability and performance when writing software. You need to balance your freedom and responsibilities in life to feel fulfilled. You may consider not to do so, and still would get great results. However, unconsciously that would also be a form of balance by itself, just with unusual coefficients you're not aware of.
 
 Balancing is not about maintaining good state of all the variables at hand. Sometimes, creating an artistic result requires sacrifice on one end to get better results from another end. To catch the golden hour horizon of a sunset with all the details, you may have to sacrifice details of your subject and still get great looking photos of such:
 
@@ -49,7 +49,7 @@ The same principles apply to individual aspects of software engineering as well.
 
 When you see your application CPU graph peaking over 400% utilization and client requests get slowed down, you may start questioning your abstractions you've done. A tightly integrated system usually surpasses, well abstracted applications. However,  the word "usually" on the previous statement leaves a room for a discussion. While the abstraction costs us performance (unless you're using [zero cost abstraction](https://boats.gitlab.io/blog/post/zero-cost-abstractions/) features presented by the language), it makes our lives "easier" by removing certain burdens of writing code like: repeating certain snippets, providing safety, just making code easier to read or understand, providing understand-ability. Generally abstractions help us to improve code maintainability.
 
-I like putting quotes around the words I am going back to refer to, and "easier" is another one of them. While abstractions in theory makes our lives easier, easy is by no means an absolute term. Instead it's definition is heavily subjective and relative. A piece of code you wrote a few hours ago will seem easier to understand in comparison with the snippet below:
+While abstractions in theory makes our lives easier, "easy" by no means is an absolute term. Instead it's definition is heavily subjective. A piece of code you wrote a few hours ago will seem easier to understand in comparison to the snippet below:
 
 ```c
 static void ep_unregister_pollwait(struct eventpoll *ep, struct epitem *epi)
@@ -77,4 +77,4 @@ Then, how dare we can be so confident on "easiness", "maintainability" of our co
 
 We learn rules to get good at things. They show us the pathway others have taken while their own discovery. However, at one point stepping out and exploring may teach your a lot of new things to let you create impressive art pieces, whether it's a photo, a new dance move or a script for changing text casing.
 
-Also before leaving I just want to note that this article itself is opinionated and states on a rule that "you should consider breaking rules ever now and then". However, by doing so it becomes contradictory with itself, maybe the rule you may wanna break is the rule that says "you should break the rules". Nobody knows the answer of life, we all are just wanderers, living based on our assumptions. Make your own pathway, and enjoy the journey. Cheers! 🥂 
+Before you leave, I want to emphase that the article is based on my own experience and opinions, you may have had a conflicting experience in life that worked out for you. Please take my word with a grain of salt. Nobody has all the answers you may be seeking, we are just wandering around and experimenting wit life. Make your own pathway, and enjoy the journey. Cheers! 🥂
