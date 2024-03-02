@@ -1,6 +1,7 @@
 ---
 title: "About"
 date: "2023-04-23"
+lastmod: "2024-03-02"
 ---
 
 Hi, I'm Misir. I write software to make living; and sometimes just for fun.
@@ -19,11 +20,12 @@ Aside from engineering, I also enjoy exploring Physics (light, waves, particles,
 
 ## Stuff I have
 
-- I use MacBook Pro 16" 2019 model for work and daily use
-- I use Raspbery Pi 4 for running home server (a few automations, chat bots and stuff)
-- I shoot with Canon M50 Mark II
-- I currently own two prime lenses: Canon 50mm/1.4, Sigma 16mm/1.4
-- I got no pets for now..
+- I use MacBook Pro 16" 2019 for browsing web, writing ~javascript~ I mean typescript
+- I use Raspbery Pi 4 for running home server
+- I got a beast PC (finally!) with the following specs: AMD Ryzen 7 7700X3D; RTX 4070; 2x16G DDR5; Samsung EVO ???PRO 2TB. I use this PC as a my daily driver for work and gaming
+- I shoot with Canon M50 Mark II and those lenses: Canon 50mm/f1.4, Sigma 16mm/f1.4
+- I got no pets for now...
+- Not technicially owned, but I use [Tailscale](https://tailscale.com) to create a private net for my devices and private servers
 
 ## How to connect?
 
