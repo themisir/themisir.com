@@ -1,5 +1,5 @@
 ---
-title: “Traveling Europe” 
+title: "Traveling Europe"
 date: 2023-11-13T03:38:00+04:00
 tags:
   - travel
