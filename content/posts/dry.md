@@ -241,7 +241,7 @@ Reflecting your previous choices, you realize that the implementation probably w
 
 You remember writing out some middleware to show off to your colleagues back in days. Maybe it is the time you can put that skills in a good use.
 
-However, you don’t want to just create a middleware. It is not really straightforward to use. The fact that you have to plug middleware in somewhere along with the application configuration  (Program.cs or Startup.cs usually), means your implementation logic will become obscure, looking at the bare minimum method won’t make any sense when in fact all the implementation would lie in somewhere within `MyDearMiddleware` class. You have read statement by statement to understand what is going with the code. Also it is not easy to plug in a middleware to a specific endpoint in ASP.NET Core. It is possible, but not straightforward (to some degree).
+However, you don’t want to just create a middleware. It is not really straightforward to use. The fact that you have to plug middleware in somewhere along with the application configuration (`Program.cs` or `Startup.cs` usually), means your implementation logic will become obscure, looking at the bare minimum method won’t make any sense when in fact all the implementation would lie somewhere within `MyDearMiddleware` class. You have to read the code statement by statement to understand what is going on with the code. Also it is not easy to plug in a middleware to a specific endpoint in ASP.NET Core. It is possible, but not straightforward (to some degree).
 
 Wouldn’t it be cool to just mark your methods with some sort of marker, attribute to do certain checks. Similar to adding `[Authorize]` to the actions you wish to be authorized [^authorize].
 
@@ -278,7 +278,7 @@ public sealed class Demo5Controller : ControllerBase
     [ValueCheckerFilter]
     public ActionResult Index()
     {
-        return Ok();
+        return Ok("pass");
     }
 }
 ```
@@ -289,7 +289,7 @@ It still looks magical, but it is at least coupled with the call sites, you can 
 
 At this point there’s only one logical next step. Obviously the next step is putting the logic within the attribute declaration like: `[RequestFilter((HttpContext ctx) => ctx.Request.Query["value"] == ctx.Request.Query["other"]]`
 
-It’s pity that we would get the following error if we try that: `Attribute constructor parameter 'predicate' has type 'System.Func<..>', which is not a valid attribute parameter type`
+It’s pity that we would get the following error if we try: `Attribute constructor parameter 'predicate' has type 'System.Func<..>', which is not a valid attribute parameter type`
 
 Looks like we can not use managed values (functions which are delegates which are objects which are managed by the language runtime) as attribute parameters [^attributes]. That’s pity.
 
@@ -307,7 +307,7 @@ Look how gorgeous this looks! So nice, so clean, so DRY!
 
 Now we need to find a way to compile this string into a managed function which we can call. I have done my homework and created the implementation for you! https://github.com/themisir/cursed-dry/blob/main/src/DryApi/Demo6/RequestFilter.cs
 
-I won’t go in depth to explain the code as it would become boring real quick. We just use some `Microsoft.CodeAnalysis.CSharp` Roslyn package to parse the assembly, compile the parse tree while “linking” it with some other assemblies (like `Microsoft.AspNetCore.Http.Abstraction.dll` and its references), and then use some reflection to get a reference to the compiled function and call it. It’s not important for you to understand it however I appreciate if you did!
+I won’t go in depth to explain the code as it would become boring real quick. We just use `Microsoft.CodeAnalysis.CSharp` Roslyn package to parse the source code, compile the parsed source code (source tree or Abstract Syntax Tree - AST) while “linking” it with some other assemblies (like `Microsoft.AspNetCore.Http.Abstraction.dll` and its references), and then use some reflection to get a reference to the compiled function. You can now invoke it! It’s not important for you to understand this part, however I appreciate if you did!
 
 It’s completely unnecessary (just like the trouble & time I took to create this blog post?).
 
@@ -317,4 +317,4 @@ After all these, the feature we’ve been trying to implement got cancelled. Man
 
 Now our new quest is finding interesting ways to manage the newly purchased tool’s configuration files which are in YAML format, but some parts use TOML sprinkled with some inline JSON bits. You check out existing declarative solutions for generating configuration files from smaller configuration files. After a week of learning, trial & error, you give up and try out writing a few bash scripts using combination of `jq`, `awk`, `yq`, `grep` pipes. It works, but now nobody understands how it does.
 
-You give up and write a small javascript script which turns into a project on its own with multiple layers and half a gig of `node_modules`. At least now you can validate and generate type definitions of different models at the same time!
+You give up and write a small javascript script which turns into a project on its own with multiple layers and half a gig of `node_modules`. At least now you can validate and generate type definitions of different models at the same time! Which has nothing to do with the problem at hand..
