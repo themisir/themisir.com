@@ -10,7 +10,7 @@ images:
 
 Let’s create a simple Rest API using ASP.NET Core, and then try to improve it as much as we can.
 
-I assume you already know how to configure your project so I will skip over that part. I case you are not familiar with ASP.NET Core you can still follow along as I think the the patterns should feel familiar if you have written software for some time.
+I assume you already know how to configure your project so I will skip over that part. In case you are not familiar with ASP.NET Core you can still follow along as I think the the patterns should feel familiar if you have written software for some time.
 
 We receive our first requirement: create an API endpoint that returns `“pass”` when called with `?value=ok` query parameter.
 
