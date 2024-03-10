@@ -63,3 +63,5 @@ There’s nothing much to go in depth about my experience in Amsterdam. I spent 
 My next stop was Berlin. I decided visiting there after discussing my plans with a friend. She suggested some places & activities to check out there. The experience were similar to the previous 2 cities. With one more addition that I attended a city tour event called “Berlin on Bike”. Our guide Anna (from Sweden) and the tour group were all amazing people. It was the most memorable moment of the entire EU trip in my opinion. It was also saddening to get back to Baku and realize how immobile the city is compared to other cities which I didn’t had any issue biking, walking, scooting around.
 
 I would like to conclude this article here. In case you have any questions, please don’t hesitate to drop me an email. I am looking forward to explore more places and share my experience here.
+
+In the mean time you can take a look at [some photos](https://themisir.com/galleries/eu23/) I took during my trip. These are just a few select photos for now, I have many more on my gallery, though I don't have the time necessary to filter them out, edit and publish here for now..
