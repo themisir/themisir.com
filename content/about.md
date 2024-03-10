@@ -10,22 +10,22 @@ I like designing and building software systems. Working on system level software
 
 I can parse regular expressions on my head. I enjoy writing Rust code and forcing myself to work within the its bounds. This statement is not endorsed by the Rust™ Foundation.
 
-Even though I don't like working with humans that much, I like building businesses and seeing ideas become reality (and fail..). I built (and failed) a logistics & marketplace start-up called [Fonibo](https://fonibo.com). Despite its failure, it was the primary contributor to my career and personal development. Working at Fonibo taught me various technologies and doing so while having to look after limited set of resources. Most importantly it helped me to overcome my social anxieities. It also helped me to build my network.
+Even though I don't like working with humans that much, I like building businesses and seeing ideas become reality (and fail..). I built (and failed) a logistics & marketplace start-up called [Fonibo](https://fonibo.com). Despite its failure, it was the primary contributor to my career and personal development. Working at Fonibo taught me various technologies and doing so while having to look after limited set of resources. Most importantly it helped me to overcome my social anxieties. It also helped me to build my network.
 
-Currently, I am working at [BP](https://bp.com), maintianing their proprietary message queue solution for their internal systems. I would love to talk more about it, but I am too lazy to read my contract.
+Currently, I am working at [BP](https://bp.com), maintaining their proprietary message queue solution for their internal systems. I would love to talk more about it, but I am too lazy to read my contract.
 
 ## What more?
 
-Aside from engineering, I also enjoy exploring Physics (light, waves, particles, quantum stuff, astronomy, universe, etc...); Physicology - because I like to know how human brain works. I like discussing philosophical stuff with my mates. I started learning Piano on Septeber of 2022, mainly focused on classical pieces. I also got into photography with the help of my friends. I am hoping that photography may give me enough purpose to start exploring different places with the excuse of photographing them.
+Aside from engineering, I also enjoy exploring Physics (light, waves, particles, quantum stuff, astronomy, universe, etc...); Physiology - because I like to know how human brain works. I like discussing philosophical stuff with my mates. I started learning Piano on September of 2022, mainly focused on classical pieces. I also got into photography with the help of my friends. I am hoping that photography may give me enough purpose to start exploring different places with the excuse of photographing them.
 
 ## Stuff I have
 
 - I use MacBook Pro 16" 2019 for browsing web, writing ~javascript~ I mean typescript
-- I use Raspbery Pi 4 for running home server
+- I use Raspberry Pi 4 for running home server
 - I got a beast PC (finally!) with the following specs: AMD Ryzen 7 7700X3D; RTX 4070; 2x16G DDR5; Samsung EVO ???PRO 2TB. I use this PC as a my daily driver for work and gaming
 - I shoot with Canon M50 Mark II and those lenses: Canon 50mm/f1.4, Sigma 16mm/f1.4
 - I got no pets for now...
-- Not technicially owned, but I use [Tailscale](https://tailscale.com) to create a private net for my devices and private servers
+- Not technically owned, but I use [Tailscale](https://tailscale.com) to create a private net for my devices and private servers
 
 ## How to connect?
 

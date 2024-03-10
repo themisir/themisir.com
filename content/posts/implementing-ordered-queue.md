@@ -8,6 +8,14 @@ images:
   - https://images.unsplash.com/photo-1628557960762-0d884fd31ea0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2233&q=80
 ---
 
+## Update
+
+I have got some quite insightful feedback from [HN community](https://news.ycombinator.com/item?id=33756763) and would like to put some reflection. Firstly I felt ashamed for publishing this article without actually doing a proper research, well I have done my research but it must’ve been insufficient that I didn’t encountered implementations with heap. As a matter of fact I found out about the heap data structure only after those comments. In case you are looking to implement a proper queue, which is called priority queue by the way, please check out implementations using heaps.
+
+I am really thankful for all the feedback given and I will try to be more cautious of stuff I write publicly. All that said I think the article below is still worth checking out, it will give you insights about going through the similar process of building purpose specific data structures. You may have to make different choices on each step, but the process of dividing problems and conquering them one by one should be similar.
+
+---
+
 Working with data structures is fun — said nobody ever. What about "inventing" our own data structures? It's gotta be a lot more fun, huh? In this blog post I am gonna go step by step through implementation of one of the data structures I recently wrote for one of my graveyard projects — Ordered Concurrent Queue.
 
 ## Wait, what?
