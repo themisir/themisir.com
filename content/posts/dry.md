@@ -1,5 +1,5 @@
 ---
-title: “Dry”
+title: Dry
 date: 2024-03-10T19:52:00+04:00
 tags:
   - engineering
