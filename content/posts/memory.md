@@ -49,7 +49,7 @@ Once BIOS finds a bootable device, it loads contents of the boot sector into a p
 
 The job of the bootloader is to make the system ready for the OS and load the kernel program into the memory, prepare hardware if necessary and give the control to the kernel program.
 
-So, bootloader is just another layer to stick different pieces together, OS to the BIOS in this case. They also play an important role in memory management. They usually initialize memory regions using the information collected from the BIOS and pass this information down to the OS kernel.
+So, bootloader is just another layer to stick different pieces together, OS to the BIOS in this case. They also play an important role in memory management. They usually initialize memory regions using the information collected from the BIOS and pass this information down to the kernel.
 
 With all the hardware and memory mapping information at hand, the kernel can start other components of the operation system and can let programs to use this memory space.
 
@@ -108,11 +108,11 @@ The idea of memory pages is simple. First split the memory into 64KiB slices. Th
 |10   |50    |rw   |
 |20   |20    |rwx  |
 
-To increase address space CPUs like x86_64 use 4 layers of paging where all the pages except the last layer points to a frame containing page table for the next layer. So all the virtual address translation will go through all 4 of those layers to finally point to the physical memory frame containing the data we are looking for. This all happens implicitly by the CPU and the paging is maintained by the OS kernel.
+To increase address space CPUs like x86_64 use 4 layers of paging where all the pages except the last layer points to a frame containing page table for the next layer. So all the virtual address translation will go through all 4 of those layers to finally point to the physical memory frame containing the data we are looking for. This all happens implicitly by the CPU and the paging is maintained by the kernel.
 
 I'd love to explain memory paging further, however Philipp has done it a lot better than what I could have done, so I would suggest checking [Introduction to Paging](https://os.phil-opp.com/paging-introduction/#paging-on-x86-64) section from his Writing an OS in Rust book. Honestly, the book was my first source of the information on some of the concepts I have talked about above.
 
-This level of abstraction does solve our address space collision issue. When a new program is launched, OS kernel usually allocates a new memory page table for the specific program and carefully manages the pages to avoid any collision with the existing pages. From the program perspective it doesn't have to worry with any of those issues. It can just start executing operations as usual, jump around, modify memory without worrying about overwriting other program's memory space (unless kernel really messes up with something).
+This level of abstraction does solve our address space collision issue. When a new program is launched, kernel usually allocates a new memory page table for the specific program and carefully manages the pages to avoid any collision with the existing pages. From the program perspective it doesn't have to worry with any of those issues. It can just start executing operations as usual, jump around, modify memory without worrying about overwriting other program's memory space (unless kernel really messes up with something).
 
 ## Heap & Stack
 
@@ -124,15 +124,15 @@ To tackle this down CPUs designed around multiple layers of caching to reduce th
 
 > **Security:** It is worth noting that the cache space is shared among programs and kernel, and some layers are also shared between different CPU cores. It is important for CPU manufacturers to properly isolate them to reduce security risks. Security vulnerabilities like [Spectre](https://en.wikipedia.org/wiki/Spectre_(security_vulnerability)), [Meltdown](https://en.wikipedia.org/wiki/Meltdown_(security_vulnerability)) and the recently found vulnerability called [GoFetch](https://en.wikipedia.org/wiki/GoFetch) affecting Apple silicon CPUs mostly abused the shared nature of the CPU caches to get unprivileged access to memory from other applications or even kernel itself.
 
-Once we understand the exact model CPU uses to speed things up, we can optimize our application to better utilize these features. If you have noticed, CPUs try to move frequently accessed pages from slower layers to faster cache layers. This feature is called [cache locality](https://en.wikipedia.org/wiki/Locality_of_reference). If we allocate a block of memory to use during our application lifetime, we can ensure the memory block we are using will be moved to faster cache layers. Stack memory used for optimizing application flow for this exact case.  When you launch a program, OS kernel allocates a block of memory   and presents it as a call stack to the program. CPUs also has specific instructions (pop, push) and registers ([SP](https://en.wikipedia.org/wiki/Stack_register)) to help working with stack spaces.
+Once we understand the exact model CPU uses to speed things up, we can optimize our application to better utilize these features. If you have noticed, CPUs try to move frequently accessed pages from slower layers to faster cache layers. This feature is called [cache locality](https://en.wikipedia.org/wiki/Locality_of_reference). If we allocate a block of memory to use during our application lifetime, we can ensure the memory block we are using will be moved to faster cache layers. Stack memory used for optimizing application flow for this exact case.  When you launch a program, kernel allocates a block of memory   and presents it as a call stack to the program. CPUs also has specific instructions (pop, push) and registers ([SP](https://en.wikipedia.org/wiki/Stack_register)) to help working with stack spaces.
 
 However, this doesn't mean heap memory is always slower! CPU caches doesn't work exclusive for stack regions[^cpu-stack-locality]. Any frequently accessed memory region could be cached by CPU. If you have a big blob of heap allocated buffer, and working on it, it is likely to be cached as well as program call stack. The only difference is it's now up to the software engineer to consider cache locality cases, when in contrast due to the memory layout, call stack is easier to get cached without any extra effort.
 
 [^cpu-stack-locality]: There could be certain application specific microprocessor designs that exclusively caches certain memory regions. I couldn't find one, but just wanted to note that it is possible, just not a viable option for general purpose computing.
 
-There's another reason why heap memory might be considered slow. To allocate some heap buffer the program usually has to ask kernel to do the allocation. If we ignore purpose build kernels, many of the general purpose OS kernels have memory management capabilities, that would let programs to ask for a block of memory. Properly managing memory space between different programs require additional synchronization and management overhead which adds to the cost of memory allocation. 
+There's another reason why heap memory might be considered slow. To allocate some heap buffer the program usually has to ask kernel to do the allocation. If we ignore purpose build kernels, many of the general purpose kernels have memory management capabilities, that would let programs to ask for a block of memory. Properly managing memory space between different programs require additional synchronization and management overhead which adds to the cost of memory allocation. 
 
-Imagine this: once you ask for a 64KiB of memory bloc from the OS kernel, it can't just return you a random memory address. It first has to find a range of memory that has necessary amount of bytes available / not allocated already. Then it needs to keep a record of this region for two needs:
+Imagine this: once you ask for a 64KiB of memory bloc from the kernel, it can't just return you a random memory address. It first has to find a range of memory that has necessary amount of bytes available / not allocated already. Then it needs to keep a record of this region for two needs:
 
 - To mark it as "unused" once the program asks to free the memory, or once the program exits.
 - When allocating a new block, to avoid returning the same region as part of the new allocation.
@@ -159,7 +159,7 @@ free(buf);
 
 # Managed program environments
 
-The cost of allocating memory can be reduced (or increased) by adding one more layer to the picture. Languages like Java, Python, C#, JavaScript, GoLang ship with additional *language runtimes*. These runtimes usually grab a large chunks of memory from the kernel and feed you in smaller chunks when you need extra memory. They themselves have to do the similar kind of bookkeeping, but being an application specific piece, you can fine tune them to perform better or worse than using OS kernel for an allocation.
+The cost of allocating memory can be reduced (or increased) by adding one more layer to the picture. Languages like Java, Python, C#, JavaScript, GoLang ship with additional *language runtimes*. These runtimes usually grab a large chunks of memory from the kernel and feed you in smaller chunks when you need extra memory. They themselves have to do the similar kind of bookkeeping, but being an application specific piece, you can fine tune them to perform better or worse than using kernel for an allocation.
 
 > **What's a language runtime?**
 > This may sound counter intuitive but low level languages like C, C++, Rust, Zig and others does also ship softwares with runtimes. You can call it a standard library as well since it is more like some boilerplate and utility functions. The terminology is a bit confusing and it is hard to draw a line between fully managed languages and a language like Rust or Zig where both lets you use a custom memory allocator which in theory lets you manage the memory underneath. C/C++ as well depend on glibc or similar libraries to provide implementation for platform specific memory allocation functions.
@@ -277,7 +277,7 @@ impl<T: Drop> Drop for SharedRef<T> {
 }
 ```
 
-This is a simplified version of the actual [`Rc.drop`](https://doc.rust-lang.org/src/alloc/rc.rs.html#2095) function. RAII is not just about the traits (interfaces) that language provides. Language also inserts those calls where suitable. For example let's take a look at the following snippet:
+This is a simplified version of the actual [`Rc::drop()`](https://doc.rust-lang.org/src/alloc/rc.rs.html#2095) function. RAII is not just about the traits (interfaces) that language provides. Language also inserts those calls where suitable. For example let's take a look at the following snippet:
 
 ```rust
 fn send_to_client(&self, rc: Rc<String>) {
@@ -300,7 +300,15 @@ Languages like Swift and Python (2.7) do also use reference counted pointers. Th
 
 ## Garbage collection
 
-Another way to tackle memory management issues is to avoid tracking memory movement in real time but when a certain threshold reached, pause the program execution and check all the allocated resources one by one to find out whether they are still in use or can be freed. Such checks can be possible in language environments where the runtime has a greater control over the values you create. By having the said control, the runtime can walk through all the values, fields, closures, arguments, stack frames to see if any given value is still being referenced somewhere. If the runtime doesn't find any reference, it removes the value contents from the memory and marks it available for the next allocation. Languages like JavaScript, C#, Go, Java rely on garbage collection for memory management needs. This wikipedia entry has a lot of in depth information about garbage collectors, different stages of them, different optimization methods being used, etc: https://en.wikipedia.org/wiki/Tracing_garbage_collection
+Another way to tackle memory management issues is to avoid tracking memory movement in real time but when a certain threshold reached, pause the program execution and check all the allocated resources one by one to find out whether they are still in use or can be freed. Such checks can be possible in language environments where the runtime has a greater control over the values you create. By having the said control, the runtime can walk through all the values, fields, closures, arguments, stack frames to see if any given value is still being referenced somewhere. If the runtime doesn't find any reference, it removes the value contents from the memory and marks it available for the next allocation.
+
+Languages like JavaScript, C#, Go, Java rely on garbage collection for memory management needs. This wikipedia entry has a lot of in depth information about garbage collectors, different stages of them, different optimization methods being used, etc: https://en.wikipedia.org/wiki/Tracing_garbage_collection
+
+## Not freeing the memory
+
+Lastly it may sound counter intuitive, but in some cases we may get away with not caring about memory at all. If your program supposed to do a quick one-off job and exit immediately after, relying on the kernel to free all of your leftovers might be as efficient solution as alternatives. After all the memory isolation provided by the kernel for processes act like arenas we discussed earlier. Once you exit from the process, the entire memory arena - program address space in this case can be freed. It can even be efficient in some cases.
+
+This should be used as a last resort or when you really have a good reason to prefer this. I would not personally want to use a tool that doesn't clean the memory after itself. I just wanted to note that this option is also available for your consideration.
 
 # Pointers vs References
 
