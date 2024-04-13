@@ -159,7 +159,7 @@ free(buf);
 
 # Managed program environments
 
-The cost of allocating memory can be reduced (or increased) by adding one more layer to the picture. Languages like Java, Python, C#, JavaScript, Golang ship ~~compiled~~ code with additional piece called *language runtime*. These runtimes usually grab a large chunks of memory from the kernel and feeds you in smaller chunks when you ask for an allocation. They themselves have to do the similar kind of bookkeeping, but being an application specific piece, you can fine tune them to perform better or worse than using OS kernel for an allocation.
+The cost of allocating memory can be reduced (or increased) by adding one more layer to the picture. Languages like Java, Python, C#, JavaScript, GoLang ship with additional *language runtimes*. These runtimes usually grab a large chunks of memory from the kernel and feed you in smaller chunks when you need extra memory. They themselves have to do the similar kind of bookkeeping, but being an application specific piece, you can fine tune them to perform better or worse than using OS kernel for an allocation.
 
 > **What's a language runtime?**
 > This may sound counter intuitive but low level languages like C, C++, Rust, Zig and others does also ship softwares with runtimes. You can call it a standard library as well since it is more like some boilerplate and utility functions. The terminology is a bit confusing and it is hard to draw a line between fully managed languages and a language like Rust or Zig where both lets you use a custom memory allocator which in theory lets you manage the memory underneath. C/C++ as well depend on glibc or similar libraries to provide implementation for platform specific memory allocation functions.
