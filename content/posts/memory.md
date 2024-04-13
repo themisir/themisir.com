@@ -31,7 +31,7 @@ To work with different parts of the memory, we are using addresses to tell memor
 
 Both the address and data lanes are physically connected to the CPU using connectors on the motherboards or directly via soldered PCB connectors on the System on Chip (SoC) models. I believe this is enough information to let you develop a mental model on how CPU and RAM talk with each other. I skipped over many parts and optimization hacks, and leaving them up to you to dig further if you are interested.
 
-# Powering on the device
+# Powering the device on
 
 I know this article is about memory systems, but let's take a step back and walk through what's happening when you start your computer. It will help us later on to have better understanding over the existing memory management models we use.
 
