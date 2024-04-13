@@ -1,5 +1,5 @@
 ---
-title: "Updates #01"
+title: "Some personal updates"
 date: 2024-03-25T03:03:00+04:00
 tags:
   - updates
