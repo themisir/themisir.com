@@ -33,10 +33,6 @@ menu:
       name: "Posts"
       url: "/posts"
       weight: 10
-    - identifier: "essays"
-      name: "Essays"
-      url: "/essays"
-      weight: 20
     - identifier: "random-gallery"
       name: "Gallery"
       url: "/galleries"
