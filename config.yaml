@@ -13,8 +13,8 @@ params:
   mastodon: "https://mastodon.social/@themisir"
 
   license:
-    url: "https://creativecommons.org/licenses/by/4.0/"
-    title: "CC-BY-4.0"
+    url: "/license"
+    title: "CC-BY-4.0 with Modifications"
 
   lightgalleryLicenseKey: DA0C99AB-2AF6-4D21-91A8-CB8BAFC5AEE0
 
