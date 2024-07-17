@@ -29,15 +29,19 @@ taxonomies:
 
 menu:
   main:
-    - identifier: "posts"
+    - identifier: posts
       name: "Posts"
       url: "/posts"
       weight: 10
-    - identifier: "random-gallery"
+    - identifier: random-gallery
       name: "Gallery"
       url: "/galleries"
       weight: 30
-    - identifier: "about"
+    - identifier: bookmarks
+      name: "Discover"
+      url: "https://links.themisir.com/bookmarks/shared"
+      weight: 35
+    - identifier: about
       name: "About"
       url: "/about"
       weight: 40
