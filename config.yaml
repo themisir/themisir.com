@@ -38,7 +38,7 @@ menu:
       url: "/galleries"
       weight: 30
     - identifier: bookmarks
-      name: "Discover"
+      name: "Discovery"
       url: "https://links.themisir.com/bookmarks/shared"
       weight: 35
     - identifier: about
