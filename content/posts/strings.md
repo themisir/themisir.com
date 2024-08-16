@@ -4,7 +4,7 @@ date: 2024-08-17T03:21:00+04:00
 tags:
   - meta
 images:
-	- https://images.unsplash.com/photo-1557321560-3becd4f3ab5d?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+  - https://images.unsplash.com/photo-1557321560-3becd4f3ab5d?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 ---
 
 You know I actually had another article prepared for publishing instead of this one. It was somewhat in-depth guide / "teaching material" about how different environments handle strings, how they are laid in memory, and other intrinsic stuff. I wrote quite a lot about it, 10 minutes of content to read, quite long one, just like my previous technology focused articles.
