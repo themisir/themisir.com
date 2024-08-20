@@ -1,0 +1,20 @@
+/* Invert blac&white images on dark mode */
+.post-content img[src*="imgs.xkcd.com"],
+.post-content img[src*="#invert"] {
+  transition: filter .4s ease-out
+}
+body.dark .post-content img[src*="imgs.xkcd.com"],
+body.dark .post-content img[src*="#invert"] {
+  filter: invert(.913)
+}
+
+.post-images {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  overflow-x: hidden;
+}
+
+body.page-galleries .main {
+  max-width: var(--wide);
+}
