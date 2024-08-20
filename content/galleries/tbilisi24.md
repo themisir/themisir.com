@@ -2,7 +2,7 @@
 title: "Tbilisi, 2024"
 description: "Tbilisi, Georgia"
 date: 2024-05-26T23:44:00+04:00
-images:
+entries:
   - url: https://cdn-images.themisir.com/IMG_4838.jpg
     title: "Open air public art market in Tbilisi, near the Khur River"
   - url: https://cdn-images.themisir.com/IMG_4902.jpg
