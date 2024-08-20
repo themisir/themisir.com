@@ -17,7 +17,7 @@
     const sc = document.createElement('script');
     sc.addEventListener('load', () => {
       Dos(r, {
-        url: '/doom',
+        url: '/doom.jsdos',
         kiosk: true,
         autoStart: true,
       });
