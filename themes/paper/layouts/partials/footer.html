@@ -1,0 +1,17 @@
+<footer class="footer">
+  {{ if site.Params.license }}
+  <p>
+    {{ with site.Params.license.html }}
+    {{ . | safeHTML }}
+    {{ else }}
+    Licensed under <a href="{{ site.Params.license.url }}" target="_blank" rel="noopener">{{ site.Params.license.title }}</a>
+    {{ end }}
+  </p>
+  {{ else }}
+  <p>&copy; {{ now.Year }} <a href="{{ `` | absURL }}">{{ site.Title }}</a></p>
+  {{ end }}
+  <p>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</p>
+  <p>
+    <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper 5.1</a>
+  </p>
+</footer>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+{{ $.Scratch.Delete "social-list" }}<!---->
+{{ $social := slice "twitter" "github" "instagram" "mastodon" }}<!---->
+{{ range $social }}<!---->
+{{ if isset site.Params . }}<!---->
+{{ $.Scratch.Add "social-list" (slice .) }}<!---->
+{{ end }}<!---->
+{{ end }}<!---->
+
+<html lang="{{ site.LanguageCode }}">
+  {{ partial "head.html" . }}
+
+  <body class="not-ready page-{{ .Type }}{{ if .BundleType }}-{{ .BundleType }}{{ end }}" data-menu="{{ isset site.Menus `main` }}">
+    {{ partial "header.html" . }}
+
+    <main class="main">{{ block "main" . }}{{ end }}</main>
+
+    <script src="/favicon.js"></script>
+
+    {{ partial "footer.html" . }}
+    {{ block "scripts" . }}{{ end }}
+  </body>
+</html>

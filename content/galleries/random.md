@@ -2,7 +2,7 @@
 title: "Photo Dump"
 description: "A collection of my favorite photos"
 date: 2023-08-03T03:03:55+04:00
-images:
+entries:
   - url: https://cdn-images.themisir.com/IMG_4059.jpg
     title: "Stunning sky view"
   - url: https://cdn-images.themisir.com/IMG_3600-a.jpg

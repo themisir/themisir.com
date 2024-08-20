@@ -1,0 +1,53 @@
+{{ define "main" }}
+<article class="post-single">
+  <header class="post-title">
+    <p>
+      {{ if .Date }}
+      <time>{{ .Date | time.Format ":date_medium" }}</time>
+      {{ end }}
+      {{ if or .Params.Author site.Author.name }}
+      <span>{{ .Params.Author | default site.Author.name }}</span>
+      {{ end }}
+    </p>
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Description }}</p>
+  </header>
+  {{ if .Content }}<section class="post-content">{{ .Content }}</section>{{ end }}
+  <section class="post-gallery">
+    <div id="gallery">
+      {{ range .Params.entries }}
+      {{ $thumb := (resources.GetRemote .url).Resize "x600" }}
+      <a href="{{ .url }}">
+        <img src="{{ $thumb.RelPermalink }}" alt="{{ .title }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" />
+      </a>
+      {{ end }}
+    </div>
+  </section>
+
+  <!-- Post Tags -->
+  {{ if .Params.tags }}
+  <footer class="post-tags">
+    {{ range .Params.tags }} {{ $href := print (absURL "tags/") (urlize .) }}
+    <a href="{{ $href }}">{{ . }}</a>
+    {{ end }}
+  </footer>
+  {{ end }}
+</article>
+{{ end }}
+
+{{ define "scripts" }}
+{{ $justifiedgallery_css := resources.Get "plugins/justifiedGallery.min.css" }}
+{{ $css := slice $justifiedgallery_css | resources.Concat "gallery.css" | minify }}
+<link rel="preload stylesheet" as="style" href="{{ $css.Permalink }}" />
+
+<link rel="preload stylesheet" as="style" href="/lightGallery/css/lightgallery-bundle.min.css" />
+
+{{ $jquery_js := resources.Get "plugins/jquery.min.js" }}
+{{ $justifiedgallery_js := resources.Get "plugins/jquery.justifiedGallery.min.js" }}
+{{ $lightgallery_js := resources.Get "plugins/lightgallery.min.js" }}
+{{ $lgzoom_js := resources.Get "plugins/lg-zoom.min.js" }}
+{{ $gallery_js := resources.Get "gallery.js" }}
+{{ $js := slice $jquery_js $justifiedgallery_js $lightgallery_js $lgzoom_js $gallery_js | resources.Concat "gallery.js" | minify }}
+<script src="{{ $js.Permalink }}" data-lightgallery-license-key="{{ with .Site.Params.lightgalleryLicenseKey }}{{ . }}{{ else }}0000-0000-000-0000{{ end }}"></script>
+
+{{ end }}
