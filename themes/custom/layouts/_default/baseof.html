@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+{{ $.Scratch.Delete "social-list" }}<!---->
+{{ $social := slice "twitter" "github" "instagram" "mastodon" }}<!---->
+{{ range $social }}<!---->
+{{ if isset site.Params . }}<!---->
+{{ $.Scratch.Add "social-list" (slice .) }}<!---->
+{{ end }}<!---->
+{{ end }}<!---->
+
+<html lang="{{ site.LanguageCode }}">
+  {{ partial "head.html" . }}
+
+  <body class="page-{{ .Type }}{{ if .BundleType }}-{{ .BundleType }}{{ end }}" data-menu="{{ isset site.Menus `main` }}">
+    {{ partial "nav.html" . }}
+
+    {{ block "main" . }}{{ end }}
+
+    {{ partial "footer.html" . }}
+    {{ block "scripts" . }}{{ end }}
+  </body>
+</html>
