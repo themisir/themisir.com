@@ -1,7 +1,7 @@
-baseURL: "https://themisir.com/"
+baseURL: ""
 languageCode: "en-us"
 title: "Misir's Blog"
-theme: "paper"
+theme: "custom"
 copyright: "Licensed under CC-BY-4.0 by Misir Jafarov, 2019-2023"
 
 author:
@@ -31,11 +31,11 @@ menu:
   main:
     - identifier: posts
       name: "Posts"
-      url: "/posts"
+      url: "/posts/"
       weight: 10
     - identifier: random-gallery
       name: "Gallery"
-      url: "/galleries"
+      url: "/galleries/"
       weight: 30
     - identifier: bookmarks
       name: "Discovery"
@@ -43,7 +43,7 @@ menu:
       weight: 35
     - identifier: about
       name: "About"
-      url: "/about"
+      url: "/about/"
       weight: 40
 
 markup:

@@ -1,0 +1,14 @@
+<footer>
+  <ul class="footer-links">
+    <li>
+      {{ with site.Params.license.html }}
+      {{ . | safeHTML }}
+      {{ else }}
+      Licensed under <a href="{{ site.Params.license.url }}" target="_blank" rel="noopener">{{ site.Params.license.title }}</a>
+      {{ end }}
+    </li>
+    <li>
+      Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo</a>
+    </li>
+  </ul>
+</footer>

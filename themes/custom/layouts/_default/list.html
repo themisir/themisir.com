@@ -1,0 +1,38 @@
+{{ define "main" }}
+<main class="article-list">
+
+<!-- Main Title -->
+{{ if .Title }}
+<h1 class="page-title">{{ .Title }}</h1>
+{{ end }}
+
+<!-- $pages -->
+{{ $pages := union .RegularPages .Sections }}
+{{ if .IsHome }}
+  {{ $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{ end }}
+
+<!-- Articles -->
+{{ $paginator := .Paginate $pages }}
+{{ range $index, $page := $paginator.Pages }}
+<div class="article">
+  <a href="{{ .Permalink }}">{{ .Title }}</a>
+  <time>{{ .Date | time.Format ":date_medium" }}</time>
+</div>
+{{ end }}
+
+<!-- Pagination -->
+{{ if gt $paginator.TotalPages 1 }}
+<nav class="pagination">
+  {{ if $paginator.HasPrev }}
+  <a class="prev" href="{{ $paginator.Prev.URL }}">← {{ i18n "prev_page" }}</a>
+  {{ end }}
+
+  {{ if $paginator.HasNext }}
+  <a class="next" href="{{ $paginator.Next.URL }}">{{ i18n "next_page" }} →</a>
+  {{ end }}
+</nav>
+{{ end }}
+
+</main>
+{{ end }}
