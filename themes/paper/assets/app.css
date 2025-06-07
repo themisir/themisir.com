@@ -23,9 +23,9 @@
 
     --safe-bottom: 0;
 
-    --accent: #8b5cf6; /* Bright purple for links/buttons */
-    --accent-light: #a78bfa; /* Lighter purple for hover states */
-    --accent-muted: #6366f1; /* Muted purple for subtle accents */
+    --purple-accent: #8b5cf6; /* Bright purple for links/buttons */
+    --purple-light: #a78bfa; /* Lighter purple for hover states */
+    --purple-muted: #6366f1; /* Muted purple for subtle accents */
 }
 
 @supports (bottom: constant(safe-area-inset-bottom)) {
@@ -483,11 +483,11 @@ img {
     padding-bottom: 0.2rem;
     font-weight: 500;
     border-bottom: 2px solid var(--pro);
-    border-bottom-color: var(--accent);
+    border-bottom-color: var(--purple-accent);
 }
 
 .post-content a:hover {
-    color: var(--accent-light);
+    color: var(--purple-light);
 }
 
 .post-content a code {
