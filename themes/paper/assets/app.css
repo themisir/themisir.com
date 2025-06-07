@@ -37,9 +37,9 @@
 }
 
 .dark {
-  --light: 22, 22, 22;
-  --dark: 255, 255, 255;
-  --hljs-bg: #282828;
+    --light: 31, 25, 38; /* Deep purple background */
+    --dark: 230, 225, 235; /* Soft purple-tinted white */
+    --hljs-bg: #2d213a; /* Complementary code background */
 }
 
 *,
