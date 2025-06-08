@@ -331,10 +331,16 @@ img {
     font-size: 3rem;
 }
 
-.post-entry time {
+.post-entry time,
+.post-entry .read-time {
     flex-shrink: 0;
     font-size: 1.7rem;
     color: var(--air);
+}
+
+.post-entry .read-time::before {
+    content: '·';
+    margin-inline: 0.8rem;
 }
 
 .post-entry a {
