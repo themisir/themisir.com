@@ -11,7 +11,7 @@ This is the second revision of this article. At first I thought of explaining al
 
 # Introduction
 
-The modern CPU architecture (aka [von Neumann architecture](https://en.wikipedia.org/wiki/Von_Neumann_architecture)) relies heavily on having a part of the system responsible for storing the current state. Contents of the state can vary from program instructions to stack & heap values encoding different kinds of information to be processed. While this may sound boring, have you ever wondered how on earth does computers manage all the different needs of storage persistence modern software requires? I will try to unravel most of the abstractions we use to not think about this problem.
+The modern CPU architecture (aka [Von Neumann architecture](https://en.wikipedia.org/wiki/Von_Neumann_architecture)) relies heavily on having a part of the system responsible for storing the current state. Contents of the state can vary from program instructions to stack & heap values encoding different kinds of information to be processed. While this may sound boring, have you ever wondered how on earth does computers manage all the different needs of storage persistence modern software requires? I will try to unravel most of the abstractions we use to not think about this problem.
 
 # The Hardware
 
@@ -43,7 +43,7 @@ Well we could, only if we knew where to find the operation system and how to loa
 
 Once the BIOS is running it usually checks hardware, creates some buffers on the memory to store necessary information for the next steps. Once its done doing it's own initialization sequence, it usually starts looking for another piece of software we call "bootloader". It is usually stored on the first sector of the attached storage devices (ie: SSD). BIOS would use the pre-configured device order (which you can usually change from your Boot menu) to look for any bootable device. Depending on the BIOS mode (legacy BIOS[^legacy-bios] or UEFI) and configuration, the exact mechanism may differ.
 
-[^legacy-bios]: "BIOS" itself is actually the name of the legacy firmware system. The modern alternative is called "UEFI" which is just an alternative to BIOS. However, the name BIOS still sticks around since it's a well known term used in tech industry to describe the firmware. 
+[^legacy-bios]: "BIOS" itself is actually the name of the legacy firmware system. The modern alternative is called "UEFI" which is just an alternative to BIOS. However, the name BIOS still sticks around since it's a well known term used in tech industry to describe the firmware.
 
 Once BIOS finds a bootable device, it loads contents of the boot sector into a predefined memory address and then jumps to that address to start executing bootloader. Because of the single sector long size restriction (512 bytes for MBR and 4096 bytes for GPT partitioned disk), some bootloaders may load the rest of the program from the disk, though this step is optional if the bootloader is small enough to be fitted inside the boot sector.
 
@@ -55,7 +55,7 @@ With all the hardware and memory mapping information at hand, the kernel can sta
 
 # Software and Memory
 
-To this point in article we created all the necessary machinery to run a program on the CPU. We have access to the memory, we can load our program to certain memory region and let it compute, jump around and do its thing. One minor issue is this model doesn't scale very well if we would like to have more than one program running on the CPU. Let's ignore the part about actual kernel / OS design involving scheduling and focus on memory instead, since while I failed to avoid writing about OsDev stuff, I would like to not get drawn further from the subject. Maybe in another time we can talk about OsDev in depth. 
+To this point in article we created all the necessary machinery to run a program on the CPU. We have access to the memory, we can load our program to certain memory region and let it compute, jump around and do its thing. One minor issue is this model doesn't scale very well if we would like to have more than one program running on the CPU. Let's ignore the part about actual kernel / OS design involving scheduling and focus on memory instead, since while I failed to avoid writing about OsDev stuff, I would like to not get drawn further from the subject. Maybe in another time we can talk about OsDev in depth.
 
 There's two problems with the memory architecture we explained so far: Security and Address space collision.
 
@@ -130,7 +130,7 @@ However, this doesn't mean heap memory is always slower! CPU caches doesn't work
 
 [^cpu-stack-locality]: There could be certain application specific microprocessor designs that exclusively caches certain memory regions. I couldn't find one, but just wanted to note that it is possible, just not a viable option for general purpose computing.
 
-There's another reason why heap memory might be considered slow. To allocate some heap buffer the program usually has to ask kernel to do the allocation. If we ignore purpose build kernels, many of the general purpose kernels have memory management capabilities, that would let programs to ask for a block of memory. Properly managing memory space between different programs require additional synchronization and management overhead which adds to the cost of memory allocation. 
+There's another reason why heap memory might be considered slow. To allocate some heap buffer the program usually has to ask kernel to do the allocation. If we ignore purpose build kernels, many of the general purpose kernels have memory management capabilities, that would let programs to ask for a block of memory. Properly managing memory space between different programs require additional synchronization and management overhead which adds to the cost of memory allocation.
 
 Imagine this: once you ask for a 64KiB of memory bloc from the kernel, it can't just return you a random memory address. It first has to find a range of memory that has necessary amount of bytes available / not allocated already. Then it needs to keep a record of this region for two needs:
 
@@ -238,7 +238,7 @@ int main(void) {
 
   rc_drop(shared);
   printf("4. %s\n", (char*)shared.pointer);
-  
+
   return 0;
 }
 ```
@@ -367,7 +367,7 @@ I tried to tackle down most of the abstractions over the memory management from 
 
 This entire blog post took me more than 10 hours to write (editing excluded) but I do not regret any minute of it. I enjoyed doing the necessary research and sharing my knowledge alongside with some personal thoughts. I got the inspiration to write an in depth post about a big subject from this [HTTP crash course](https://fasterthanli.me/articles/the-http-crash-course-nobody-asked-for) post by fasterthanli.me.
 
-I hope this writing was somewhat useful for you, and hope to see you back with new articles. 
+I hope this writing was somewhat useful for you, and hope to see you back with new articles.
 
 #### References
 
