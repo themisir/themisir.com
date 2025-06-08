@@ -5,48 +5,46 @@ theme: "paper"
 copyright: "Licensed under CC-BY-4.0 by Misir Jafarov, 2019-2023"
 
 author:
-  name: "Misir Jafarov"
+    name: "Misir Jafarov"
 
 params:
-  github: "https://github.com/themisir"
-  twitter: "https://twitter.com/themisir"
-  mastodon: "https://mastodon.social/@themisir"
+    github: "https://github.com/themisir"
 
-  license:
-    url: "/license"
-    title: "CC-BY-4.0 with Modifications"
+    license:
+        url: "/license"
+        title: "CC-BY-4.0 with Modifications"
 
-  lightgalleryLicenseKey: DA0C99AB-2AF6-4D21-91A8-CB8BAFC5AEE0
+    lightgalleryLicenseKey: DA0C99AB-2AF6-4D21-91A8-CB8BAFC5AEE0
 
 permalinks:
-  posts: /:filename/
-  essays: /essays/:filename/
+    posts: /:filename/
+    essays: /essays/:filename/
 
 taxonomies:
-  category: "categories"
-  series: "series"
-  tag: "tags"
+    category: "categories"
+    series: "series"
+    tag: "tags"
 
 menu:
-  main:
-    - identifier: posts
-      name: "Posts"
-      url: "/posts"
-      weight: 10
-    - identifier: random-gallery
-      name: "Gallery"
-      url: "/galleries"
-      weight: 30
-    - identifier: bookmarks
-      name: "Discovery"
-      url: "https://links.themisir.com/bookmarks/shared"
-      weight: 35
-    - identifier: about
-      name: "About"
-      url: "/about"
-      weight: 40
+    main:
+        - identifier: posts
+          name: "Posts"
+          url: "/posts"
+          weight: 10
+        - identifier: random-gallery
+          name: "Gallery"
+          url: "/galleries"
+          weight: 30
+        - identifier: bookmarks
+          name: "Discovery"
+          url: "https://links.themisir.com/bookmarks/shared"
+          weight: 35
+        - identifier: about
+          name: "About"
+          url: "/about"
+          weight: 40
 
 markup:
-  goldmark:
-    renderer:
-      unsafe: true
+    goldmark:
+        renderer:
+            unsafe: true
