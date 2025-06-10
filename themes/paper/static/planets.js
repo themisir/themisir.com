@@ -463,12 +463,12 @@ function initSim() {
     const planetCount = Random.range(16, 64);
 
     // https://www.desmos.com/calculator/q1fhmrghsa
-    const dist = (x) => 3 + Math.pow(x / 32, 2);
+    const distributionCurve = (x) => 3 + Math.pow(x / 32, 2);
 
     const newVecWithinScreen = () => new Vec2(Random.range(50, document.body.scrollWidth - 50), Random.range(50, document.body.scrollHeight - 50));
 
     for (let i = 0; i < planetCount; i++) {
-        const radius = dist(Random.range(0, 250));
+        const radius = distributionCurve(Random.range(0, 250));
         const mass = Math.pow(radius, 3) * 15;
         const pos = newVecWithinScreen();
         const planet = new Planet(pos, radius, mass);
@@ -516,7 +516,7 @@ function startPlanetSim() {
     function renderLoop(time) {
         if (stopped) return;
         if (lastRender) {
-            const dt = (time - lastRender) / 1000;
+            const dt = Math.min(0.1, (time - lastRender) / 1000);
             sim.update(dt);
             sim.draw(ctx);
         }
