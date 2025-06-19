@@ -42,7 +42,7 @@ After the preperations has been completed, the instructor went to fill up the ne
 
 We removed all the covers, had a walkaround and boarded the plane. I had a chance to take the following off-angle photo while the instructor was busy filling up aircraft techlog header before the flight. Turns out that's going to be only photo I was going to take from the aeroplane that day.
 
-![On the right seat of AT-3 HA-VOA](https://cdn-images.themisir.com/IMG_1151.jpeg)
+![On the right seat of Aero AT-3](https://cdn-images.themisir.com/IMG_1151.jpeg "On the right seat of Aero AT-3 aeroplane")
 
 Then he started the engine, and boy my brain started freezing, I wasn't taking it seriously up until this point. It is real and I am on board of a small airplane, minutes before takeoff. I was there, but it felt surreal, my brain was skipping some frames. Time went very quickly that I only remembered brief moments after the flight. Takeoff was stressful for me, we took off from a grass runway which wasn't smooth. So I felt all the bumps while accelerating to 50 knots (~93 km/h). When we reached the target speed, oh boy that moment I still remember what it felt like. It wasn't anything like takeoffs on the commercial planes. It's very hard to explain it with words, I felt acceleration in both forward and upwards directions, it pushed me more to the seat. And the plane felt all the "bumps" in the air. So it was not feeling stable at all. I was happy that it happened very quickly since I didn't even had time to realize I was scared at the moment.
 
@@ -68,7 +68,7 @@ I paid the initial installment then completed the registration admin work around
 
 I finished my ground school material and proceeded to the actual practical flight training around the second week of april. That's going to be my first proper training flight. For training I have been assigned to Tecnam P2002 JF model aeroplane and another awesome instructor Danila B. Before the flight on the first day we did a long briefing, going over the training process, required pre-flight documentation, aeroplane basics, how to prepare aeroplane for flight, walkarounds, basic operational procedures and so on. Then we went into the plane. I sat on the commander's seat this time (left seat), started the engine, before taxi checklist, radio check and continued with some taxi training on the ground.
 
-![Tecnam P2002 JF aeroplane on approach to landing](https://cdn-images.themisir.com/IMG_1651.jpeg)
+![Tecnam P2002 JF aeroplane on approach to landing](https://cdn-images.themisir.com/IMG_1651.jpeg "Tecnam P2002 JF aeroplane on approach to landing")
 
 Then we taxied to the runway, and announced:
 
