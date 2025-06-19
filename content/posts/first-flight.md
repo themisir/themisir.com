@@ -58,7 +58,7 @@ Nowadays, I am learning emergency procedures to recover from any possible engine
 
 ## Then what?
 
-I started and invested a significant amount of time and money into this endeveour. It all started from small harmless jokes, then "what ifs?" and now I spend my free time online browsing used airplane sale websites, imagining owning one of them one day.
+I started and invested a significant amount of time and money into this endeavor. It all started from small harmless jokes, then "what ifs?" and now I spend my free time online browsing used airplane sale websites, imagining owning one of them one day.
 
 Owning a plane is not my motivation for the training. I enjoyed to process as a whole. The community both online and offline in the school is amazing. My instructors are really amazing people to hang around with.
 
