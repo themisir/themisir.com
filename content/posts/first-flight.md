@@ -12,7 +12,7 @@ I have this thing going on with me lately, for last 2-3 years to be exact. I kin
 
 At first it started with learning piano. At that time I wasn't just trying to "learn something new". At the time my goal was mainly about making the "younger version of me happier" by realizing his wishes. I loved classic music and always wanted / imagined playing piano. So when I got enough financial freedom and some free time, I just went into it and eventually I really enjoyed it. I already have a separate post on [piano training](https://themisir.com/piano/) so I am not going to go deep into that.
 
-However that experience taught me so many stuff about myself. I got more confident, I started to understand myself way better, I learned to force myself into uncomfortable situations without any risk or reward at stake, I learned to express my feelings with music (though mostly when i'm alone in a dark room with a piano). I didn't hated myself for being me, I really started to enjoy living the life as who I am, I was really proud of myself.
+However that experience taught me so many stuff about myself. I got more confident, I started to understand myself way better, I learned to force myself into uncomfortable situations without any risk or reward at stake, I learned to express my feelings with music (though mostly when i'm alone in a dark room with a piano). I didn't hate myself for being me, I really started to enjoy living the life as who I am, I was really proud of myself.
 
 ## Fast forward to this year
 
