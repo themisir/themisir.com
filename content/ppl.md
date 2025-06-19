@@ -20,5 +20,5 @@ Private Pilot License steps for Europe (EASA)
 4. ICAO ELP - Another license required for proving English language proficiency. You need to score at least 4 out of 6.
 5. Log practical flight hours - you need to have at least 45 hours logged. Usually training programs are organized around so by the time you finish your training you have 45 hours of flight time ready alongside with the other requirements (solo flight hours, cross-country, etc.). After each flight you add the flight details to your personal logbook and the instructor signs it.
 6. Pass all 9 theory exams - you need to score at least 75% on all 9 subjects to pass. The result is usually valid for up to 2 years (of which you need to get your license or reattend the test again).
-7. Pass checkride - a check pilot will fly alongisde you, asking you to do certain manieuvres and apply procedures, evaluating your owerall performance. If you deemed fit for flying then congrats, that's it.
+7. Pass checkride - a check pilot will fly alongside you, asking you to do certain maneuvers and apply procedures, evaluating your overall performance. If you deemed fit for flying then congrats, that's it.
 8. Get your license - congrats! Collect all the required documents, send to the local Civil Aviation Authority to get your PPL license issued.
