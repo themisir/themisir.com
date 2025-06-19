@@ -42,7 +42,7 @@ I tried to look cool both to the pilot and to myself as well. We continued climb
 
 I was planning to return and continue working that day, but my brain was exhausted that day. I didn't have the energy to continue so after coming back to home I just took that day off.
 
-I sincerely thank Milán H. for the flight. It's because of you that after a week I spontaneously decided to register for flight classes. Yeah I might sound like it was all just a scary adrenaline pumped experience, but not really. It's my lack of enlgish dictionary knowledge that I can't express my feelings properly.
+I sincerely thank Milán H. for the flight. It's because of you that after a week I spontaneously decided to register for flight classes. Yeah I might sound like it was all just a scary adrenaline pumped experience, but not really. It's my lack of English dictionary knowledge that I can't express my feelings properly.
 
 ## So we're doing this now?
 
