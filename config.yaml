@@ -35,6 +35,10 @@ menu:
           name: "Gallery"
           url: "/galleries"
           weight: 30
+        - identifier: blogroll
+          name: "Blogroll"
+          url: "/blogroll"
+          weight: 34
         - identifier: bookmarks
           name: "Discovery"
           url: "https://links.themisir.com/bookmarks/shared"
