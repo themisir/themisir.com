@@ -1,5 +1,5 @@
 ---
-title: "Look ma, I can fly"
+title: "Look, ma, I can fly"
 date: 2025-06-19T03:44:00+02:00
 tags:
   - flying
