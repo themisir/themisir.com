@@ -27,9 +27,9 @@
   {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}<!---->
   {{ if and (gt (len $pages) 1) (in $pages . ) }}
   <nav class="post-nav">
-    {{ with $pages.Next . }}
+    {{ with $pages.Prev . }}
     <a class="prev" href="{{ .Permalink }}"><span>←</span><span>{{ .Name }}</span></a>
-    {{ end }} {{ with $pages.Prev . }}
+    {{ end }} {{ with $pages.Next . }}
     <a class="next" href="{{ .Permalink }}"><span>{{ .Name }}</span><span>→</span></a>
     {{ end }}
   </nav>
