@@ -24,7 +24,11 @@ As of now, unfortunately I forgot almost all of the pieces after taking ~2 years
 
 ## Photography
 
-Around 2023-2024 for a brief moment I become obsessed with digital photography, camera gear, lenses and editing. I don't exactly remember what caused it but I somehow ended up owning a camera and using it as an excuse to go out more and take random photos. Most of them were terrible to be honest, but over time I started collecting some photos that I enjoy looking at. Eventually my focus shifted from technical excellence to storytelling, and creating mementos for future. I enjoy going through old photos to reignite old memories, which reinforces my motivation to take new photos. It helped me noticing light, color, shape and composition, which I started applying outside photography. Like it comes in handy when shopping for new clothes, now that I notice why certain things look good together.
+Around 2023-2024 for a brief moment I became obsessed with digital photography, camera gear, lenses and editing. I don't exactly remember what caused it but I somehow ended up owning a camera and using it as an excuse to go out more and take random photos. Most of them were terrible to be honest, but over time I started collecting some photos that I enjoy looking at. Eventually my focus shifted from technical excellence to storytelling, and creating mementos for future. I enjoy going through old photos to reignite old memories, which reinforces my motivation to take new photos.
+
+For a brief moment I became more obsessed about collecting the gear than taking the photos. Thankfully the 28-70mm f/2.8 lens was more expensive than the rest of my gear combined, so eventually I dropped the idea.
+
+Also doing more photography helped me notice light, color, shape and composition. A photo is no longer just a 2D frame, it's a multi-dimensional medium - combination of highlights, shadows, colors, details, all trying to convey a story. I started applying that outside photography too. Like it comes in handy when shopping for new clothes, now that I notice why certain things look good together.
 
 ## Aviation
 
