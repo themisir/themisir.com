@@ -11,19 +11,20 @@
 
     const cs = document.createElement('link');
     cs.rel = 'stylesheet';
-    cs.href = 'https://v8.js-dos.com/latest/js-dos.css';
+    cs.href = '/js-dos/js-dos.css';
     document.head.appendChild(cs);
 
     const sc = document.createElement('script');
     sc.addEventListener('load', () => {
       Dos(r, {
         url: '/doom.jsdos',
+        pathPrefix: '/js-dos/emulators/',
         kiosk: true,
         autoStart: true,
       });
     });
     sc.type = 'text/javascript';
-    sc.src = 'https://v8.js-dos.com/latest/js-dos.js';
+    sc.src = '/js-dos/js-dos.js';
     document.body.appendChild(sc);
   }
 
