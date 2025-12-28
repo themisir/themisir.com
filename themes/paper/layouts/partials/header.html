@@ -15,9 +15,11 @@
     let sysDark = window.matchMedia('(prefers-color-scheme: dark)');
     let darkVal = sessionStorage.getItem('dark');
 
-    let setDark = (isDark) => {
-      bodyClx[isDark ? 'add' : 'remove']('dark');
-      sessionStorage.setItem('dark', isDark ? 'yes' : 'no');
+    let isDark = undefined;
+    let setDark = (newState) => {
+      bodyClx[newState ? 'add' : 'remove']('dark');
+      sessionStorage.setItem('dark', newState ? 'yes' : 'no');
+      isDark = newState;
     };
 
     setDark(darkVal ? darkVal === 'yes' : sysDark.matches);
