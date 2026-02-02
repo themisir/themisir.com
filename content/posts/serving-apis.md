@@ -7,6 +7,8 @@ images:
   - https://images.unsplash.com/photo-1729432535993-048bf87e1ceb?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 ---
 
+_If you are looking for a set of good technical advices for designing your API, I would recommend checking this article instead of reading my rant: https://jcs.org/2023/07/12/api_
+
 I am writing this article as a manifestation and a cry for help to everyone being involved in designing and serving APIs to be consumed by external consumers.
 
 Please, just maintain stability of your APIs, don't change name of a field because of some internal reason I am not concerned about, or heck don't move the entire body into another object just because you can now claim to have a cleaner API design. As a consumer, the last thing I would care about is what are your internal struggles, struggles that are undocumented and have not been disclosed during integration phrase. Consumers want a peace of mind and stability. Otherwise changing software to fit third party's changing needs is costly and time consuming exercise.
