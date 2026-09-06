@@ -31,16 +31,16 @@ menu:
           name: "Posts"
           url: "/posts"
           weight: 10
-        - identifier: random-gallery
-          name: "Gallery"
-          url: "/galleries"
+        - identifier: photos
+          name: "Photos"
+          url: "https://glass.photo/themisir"
           weight: 30
         - identifier: blogroll
-          name: "Blogroll"
+          name: "Following"
           url: "/blogroll"
           weight: 34
         - identifier: bookmarks
-          name: "Discovery"
+          name: "Links"
           url: "https://links.themisir.com/bookmarks/shared"
           weight: 35
         - identifier: about

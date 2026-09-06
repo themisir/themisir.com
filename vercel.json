@@ -20,6 +20,11 @@
       "source": "/calendar",
       "destination": "https://cal.com/themisir",
       "permanent": false
+    },
+    {
+      "source": "/gallery",
+      "destination": "https://glass.photo/themisir",
+      "permanent": false
     }
   ]
 }
